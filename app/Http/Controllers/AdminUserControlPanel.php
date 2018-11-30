@@ -37,13 +37,12 @@ class AdminUserControlPanel extends Controller
     public function getEditWorkPage($id) {
         $programming_languages = $this->listOfProgrammingLanguages();
         $type_dropdown = $this->typeDrowndown();
-        $portfolio_data = Portfolio::all();
+        $portfolio_data = Portfolio::findOrFail($id);
         return view('backend.editWorkPost')->with([
-            'id' => $id,
-            'data' => $portfolio_data[0],
-            'type_dropdown' =>$type_dropdown,
-            'programming_languages' => $programming_languages
-        ]);
+            'data' => $portfolio_data,
+            'type_dropdown' => $type_dropdown,
+            'programming_languages' => $programming_languages,
+            ]);
     }
 
     public function getAddPortfolioEntry() {

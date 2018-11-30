@@ -2,7 +2,7 @@
 @section('content')
             <section class="container"> 
             <h2>Edit Work</h2>
-            <form id="editWorkForm" method="POST" action="/api/update-portfolio-entry/{{$id}}">
+            <form id="editWorkForm" method="POST" action="/api/update-portfolio-entry/{{$data->id}}">
                 {{ csrf_field() }}
                  <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
@@ -33,7 +33,7 @@
                                 
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea type="text" class="form-control" id="description" name="description">{{$data->description}} </textarea>
+                    <textarea type="text" id="summernote" class="form-control" id="description" name="description">{{$data->description}} </textarea>
                     <div class="flash-message-description d-none">
                         <span></span>
                     </div>

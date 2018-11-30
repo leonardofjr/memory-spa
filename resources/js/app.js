@@ -14,8 +14,10 @@ Vue.use(VueRouter)
 import App from './views/App'
 import Home from './views/Home'
 import Portfolio from './views/Portfolio'
+import Details from './views/Details'
 import Skills from './views/Skills'
 import Contact from './views/Contact'
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -23,28 +25,50 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: Home
+            component: Home,
         },
         {
             path: '/portfolio',
             name: 'portfolio',
-            component: Portfolio
+            component: Portfolio,
+            meta: { transitionName: 'slide' }
+        },
+        {
+            path: '/details/:id',
+            name: 'details',
+            component: Details,
+            meta: { transitionName: 'slide' }
         },
         {
             path: '/skills',
             name: 'skills',
-            component: Skills
+            component: Skills,
         },
         {
             path: '/contact',
             name: 'contact',
-            component: Contact
+            component: Contact,
+            meta: { transitionName: 'slide' },
         }
     ]
 });
+
+// inject a handler for `myOption` custom option
+Vue.mixin({
+    data: function () {
+            return {
+                get web_url() {
+                    return "http://localhost:7000";
+        }
+    }
+}
+    
+})
+
 
 const app = new Vue({
     el: '#app',
     components: { App },
     router,
 });
+

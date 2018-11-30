@@ -1,5 +1,5 @@
 <template>
-<div class="container py-5">
+  <div class="page">
     <div class="row">
         <div class="text-center col-lg-4">
             <div><a href="tel://012 345 6789"><i class="fa fa-5x fa-phone"></i>

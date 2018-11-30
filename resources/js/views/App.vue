@@ -1,4 +1,5 @@
-<template>
+<template>                 
+
     <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="#">Navbar</a>
@@ -15,18 +16,66 @@
                     </div>
                 </nav>
                 <main class="container">
-                    <router-view></router-view>
+                         <transition
+                          name="fade"
+                           :name="transitionName"
+                            mode="out-in"
+                            @beforeLeave="beforeLeave"
+                            @enter="enter">
+                        <router-view>
+                        
+                        </router-view>
+                        
+                    </transition>
+
                 </main>
     </div>
 
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-      
-        }
-    }
+const DEFAULT_TRANSITION = 'fade';
+
+ export default {
+   name: 'App',
+   data() {
+     return {
+       prevHeight: 0,
+      transitionName: DEFAULT_TRANSITION,
+     };
+   },
+  created() {
+    this.$router.beforeEach((to, from, next) => {
+      let transitionName = to.meta.transitionName || from.meta.transitionName;
+
+      if (transitionName === 'slide') {
+        const toDepth = to.path.split('/').length;
+        const fromDepth = from.path.split('/').length;
+        transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+      }
+
+      this.transitionName = transitionName || DEFAULT_TRANSITION;
+
+      next();
+    });
+  },
+ methods: {
+    beforeLeave(element) {
+      this.prevHeight = getComputedStyle(element).height;
+    },
+    enter(element) {
+      const { height } = getComputedStyle(element);
+
+      element.style.height = this.prevHeight;
+
+      setTimeout(() => {
+        element.style.height = height;
+      });
+    },
+    afterEnter(element) {
+      element.style.height = 'auto';
+    },
+ }
+}
 </script>
 

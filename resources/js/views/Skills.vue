@@ -1,7 +1,7 @@
 <template>
-  <section>
-
-    </section>
+  <div class="page">
+    <h2>Skills</h2>
+    </div>
 </template>
 
 <script>

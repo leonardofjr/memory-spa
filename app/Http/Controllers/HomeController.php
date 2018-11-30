@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Portfolio;
+use App\PortfolioPhoto;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -25,4 +27,48 @@ class HomeController extends Controller
     {
         return view('home');
     }
-}
+
+    
+    public function portfolio() {
+            
+            // Issue Resolved
+           $portfolio = Portfolio::all();
+           $portfolio_photos = PortfolioPhoto::all();
+            $data = [];
+           foreach ($portfolio as $i => $item) {
+               $data[$i] = [
+                    'id' => $item->id,
+                    'title' => $item->title,
+                    'description' => $item->description,
+                    'technologies' => $item->technologies,
+                    'files' => $portfolio_photos->where('portfolio_entry_id', $item->id)
+               ];
+           }
+         
+            return response($data);
+        } 
+
+        public function getPortfolioEntryById($id) {
+            /*
+            // Issue Resolved
+           $portfolio = Portfolio::all();
+           $portfolio_photos = PortfolioPhoto::all();
+            $data = [];
+           foreach ($portfolio as $i => $item) {
+               $data[$i] = [
+                    'id' => $item->id,
+                    'title' => $item->title,
+                    'description' => $item->description,
+                    'technologies' => $item->technologies,
+                    'files' => $portfolio_photos->where('portfolio_entry_id', $item->id)
+               ];
+           }
+
+        
+      */
+            $data = Portfolio::findOrFail($id);   
+            return response($data);
+        } 
+
+    }
+
