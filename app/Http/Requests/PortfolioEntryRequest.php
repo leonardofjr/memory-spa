@@ -26,9 +26,9 @@ class PortfolioEntryRequest extends FormRequest
            return [
                 'title' => 'required|min:2|max:25',
                 'description' => 'required|min:50|max:1000',
-                'image_1' => 'image|max:1999',
-                'image_2' => 'image|max:1999',
-                'image_3' => 'image|max:1999',
+                'image_1' => 'nullable|image|max:1999',
+                'image_2' => 'nullable|image|max:1999',
+                'image_3' => 'nullable|image|max:1999',
         ];
     }
 

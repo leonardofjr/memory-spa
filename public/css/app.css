@@ -268,7 +268,7 @@ footer {
   height: 100vh;
 }
 
-#admin-cpanel main section {
+#admin-cpanel {
   background: white;
   color: #000;
 }
@@ -281,7 +281,7 @@ footer {
   color: #fff;
 }
 
-main {
+#frontend {
   margin-top: -51px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -308,5 +308,9 @@ body {
   background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.portfolio-item a {
+  color: #fff;
 }
 

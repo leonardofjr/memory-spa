@@ -1,19 +1,13 @@
 <template>
-    <div class="row page">
-        
-        <div  v-for="post of posts" class="col-md-4 m-2" style="max-height: 33.33%">
-                                            <router-link v-bind:to="'details\/' + post.id"  exact>
-                <div v-for="file of post.files" v-bind:style="'background-image: url(' + 'storage/' + file.filename_1 +');' + 'justify-content:center; align-items:center; display:flex; height: 100%;'">
-                     <div style=" z-index: 2000">
+    <div class="page">
+        <h2>Portfolio</h2>
+        <div class="row">
+            <div v-for="post of posts" class="col-md-4 m-2 portfolio-item">
+                <router-link v-bind:to="'details\/' + post.id"  exact>
                         <h2>{{post.title}}</h2>
                         <p>{{getPostBody(post.description)}}</p>
-                    </div>
-
-                </div>
-                    </router-link>
-            <div style="background-color: rgba(122, 0, 0, .8); position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 1000;">
-
-                   
+                </router-link>
+            </div>
         </div>
     </div>
 

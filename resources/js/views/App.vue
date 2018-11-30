@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </nav>
-                <main class="container">
+                <main id="frontend" class="container">
                          <transition
                           name="fade"
                            :name="transitionName"

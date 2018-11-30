@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="row">
-          <div class="offset-11">
+          <div class="offset-10">
            <a class="btn-primary btn" href="/portfolio/add">Add Portfolio Entry</a>
           </div>
           <div class="col-12">

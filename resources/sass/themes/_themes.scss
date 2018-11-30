@@ -1,6 +1,6 @@
 @import "../helpers/variables";
 
-main {
+#frontend {
     margin-top: -51px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -26,4 +26,8 @@ body {
     background-image: $body-img;
         background-repeat: no-repeat;
     background-size:cover;
+}
+
+.portfolio-item a {
+    color: #fff;
 }

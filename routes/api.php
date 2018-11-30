@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
     // **  Routes //
-    Route::post('post-portfolio-entry', 'AdminUserControlPanel@postPortfolioEntry');
-    Route::put('update-portfolio-entry/{id}', 'AdminUserControlPanel@updatePortfolioEntry');
-    Route::delete('delete-portfolio-entry/{id}', 'AdminUserControlPanel@deletePortfolioEntry');
+    Route::post('post-portfolio-entry', 'PortfolioController@postPortfolioEntry');
+    Route::put('update-portfolio-entry/{id}', 'PortfolioController@updatePortfolioEntry');
+    Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfolioEntry');
