@@ -40,24 +40,16 @@ class PortfolioController extends Controller
     $helper = new HelperMethodsController;
 
     $file_1 = $request->file_1;
-   $file_2 = $request->file_2;
-   $file_3 = $request->file_3;
    
-   if ($request->hasFile($file_1) || $request->hasFile($file_2) || $request->hasFile($file_3) ) {
-   
+   if ($request->hasFile($file_1) ) {
        
        $portfolio_photos = new PortfolioPhoto([
            'filename_1' => time() . '_' .  $file_1->getClientOriginalName(),
-           'filename_2' => time() . '_' .  $file_2->getClientOriginalName(),
-           'filename_3' => time() . '_' .  $file_3->getClientOriginalName(),
        ]);
 
        Storage::disk('public')->put($portfolio_photos['filename_1'], file_get_contents($file_1));
 
-       Storage::disk('public')->put($portfolio_photos['filename_2'], file_get_contents($file_2));
-
-       Storage::disk('public')->put($portfolio_photos['filename_3'], file_get_contents($file_3));
-
+   
        $portfolio->portfolio_entries()->save($portfolio_photos);
   
    }

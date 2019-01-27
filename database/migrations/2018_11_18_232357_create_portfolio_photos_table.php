@@ -17,8 +17,6 @@ class CreatePortfolioPhotosTable extends Migration
             $table->integer('portfolio_entry_id')->unsigned();
             $table->foreign('portfolio_entry_id')->references('id')->on('portfolio');
             $table->string('filename_1');
-            $table->string('filename_2');
-            $table->string('filename_3');
             $table->timestamps();
         });
 

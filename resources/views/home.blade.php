@@ -27,8 +27,6 @@
                 <p><strong>Images:</strong>
                         @foreach($item['files'] as $file)
                         <img src="/assets/uploads/{{$file['filename_1']}}" class="img-fluid">
-                        <img src="/assets/uploads/{{$file['filename_2']}}" class="img-fluid">
-                        <img src="/assets/uploads/{{$file['filename_3']}}" class="img-fluid">
                         @endforeach
                 </p>
                 <p><strong>Technologies:</strong>

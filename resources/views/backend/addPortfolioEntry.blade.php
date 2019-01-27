@@ -28,32 +28,13 @@
                 <!-- File Selector -->
                 <div class="form-group">
                     <label for="image">Image:</label>
-                    <input type="file" class="form-control" name="image_1" >
+                    <input type="file" class="form-control" name="file_1" >
                         <div class="alert alert-warning mt-2 flash-message-image d-none">
                         <span></span>
                     </div>
                 </div>
         
-      
-                <div class="form-group">
-                    <label for="image">Image:</label>
-                    <input type="file" class="form-control" name="image_2" >
-                        <div class="alert alert-warning mt-2 flash-message-image d-none">
-                        <span></span>
-                    </div>
-                </div>
-        
-      
-                <div class="form-group">
-                    <label for="image">Image:</label>
-                    <input type="file" class="form-control" name="image_3" >
-                        <div class="alert alert-warning mt-2 flash-message-image d-none">
-                        <span></span>
-                    </div>
-                </div>
-        
-      
-        
+
                 <!-- File Selector END -->
                                 
                 <div class="form-group">

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PortfolioPhoto extends Model
 {
     protected $table = "portfolio_photos";
-    protected $fillable = ['photo_id', 'filename_1', 'filename_2', 'filename_3'];
+    protected $fillable = ['photo_id', 'filename_1'];
  
     public function portfolio_entry()
     {
