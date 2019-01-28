@@ -285,8 +285,9 @@ footer {
   margin-top: -51px;
   overflow-y: scroll;
   overflow-x: hidden;
+  color: #000;
   height: 100vh;
-  background-color: #141414;
+  background-color: #fff;
 }
 
 .container {

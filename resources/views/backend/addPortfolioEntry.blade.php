@@ -44,6 +44,7 @@
                         <span></span>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="technologies_used">Technologies used:</label>
                     <!-- Looping through $languages passed by controller -->

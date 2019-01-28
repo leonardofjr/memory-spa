@@ -58,7 +58,7 @@ Vue.mixin({
     data: function () {
             return {
                 get web_url() {
-                    return "http://localhost:7000";
+                    return "http://localhost:8000";
         }
     }
 }

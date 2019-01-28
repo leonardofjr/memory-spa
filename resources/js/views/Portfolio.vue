@@ -1,14 +1,15 @@
 <template>
     <div class="page">
         <h2>Portfolio</h2>
-        <div class="row">
-            <div v-for="post of posts" class="col-md-4 m-2 portfolio-item">
-                <router-link v-bind:to="'details\/' + post.id"  exact>
+            <div v-for="post of posts" class="row m-2 portfolio-item">
+                <div class="col-md-5" v-for="file of post.files">
+                       <img :src="'storage/' + file.filename_1" class="img-fluid">
+                </div>
+                <div class="col-md-7">
                         <h2>{{post.title}}</h2>
-                        <p>{{getPostBody(post.description)}}</p>
-                </router-link>
+                        <p>{{post.description}}</p>
+                </div>
             </div>
-        </div>
     </div>
 
              
@@ -49,6 +50,7 @@ export default {
         axios.get(this.web_url + '/portfolio')
         .then(response => {
              this.posts = response.data;
+             console.log(response);
              return this.posts;
         // JSON responses are automatically parsed.
         })

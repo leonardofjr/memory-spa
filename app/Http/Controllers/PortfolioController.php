@@ -38,43 +38,38 @@ class PortfolioController extends Controller
    
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
     $helper = new HelperMethodsController;
-
     $file_1 = $request->file_1;
    
-   if ($request->hasFile($file_1) ) {
-       
-       $portfolio_photos = new PortfolioPhoto([
-           'filename_1' => time() . '_' .  $file_1->getClientOriginalName(),
-       ]);
+    if ($request->hasFile('file_1') ) {
+        // Storing File into variable and storing file in the the storage public folder
+        $file_1 = $request->file('file_1')->store('public');
 
-       Storage::disk('public')->put($portfolio_photos['filename_1'], file_get_contents($file_1));
-
-   
-       $portfolio->portfolio_entries()->save($portfolio_photos);
-  
-   }
-
-    $technologies = [
+        $technologies = [
             $request->input('html5'),
-               $request->input('css3'),
-               $request->input('javascript'),
-               $request->input('php'),
-               $request->input('mysql'),
-               $request->input('angular'),
-               $request->input('laravel'),
-       ];
+            $request->input('css3'),
+            $request->input('javascript'),
+            $request->input('php'),
+            $request->input('mysql'),
+            $request->input('angular'),
+            $request->input('laravel'),
+        ];
 
-       $portfolio = new Portfolio([
-           'title' => $request->title,
-           'type' => $request->type,
-           'technologies' => json_encode($helper->array_filter_null($technologies)),
-           'description' => $request->description
+        $portfolio = new Portfolio([
+            'title' => $request->title,
+            'type' => $request->type,
+            'technologies' => json_encode($helper->array_filter_null($technologies)),
+            'description' => $request->description
 
-       ]);
-
-       $portfolio->save();
-
-      return response()->json($portfolio);
+        ]);
+        $portfolio_photos = new PortfolioPhoto([
+            'filename_1' => basename($file_1),
+        ]);
+        $portfolio->save();
+        $portfolio->portfolio_entries()->save($portfolio_photos);
+        return redirect('/home');
+    }   else {
+            response('fail');
+    }
    }
 
    
@@ -104,9 +99,11 @@ class PortfolioController extends Controller
    }
    
    public function deletePortfolioEntry(Request $request, $id) {
-       DB::table('portfolio')
-           ->where('id', $id)
-           ->delete();
-       return response()->json();
+
+       $portfolio = Portfolio::findOrFail($id);
+
+       $portfolio->portfolio_entries()->delete();
+       $portfolio->delete();
+       return redirect('/home');
    }
 }
