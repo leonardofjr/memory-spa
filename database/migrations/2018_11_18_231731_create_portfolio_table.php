@@ -16,6 +16,7 @@ class CreatePortfolioTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('type');
+            $table->text('website_url');
             $table->text('description');
             $table->string('technologies');
             $table->rememberToken();

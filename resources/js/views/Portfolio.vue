@@ -8,6 +8,7 @@
                 <div class="col-md-7">
                         <h2>{{post.title}}</h2>
                         <p>{{post.description}}</p>
+                        <a :href="post.website_url" class="btn btn-primary">Launch Website</a>
                 </div>
             </div>
     </div>

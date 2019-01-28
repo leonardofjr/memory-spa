@@ -57,6 +57,7 @@ class PortfolioController extends Controller
         $portfolio = new Portfolio([
             'title' => $request->title,
             'type' => $request->type,
+            'website_url' => $request->website_url,
             'technologies' => json_encode($helper->array_filter_null($technologies)),
             'description' => $request->description
 
@@ -88,6 +89,7 @@ class PortfolioController extends Controller
        $data = [
            'title' => $request->input('title'),
            'description' => $request->input('description'),
+           'website_url' => $request->website_url,
            'type' => $request->input('type'),
            'technologies' => json_encode($helper->array_filter_null($technologies)),
        ];
@@ -99,7 +101,13 @@ class PortfolioController extends Controller
    }
    
    public function deletePortfolioEntry(Request $request, $id) {
-
+        // Getting Selection By ID
+        $portfolio = Portfolio::where('id', $id)->get();
+        // Storing Filename in variable
+        $filename = $portfolio[0]->basename;
+        // Deleteing File
+        Storage::delete('public/' . $filename);
+        
        $portfolio = Portfolio::findOrFail($id);
 
        $portfolio->portfolio_entries()->delete();

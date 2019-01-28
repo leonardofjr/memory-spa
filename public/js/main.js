@@ -50515,6 +50515,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -50694,7 +50695,16 @@ var render = function() {
             _c("div", { staticClass: "col-md-7" }, [
               _c("h2", [_vm._v(_vm._s(post.title))]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(post.description))])
+              _c("p", [_vm._v(_vm._s(post.description))]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { href: post.website_url }
+                },
+                [_vm._v("Launch Website")]
+              )
             ])
           ],
           2

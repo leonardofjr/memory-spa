@@ -46,6 +46,13 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="description">Website Url:</label>
+                    <input type="text" class="form-control" id="description" name="website_url" >
+                        <div class="alert alert-warning mt-2 flash-message-website-url d-none">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="technologies_used">Technologies used:</label>
                     <!-- Looping through $languages passed by controller -->
                     @foreach($programming_languages as $language)

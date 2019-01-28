@@ -39,6 +39,7 @@ class HomeController extends Controller
                $data[$i] = [
                     'id' => $item->id,
                     'title' => $item->title,
+                    'website_url' => $item->website_url,
                     'description' => $item->description,
                     'technologies' => $item->technologies,
                     'files' => $portfolio_photos->where('portfolio_entry_id', $item->id)
