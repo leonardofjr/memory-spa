@@ -14043,7 +14043,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(61);
+module.exports = __webpack_require__(62);
 
 
 /***/ }),
@@ -50126,7 +50126,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 var DEFAULT_TRANSITION = 'fade';
 
@@ -50212,15 +50211,6 @@ var render = function() {
                   "div",
                   { staticClass: "navbar-nav ml-auto" },
                   [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-item nav-link",
-                        attrs: { to: "/", exact: "" }
-                      },
-                      [_vm._v("HOME")]
-                    ),
-                    _vm._v(" "),
                     _c(
                       "router-link",
                       {
@@ -51179,7 +51169,8 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 61 */
+/* 61 */,
+/* 62 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
