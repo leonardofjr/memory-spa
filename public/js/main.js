@@ -50125,6 +50125,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 var DEFAULT_TRANSITION = 'fade';
 
@@ -50187,62 +50189,71 @@ var render = function() {
       "nav",
       { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
       [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _vm._v("Navbar")
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
         _c(
           "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarNavAltMarkup" }
-          },
+          { staticClass: "container" },
           [
             _c(
+              "router-link",
+              { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
+              [_vm._v("LEONARDO FELIPA")]
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
               "div",
-              { staticClass: "navbar-nav" },
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarNavAltMarkup" }
+              },
               [
                 _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-item nav-link",
-                    attrs: { to: "/", exact: "" }
-                  },
-                  [_vm._v("HOME")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-item nav-link",
-                    attrs: { to: "/portfolio", exact: "" }
-                  },
-                  [_vm._v("PORTFOLIO")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-item nav-link",
-                    attrs: { to: "/skills" }
-                  },
-                  [_vm._v("SKILLS")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-item nav-link",
-                    attrs: { to: "/contact" }
-                  },
-                  [_vm._v("CONTACT")]
+                  "div",
+                  { staticClass: "navbar-nav ml-auto" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/", exact: "" }
+                      },
+                      [_vm._v("HOME")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/portfolio", exact: "" }
+                      },
+                      [_vm._v("PORTFOLIO")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/skills" }
+                      },
+                      [_vm._v("SKILLS")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/contact" }
+                      },
+                      [_vm._v("CONTACT")]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
+              ]
             )
-          ]
+          ],
+          1
         )
       ]
     ),

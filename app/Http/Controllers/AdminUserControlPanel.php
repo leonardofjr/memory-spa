@@ -20,6 +20,7 @@ class AdminUserControlPanel extends Controller
                'id' => $item->id,
                'title' => $item->title,
                'description' => $item->description,
+               'website_url' => $item->website_url,
                'technologies' => $item->technologies,
                'files' => $portfolio_photo_data->where('id', $item->id)
            ];

@@ -16,7 +16,8 @@
 
                         <div class="col-md-9">
                             <h2>{{$item['title']}}</h2>
-                            <p>{{$item['description']}}</p>
+                            <p><strong>Project Description: </strong>{{$item['description']}}</p>
+                            <p><strong>Website: </strong><a href="{{$item['website_url']}}">{{$item['website_url']}}</a></p>
                             <p><strong>Technologies:</strong>
                                 @foreach(json_decode($item['technologies']) as $technoloogy)
                                     {{$technoloogy}}
@@ -26,12 +27,12 @@
                 </div>
 
                 <div class="offset-11">
-                <a href="portfolio/edit/{{$item['id']}}">Edit</a>
+                <a href="portfolio/edit/{{$item['id']}}" class="fas fa-edit"></a>
                 <form id="deleteWorkForm" action="api/delete-portfolio-entry/{{$item['id']}}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                      <input type="hidden" name="_method" value="DELETE">
-                      <button type="submit">Delete</button>
+                      <button type="submit" class="fas fa-trash"></button>
                 </form>
                    
                 </div>
