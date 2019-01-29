@@ -15,19 +15,12 @@ class CreateUserSettings extends Migration
     {
         Schema::create('user_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('html');
-            $table->string('css');
-            $table->string('javascript');
-            $table->string('bootstrap');
-            $table->string('angular');
-            $table->string('vuejs');
-            $table->string('php');
-            $table->string('laravel');
-            $table->string('expressjs');
-            $table->string('git');
-            $table->string('windows');
-            $table->string('mac');
-            $table->string('linux');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('facebook_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->string('github_url')->nullable();
             $table->timestamps();
         });
     }

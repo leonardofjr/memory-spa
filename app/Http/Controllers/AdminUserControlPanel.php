@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\HelperMethodsController;
 use App\Portfolio;
 use App\PortfolioPhoto;
-use App\UserSettings;
+use App\Skills;
 
 class AdminUserControlPanel extends Controller
 {
-    public function getProfilePage() {
-        $profile_data = UserSettings::findOrFail(1);
-        return view('backend.profile')->withData($profile_data);
+    public function  getSkillsPage() {
+        $profile_data = Skills::findOrFail(1);
+        return view('backend.skillsPage')->withData($profile_data);
     }
   
     public function getWorkPage() {
@@ -43,8 +43,13 @@ class AdminUserControlPanel extends Controller
             ]);
     }
 
-    public function getStartPage() {
-        return view('backend.startPage')->withSkills($this->getSkillsArray());
+    public function getSetupSkillsPage() {
+        return view('backend.setupSkillsPage')->withSkills($this->getSkillsArray());
+    }
+
+    public function getSetupPage()
+    {
+        return view('backend.setupPage');
     }
 
     public function getSkillsArray() {
@@ -63,7 +68,7 @@ class AdminUserControlPanel extends Controller
             ],
             [
                 "name" => "Bootstrap",
-                "value" => "Bootstrap",
+                "value" => "bootstrap",
             ],
             [
                 "name" => "Angular",

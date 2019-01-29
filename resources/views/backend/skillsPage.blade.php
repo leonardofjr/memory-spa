@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
             <section class="container"> 
-            <h2>Profile</h2>
+            <h2>Skills</h2>
             <form id="profileSettingsForm" method="POST" action="/api/post-user-settings/1">
                 {{ csrf_field() }}
                 <input name="_method" type="hidden" value="PUT">

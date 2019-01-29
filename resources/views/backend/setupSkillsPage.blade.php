@@ -1,9 +1,8 @@
 @extends('layouts.admin')
 @section('content')
             <section class="container"> 
-                <h2>Start Page</h2>
-               <h3>Set your skills</h2>
-                <form id="profileSettingsForm" method="POST" enctype="multipart/form-data" action="/api/post-user-settings">
+               <h2>Set your skills</h2>
+                <form id="setupSkillsForm" method="POST" enctype="multipart/form-data" action="/api/post-setup-skills">
                     {{ csrf_field() }}
                     @foreach($skills as $skill)
                         <div class="form-group">
