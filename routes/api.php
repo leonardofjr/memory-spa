@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfolioEntry');
     // **  Routes //
     Route::post('post-setup-skills', 'UserSettingController@createSkills');
-    Route::put('post-setup-skills/{id}', 'UserSettingController@updateSkills');
+    Route::put('update-setup-skills/{id}', 'UserSettingController@updateSkills');
     // **  Routes //
     Route::post('post-user-settings', 'UserSettingController@createUserSettings');
-    Route::put('post-user-settings/{id}', 'UserSettingController@updateUserSettings');
+    Route::put('update-user-settings/{id}', 'UserSettingController@updateUserSettings');

@@ -5,6 +5,8 @@ use App\Http\Controllers\HelperMethodsController;
 use App\Portfolio;
 use App\PortfolioPhoto;
 use App\Skills;
+use App\UserSettings;
+
 
 class AdminUserControlPanel extends Controller
 {
@@ -41,6 +43,11 @@ class AdminUserControlPanel extends Controller
             'type_dropdown' => $type_dropdown,
             'programming_languages' => $programming_languages,
             ]);
+    }
+
+    public function getSettingsPage() {
+        $user_settings = UserSettings::findOrFail(1);
+        return view('backend.settingsPage')->withData($user_settings);
     }
 
     public function getSetupSkillsPage() {

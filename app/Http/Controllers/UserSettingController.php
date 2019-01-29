@@ -33,6 +33,8 @@ class UserSettingController extends Controller
         $user_settings->instagram_url = $request->instagram_url;
         $user_settings->email = $request->email;
         $user_settings->save();
+        return redirect('/settings');
+
     }
 
     function createSkills(Request $request) {
@@ -70,7 +72,7 @@ class UserSettingController extends Controller
         $user_settings->mac = $request->mac;
         $user_settings->linux = $request->linux;
         $user_settings->save();
-        return redirect('/profile');
+        return redirect('/skills');
     }
 
 }

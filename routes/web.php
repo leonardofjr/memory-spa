@@ -24,6 +24,7 @@ Route::get('/details/{id}', 'HomeController@getPortfolioEntryById');
 Route::group(['middleware' => 'auth'], function() {
 
     // ** Page Routes //
+    Route::get('settings', 'AdminUserControlPanel@getSettingsPage');
     Route::get('setup', 'AdminUserControlPanel@getSetupPage');
     Route::get('setup-skills', 'AdminUserControlPanel@getSetupSkillsPage');
     Route::get('skills', 'AdminUserControlPanel@getSkillsPage');
