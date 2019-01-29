@@ -55,6 +55,8 @@ class UserSettingController extends Controller
         ]);
 
         $user_settings->save();
+        return redirect('/settings');
+
     }
     function updateSkills(Request $request, $id) {
         $user_settings = Skills::findOrFail($id);

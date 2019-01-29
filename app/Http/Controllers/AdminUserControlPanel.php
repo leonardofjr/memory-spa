@@ -56,7 +56,14 @@ class AdminUserControlPanel extends Controller
 
     public function getSetupPage()
     {
-        return view('backend.setupPage');
+        if (!request()->is('setup') && url()->previous() != url('register') ) {
+            return redirect()-to('register');
+        }
+        else {
+            return view('backend.setupPage');
+
+        }
+        
     }
 
     public function getSkillsArray() {
