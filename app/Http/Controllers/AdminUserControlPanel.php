@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\HelperMethodsController;
 use App\Portfolio;
 use App\PortfolioPhoto;
+use App\UserSettings;
 
 class AdminUserControlPanel extends Controller
 {
     public function getProfilePage() {
-        return view('backend.profile');
+        $profile_data = UserSettings::findOrFail(1);
+        return view('backend.profile')->withData($profile_data);
     }
   
     public function getWorkPage() {
@@ -41,7 +43,66 @@ class AdminUserControlPanel extends Controller
             ]);
     }
 
+    public function getStartPage() {
+        return view('backend.startPage')->withSkills($this->getSkillsArray());
+    }
 
+    public function getSkillsArray() {
+        return [
+            [
+                "name" => "HTML5",
+                "value" => "html",
+            ],
+            [
+                "name" => "CSS3",
+                "value" => "css",
+            ],
+            [
+                "name" => "Javascript",
+                "value" => "javascript",
+            ],
+            [
+                "name" => "Bootstrap",
+                "value" => "Bootstrap",
+            ],
+            [
+                "name" => "Angular",
+                "value" => "angular",
+            ],
+            [
+                "name" => "Vue.js",
+                "value" => "vuejs",
+            ],
+            [
+                "name" => "PHP",
+                "value" => "php",
+            ],
+            [
+                "name" => "Laravel",
+                "value" => "laravel",
+            ],
+            [
+                "name" => "Express.js",
+                "value" => "expressjs",
+            ],
+            [
+                "name" => "Git",
+                "value" => "git",
+            ],
+            [
+                "name" => "Windows",
+                "value" => "windows",
+            ],
+            [
+                "name" => "Mac",
+                "value" => "mac",
+            ],
+            [
+                "name" => "Linux",
+                "value" => "linux",
+            ],
+        ];
+    }
 
   
 }

@@ -17,7 +17,7 @@
                 <aside class="col-3 col-md-2 admin-sidebar-bg">
                     <ul>
                         <li><a href="/profile">Profile</a></li>
-                        <li><a href="/home">Home</a></li>
+                        <li><a href="/work">Work</a></li>
                     </ul>
                 </aside>
 

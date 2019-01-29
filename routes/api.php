@@ -21,3 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('post-portfolio-entry', 'PortfolioController@postPortfolioEntry');
     Route::put('update-portfolio-entry/{id}', 'PortfolioController@updatePortfolioEntry');
     Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfolioEntry');
+    // **  Routes //
+    Route::post('post-user-settings', 'UserSettingController@create');
+    Route::put('post-user-settings/{id}', 'UserSettingController@update');

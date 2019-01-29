@@ -49,6 +49,7 @@ class HomeController extends Controller
             return response($data);
         } 
 
+
         public function getPortfolioEntryById($id) {
             /*
             // Issue Resolved
