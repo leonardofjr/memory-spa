@@ -2,6 +2,7 @@
 @section('content')
             <section class="container"> 
             <h2>Skills</h2>
+
             <form id="profileSettingsForm" method="POST" action="/api/update-setup-skills/1">
                 {{ csrf_field() }}
                 <input name="_method" type="hidden" value="PUT">

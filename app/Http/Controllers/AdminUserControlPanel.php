@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\HelperMethodsController;
 use App\Portfolio;
 use App\PortfolioPhoto;
-use App\Skills;
-use App\UserSettings;
+use App\Skill;
+use App\User;
+use App\UserSetting;
 
 
 class AdminUserControlPanel extends Controller
 {
     public function  getSkillsPage() {
-        $profile_data = Skills::findOrFail(1);
-        return view('backend.skillsPage')->withData($profile_data);
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        return view('backend.skillsPage')->with('data', $user->skills);
     }
   
     public function getWorkPage() {
@@ -46,8 +49,9 @@ class AdminUserControlPanel extends Controller
     }
 
     public function getSettingsPage() {
-        $user_settings = UserSettings::findOrFail(1);
-        return view('backend.settingsPage')->withData($user_settings);
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('backend.settingsPage')->with('data', $user->user_settings);
     }
 
     public function getSetupSkillsPage() {
