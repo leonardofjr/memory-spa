@@ -54,7 +54,7 @@ class UserSettingController extends Controller
             'linux' => $request->linux,
         ]);
 
-        $user_settings->save();
+        $skill->save();
         return redirect('/settings');
 
     }
