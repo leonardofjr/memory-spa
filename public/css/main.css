@@ -230,7 +230,32 @@ h4 {
 
 /** Components **/
 
+nav {
+  z-index: 10000;
+}
+
 /** Layout **/
+
+#frontend {
+  margin-top: -51px;
+  color: #000;
+  height: 100vh;
+}
+
+.page {
+  height: 100vh;
+  padding-top: 100px;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+}
+
+.site-info {
+  background: #000;
+  color: #888;
+}
 
 /** Pages **/
 

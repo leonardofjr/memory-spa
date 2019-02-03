@@ -236,3 +236,12 @@ h4 {
 
 /** Themes **/
 
+#admin-cpanel {
+  background: white;
+  color: #000;
+}
+
+#admin-cpanel aside ul {
+  list-style-type: none;
+}
+
