@@ -13,4 +13,9 @@ class Portfolio extends Model
     {
         return $this->hasMany('App\PortfolioPhoto', 'portfolio_entry_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -34,4 +34,8 @@ class User extends Authenticatable
     public function user_settings() {
         return $this->hasOne('App\UserSetting', 'id');
     }
+
+    public function portfolio() {
+        return $this->hasMany('App\Portfolio', 'id');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Portfolio;
 use App\PortfolioPhoto;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -25,14 +26,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $portfolio = $this->getPortfolioData();
+        return view('home')->with('data', $portfolio);
     }
 
     
     public function portfolio() {
-            
+
+        $data = $this->getPortfolioData();
+
+            return response($data);
+        } 
+    
+    public function getPortfolioData() {
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
+
             // Issue Resolved
-           $portfolio = Portfolio::all();
+           $portfolio = $user->portfolio;
            $portfolio_photos = PortfolioPhoto::all();
             $data = [];
            foreach ($portfolio as $i => $item) {
@@ -46,7 +57,7 @@ class HomeController extends Controller
                ];
            }
          
-            return response($data);
+            return $data;
         } 
 
 
