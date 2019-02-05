@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Portfolio;
 use App\PortfolioPhoto;
 use App\User;
@@ -26,8 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $portfolio = $this->getPortfolioData();
-        return view('home')->with('data', $portfolio);
+        return view('home');
     }
 
     
@@ -36,15 +36,23 @@ class HomeController extends Controller
         $data = $this->getPortfolioData();
 
             return response($data);
-        } 
+    } 
     
     public function getPortfolioData() {
-            $user_id = auth()->user()->id;
+            /* If user is logged in then the $user_id value will be set to the users id */
+            if (Auth::user()) {
+                $user_id = auth()->user()->id;
+            } 
+            /* Else if the user is a guest then we will set the $user_id to 1 */
+            else if (Auth::guest()) {
+                $user_id = 1;
+            }
+
+            /* We will find the user by their id */
             $user = User::find($user_id);
 
-            // Issue Resolved
-           $portfolio = $user->portfolio;
-           $portfolio_photos = PortfolioPhoto::all();
+            $portfolio = $user->portfolio;
+            $portfolio_photos = PortfolioPhoto::all();
             $data = [];
            foreach ($portfolio as $i => $item) {
                $data[$i] = [
