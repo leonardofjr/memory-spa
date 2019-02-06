@@ -15,6 +15,7 @@ class CreateSetupSkills extends Migration
     {
         Schema::create('setup_skills', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('skills_and_offer');
             $table->string('html');
             $table->string('css');
             $table->string('javascript');

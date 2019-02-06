@@ -43,6 +43,7 @@ class UserSettingController extends Controller
 
     function createSkills(Request $request) {
         $skill = new Skill([
+            'skills-and-offer' => $request->skills_and_offer,
             'html' => $request->html,
             'css' => $request->css,
             'javascript' => $request->javascript,
@@ -64,6 +65,7 @@ class UserSettingController extends Controller
     }
     function updateSkills(Request $request, $id) {
         $skill = Skill::findOrFail($id);
+        $skill->skills_and_offer = $request->skills_and_offer;
         $skill->html = $request->html;
         $skill->css = $request->css;
         $skill->javascript = $request->javascript;

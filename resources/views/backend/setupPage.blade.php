@@ -6,7 +6,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="title">Bio:</label>
-                        <textarea id="article-ckeditor" class="form-control" id="bio" name="bio" ></textarea>
+                        <textarea id="article-ckeditor" class="form-control" name="bio" ></textarea>
                     </div>
                     <div class="form-group">
                         <label for="title">Phone:</label>

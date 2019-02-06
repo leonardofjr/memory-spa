@@ -15,6 +15,7 @@ class CreateUserSettings extends Migration
     {
         Schema::create('user_settings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('bio');
             $table->string('phone');
             $table->string('email');
             $table->string('facebook_url')->nullable();

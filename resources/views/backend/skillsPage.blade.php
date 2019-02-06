@@ -7,6 +7,10 @@
                 {{ csrf_field() }}
                 <input name="_method" type="hidden" value="PUT">
                 <div class="form-group">
+                    <label for="title">Skills & Offer:</label>
+                    <textarea id="article-ckeditor" class="form-control" name="skills_and_offer" value="{{$data->skills_and_offer}}" ></textarea>
+                </div>
+                <div class="form-group">
                     <label for="title">HTML5</label>
                 <input type="range" class="form-control" id="html5" name="html" value="{{$data->html}}" onchange='evalSlider(this.id)'>
                     <output></output>
