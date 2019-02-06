@@ -50132,9 +50132,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 var DEFAULT_TRANSITION = 'fade';
 
@@ -50193,74 +50190,81 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("nav", { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" }, [
-      _c(
-        "div",
-        { staticClass: "container" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
-            [_vm._v("LEONARDO FELIPA")]
-          ),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "collapse navbar-collapse",
-              attrs: { id: "navbarNavAltMarkup" }
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "navbar-nav ml-auto" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-item nav-link",
-                      attrs: { to: "/about", exact: "" }
-                    },
-                    [_vm._v("ABOUT")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-item nav-link",
-                      attrs: { to: "/portfolio", exact: "" }
-                    },
-                    [_vm._v("PORTFOLIO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-item nav-link",
-                      attrs: { to: "/skills" }
-                    },
-                    [_vm._v("SKILLS")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-item nav-link",
-                      attrs: { to: "/contact" }
-                    },
-                    [_vm._v("CONTACT")]
-                  )
-                ],
-                1
-              )
-            ]
-          )
-        ],
-        1
-      )
-    ]),
+    _c(
+      "nav",
+      {
+        staticClass: "navbar navbar-expand-lg navbar-dark bg-dark",
+        staticStyle: { "z-index": "1000" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "container" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
+              [_vm._v("LEONARDO FELIPA")]
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarNavAltMarkup" }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "navbar-nav ml-auto" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/about", exact: "" }
+                      },
+                      [_vm._v("ABOUT")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/portfolio", exact: "" }
+                      },
+                      [_vm._v("PORTFOLIO")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/skills" }
+                      },
+                      [_vm._v("SKILLS")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/contact" }
+                      },
+                      [_vm._v("CONTACT")]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ],
+          1
+        )
+      ]
+    ),
     _vm._v(" "),
     _c(
       "main",

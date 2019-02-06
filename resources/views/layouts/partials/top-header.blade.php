@@ -1,5 +1,5 @@
-  <header style="z-index: 10000">
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+  <header>
+            <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="z-index: 10000">
                 <div class="container">
                     <!-- We will only show the navbar-brand container when the uri is not "/" -->
                     @if (Request::route()->uri() !== '/')
@@ -37,6 +37,9 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('settings') }}">
+                                            {{ __('Settings') }}
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">

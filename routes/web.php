@@ -27,7 +27,7 @@ Route::get('/contact', 'FrontendController@getContactPage');
 Route::group(['middleware' => 'auth'], function() {
 
     // ** Page Routes //
-    Route::get('settings', 'AdminUserControlPanel@getSettingsPage');
+    Route::get('settings', 'AdminUserControlPanel@getSettingsPage')->name('settings');
     Route::get('setup', 'AdminUserControlPanel@getSetupPage');
     Route::get('setup-skills', 'AdminUserControlPanel@getSetupSkillsPage');
     Route::get('skills', 'AdminUserControlPanel@getSkillsPage');
