@@ -21,6 +21,9 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        }
+            let dialogbox = document.createElement('script');
+            dialogbox.setAttribute('src',"/js/dialog-box.js");
+            document.head.appendChild(dialogbox);
+        },
     }
 </script>
