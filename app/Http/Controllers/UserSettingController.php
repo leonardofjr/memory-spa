@@ -12,6 +12,7 @@ class UserSettingController extends Controller
     function createUserSettings(Request $request)
     {
         $user_settings = new UserSetting([
+            'bio' => $request->bio,
             'phone' => $request->phone,
             'twitter_url' => $request->twitter_url,
             'facebook_url' => $request->facebook_url,
@@ -28,6 +29,7 @@ class UserSettingController extends Controller
     {
         $user_settings = UserSetting::findOrFail($id);
 
+        $user_settings->bio = $request->bio;
         $user_settings->phone = $request->phone;
         $user_settings->twitter_url = $request->twitter_url;
         $user_settings->facebook_url = $request->facebook_url;

@@ -6,6 +6,10 @@
                     <input name="_method" type="hidden" value="PUT">
                     {{ csrf_field() }}
                     <div class="form-group">
+                        <label for="title">Bio:</label>
+                        <textarea id="article-ckeditor" class="form-control" id="bio" name="bio" ></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="title">Phone:</label>
                     <input type="tel" class="form-control" id="phone" name="phone" value="{{$data->phone}}" >
                     </div>

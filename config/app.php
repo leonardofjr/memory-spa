@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // https://github.com/UniSharp/laravel-ckeditor
+        Unisharp\Ckeditor\ServiceProvider::class,
+
 
     ],
 

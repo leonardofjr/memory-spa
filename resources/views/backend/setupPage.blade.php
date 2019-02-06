@@ -5,6 +5,10 @@
                 <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/api/post-user-settings">
                     {{ csrf_field() }}
                     <div class="form-group">
+                        <label for="title">Bio:</label>
+                        <textarea id="article-ckeditor" class="form-control" id="bio" name="bio" ></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="title">Phone:</label>
                         <input type="text" class="form-control" id="phone" name="phone" >
                     </div>
