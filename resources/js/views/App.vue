@@ -9,6 +9,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ml-auto">
+                            <router-link to="/about" class="nav-item nav-link" exact>ABOUT</router-link>
                             <router-link to="/portfolio" class="nav-item nav-link" exact>PORTFOLIO</router-link>
                             <router-link to="/skills" class="nav-item nav-link">SKILLS</router-link>
                             <router-link to="/contact" class="nav-item nav-link">CONTACT</router-link>

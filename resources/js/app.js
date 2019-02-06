@@ -13,6 +13,7 @@ Vue.use(VueRouter)
 
 import App from './views/App'
 import Home from './views/Home'
+import About from './views/About'
 import Portfolio from './views/Portfolio'
 import Details from './views/Details'
 import Skills from './views/Skills'
@@ -26,6 +27,11 @@ const router = new VueRouter({
             path: '/',
             name: 'home',
             component: Home,
+        },
+        {
+            path : '/about',
+            name : 'about',
+            component : About
         },
         {
             path: '/portfolio',
