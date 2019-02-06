@@ -16,11 +16,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+/* Frontend */
+Route::get('/home', 'FrontendController@index')->name('home');
+Route::get('/portfolio', 'FrontendController@portfolio')->name('portfolio');
+Route::get('/details/{id}', 'FrontendController@getPortfolioEntryById');
+Route::get('/contact', 'FrontendController@getContactPage');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/portfolio', 'HomeController@portfolio')->name('portfolio');
-Route::get('/details/{id}', 'HomeController@getPortfolioEntryById');
-// ** Admin** 
+
+// ** Backend ** 
 Route::group(['middleware' => 'auth'], function() {
 
     // ** Page Routes //

@@ -2,7 +2,7 @@
 @section('content')
             <section class="container"> 
                <h2>Settings</h2>        
-                <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/api/update-user-settings/1">
+                <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/api/update-user-settings/{{$id}}">
                     <input name="_method" type="hidden" value="PUT">
                     {{ csrf_field() }}
                     <div class="form-group">

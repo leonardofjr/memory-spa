@@ -55,7 +55,10 @@ class AdminUserControlPanel extends Controller
     public function getSettingsPage() {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('backend.settingsPage')->with('data', $user->user_settings);
+        return view('backend.settingsPage')->with([
+            'data' => $user->user_settings,
+            'id' => $user_id
+            ]);
     }
 
     public function getSetupSkillsPage() {

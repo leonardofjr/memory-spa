@@ -234,6 +234,12 @@ nav {
   z-index: 10000;
 }
 
+.btn-primary {
+  background: none !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
 /** Layout **/
 
 #frontend {
@@ -258,6 +264,13 @@ footer {
 }
 
 /** Pages **/
+
+#contact form input,
+#contact form textarea {
+  border: 0px;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
 
 /** Themes **/
 

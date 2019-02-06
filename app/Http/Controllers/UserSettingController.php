@@ -27,10 +27,12 @@ class UserSettingController extends Controller
     function updateUserSettings(Request $request, $id)
     {
         $user_settings = UserSetting::findOrFail($id);
+
         $user_settings->phone = $request->phone;
         $user_settings->twitter_url = $request->twitter_url;
         $user_settings->facebook_url = $request->facebook_url;
         $user_settings->instagram_url = $request->instagram_url;
+        $user_settings->github_url = $request->github_url;
         $user_settings->email = $request->email;
         $user_settings->save();
         return redirect('/settings');

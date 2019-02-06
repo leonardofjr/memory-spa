@@ -230,9 +230,22 @@ h4 {
 
 /** Components **/
 
+.btn-primary {
+  background: none !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
 /** Layout **/
 
 /** Pages **/
+
+#contact form input,
+#contact form textarea {
+  border: 0px;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
 
 /** Themes **/
 

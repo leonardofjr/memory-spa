@@ -22,7 +22,6 @@
         // Fetches posts when the component is created.
         created() {
 
-            console.log(this.id);
             axios.get(this.web_url + '/details/' + this.$route.params.id )
             .then(response => {
                 this.data = response.data;

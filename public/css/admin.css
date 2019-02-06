@@ -230,6 +230,12 @@ h4 {
 
 /** Components **/
 
+.btn-primary {
+  background: none !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
 /** Layout **/
 
 /** Pages **/

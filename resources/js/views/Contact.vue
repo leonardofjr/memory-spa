@@ -1,15 +1,30 @@
 <template>
-  <div class="page">
+  <div id="contact" class="page">
     <div class="row">
         <div class=" col-lg-4">
+            <!-- If email is not null -->
+           <div v-if="data.email">
             <h3>EMAIL</h3>
-            <a href="mail://hello@lfelipa.ca">hello@lfelipa.ca</a>
-            <p><b>-or-</b></p>
+                <i class="fas fa-envelope"></i> <a :href="data.email">{{data.email}}</a>
+                <p><b>-or-</b></p>
+            </div>
             <h3>FIND ME HERE</h3>
-            <i class="fab fa-twitter"></i> <a href="mail://hello@lfelipa.ca">hello@lfelipa.ca</a><br>
-            <i class="fab fa-instagram"></i> <a href="mail://hello@lfelipa.ca">hello@lfelipa.ca</a><br>
-            <i class="fab fa-facebook"></i> <a href="mail://hello@lfelipa.ca">hello@lfelipa.ca</a><br>
-            <i class="fab fa-github"></i> <a href="mail://hello@lfelipa.ca">hello@lfelipa.ca</a>
+            <!-- If twitter_url is not null -->
+            <div v-if="data.twitter_url">
+                <i class="fab fa-twitter"></i> <a :href="data.twitter_url">{{data.twitter_url}}</a><br>
+            </div>
+            <!-- If instagram_url is not null -->
+            <div v-if="data.instagram_url">
+                <i class="fab fa-instagram"></i> <a :href="data.instagram_url">{{data.instagram_url}}</a><br>
+            </div>
+            <!-- If facebook_url is not null -->
+            <div v-if="data.facebook_url"><i class="fab fa-facebook">
+                </i> <a :href="data.facebook_url">{{data.facebook_url}}</a><br>
+            </div>
+            <!-- If github_url is not null -->
+            <div v-if="data.github_url">
+                <i class="fab fa-github"></i> <a :href="data.github_url">{{data.github_url}}</a>
+            </div>
         </div>
 
         <div class="col-lg-8">
@@ -44,8 +59,33 @@
 
 <script>
     export default {
+        data() {
+            return {
+                data: [],
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+        },
+        // Fetches posts when the component is created.
+        created() {
+            axios.get(this.web_url + '/contact')
+            .then(response => {
+                this.data = response.data;
+                console.log(this.data);
+                return this.data;
+            // JSON responses are automatically parsed.
+            })
+            .catch(e => {
+                 this.errors.push(e)
+            })
+        },
+        methods: {
+                
+            back() {
+                window.history.back();
+            }
         }
+
     }
 </script>

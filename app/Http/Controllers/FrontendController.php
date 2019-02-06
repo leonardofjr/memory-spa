@@ -8,7 +8,7 @@ use App\Portfolio;
 use App\PortfolioPhoto;
 use App\User;
 
-class HomeController extends Controller
+class FrontendController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -68,6 +68,19 @@ class HomeController extends Controller
             return $data;
         } 
 
+        public function getContactPage() {
+            /* If user is logged in then the $user_id value will be set to the users id */
+            if (Auth::user()) {
+                $user_id = auth()->user()->id;
+            } 
+                /* Else if the user is a guest then we will set the $user_id to 1 */
+            else if (Auth::guest()) {
+                $user_id = 1;
+            }
+             $user = User::find($user_id);
+             $data = $user->user_settings;
+            return $data;
+        }
 
         public function getPortfolioEntryById($id) {
             /*
