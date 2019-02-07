@@ -81,6 +81,32 @@ class FrontendController extends Controller
              $data = $user->user_settings;
             return $data;
         }
+        public function getAboutPage() {
+            /* If user is logged in then the $user_id value will be set to the users id */
+            if (Auth::user()) {
+                $user_id = auth()->user()->id;
+            } 
+                /* Else if the user is a guest then we will set the $user_id to 1 */
+            else if (Auth::guest()) {
+                $user_id = 1;
+            }
+             $user = User::find($user_id);
+             $data = $user->user_settings;
+            return $data;
+        }
+        public function getSkillsPage() {
+            /* If user is logged in then the $user_id value will be set to the users id */
+            if (Auth::user()) {
+                $user_id = auth()->user()->id;
+            } 
+                /* Else if the user is a guest then we will set the $user_id to 1 */
+            else if (Auth::guest()) {
+                $user_id = 1;
+            }
+             $user = User::find($user_id);
+             $data = $user->user_settings;
+            return $data;
+        }
 
         public function getPortfolioEntryById($id) {
             $data = Portfolio::findOrFail($id);   

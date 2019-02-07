@@ -19,6 +19,8 @@ Auth::routes();
 /* Frontend */
 Route::get('/home', 'FrontendController@index')->name('home');
 Route::get('/portfolio', 'FrontendController@portfolio')->name('portfolio');
+Route::get('/about', 'FrontendController@getAboutPage')->name('about');
+Route::get('/skills', 'FrontendController@getSkillsPage')->name('skills');
 Route::get('/details/{id}', 'FrontendController@getPortfolioEntryById');
 Route::get('/contact', 'FrontendController@getContactPage');
 

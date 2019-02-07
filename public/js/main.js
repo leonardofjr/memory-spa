@@ -50532,12 +50532,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: []
+        };
+    },
     mounted: function mounted() {
         console.log('Component mounted.');
+    },
+
+    // Fetches posts when the component is created.
+    created: function created() {
+        var _this = this;
+
+        axios.get(this.web_url + '/about').then(function (response) {
+            _this.data = response.data;
+            console.log(_this.data);
+            return _this.data;
+            // JSON responses are automatically parsed.
+        }).catch(function (e) {
+            _this.errors.push(e);
+        });
     }
 });
 
@@ -50549,46 +50566,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "page" }, [
+    _c("div", { staticClass: " row" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-8" }, [
+        _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } }),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-primary" }, [
+          _vm._v("VIEW RESUME")
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page" }, [
-      _c("div", { staticClass: " row" }, [
-        _c("div", { staticClass: "col-sm-4 text-center" }, [
-          _c("img", {
-            staticClass: "img-fluid",
-            attrs: { src: "imgs/leo-felipa.jpeg", alt: "" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-8" }, [
-          _c("p", [
-            _vm._v(
-              "I love design. I love coding. I love the web. I want to help you bring your vision to the web. I have an eye for clean design and UX."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              " I've spent the last years immersed in learning Frontend & Backend Web Development, both through codeschool.com and a certification program locally."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "If I'm not coding I'm either tinkering with my arduino, working out at my local gym, or painting portraits."
-            )
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn btn-primary" }, [
-            _vm._v("VIEW RESUME")
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "col-sm-4 text-center" }, [
+      _c("img", {
+        staticClass: "img-fluid",
+        attrs: { src: "imgs/leo-felipa.jpeg", alt: "" }
+      })
     ])
   }
 ]
@@ -50944,62 +50945,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: []
+        };
+    },
     mounted: function mounted() {
         console.log('Component mounted.');
+    },
+
+    // Fetches posts when the component is created.
+    created: function created() {
+        var _this = this;
+
+        axios.get(this.web_url + '/skills').then(function (response) {
+            _this.data = response.data;
+            console.log(_this.data);
+            return _this.data;
+            // JSON responses are automatically parsed.
+        }).catch(function (e) {
+            _this.errors.push(e);
+        });
     }
 });
 
@@ -51011,193 +50979,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "page" }, [
+    _c("h2", [_vm._v("Skills")]),
+    _vm._v(" "),
+    _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } })
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page" }, [
-      _c("h2", [_vm._v("Skills")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "I am a full-stack web developer with over three years of experience."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "I have maintained, developed and launched multiple projects from scratch, carrying the development of its' back-end and front-end codebases."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "My current toolset includes Elixir Lang & Phoenix Framework, Ruby & Ruby on Rails, React, Redux, Angular, TypeScript, Docker and all the other various frameworks, libraries and technologies related to them."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Feel free to ask me any questions. I can help you in your project in all from the UI mockups, back-end and front-end web development to fixing the design and installing & configuration of the application on staging/production enviroments."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c("i", [
-          _vm._v("Call me a Swiss Army Knife in terms of web development.")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("h3", [_vm._v("Front-end Web Development")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "I specialise in applications written in React and Angular. Recently I became also a huge fan of one-way data flow and Redux-like architecture and also typed languages, e.g. TypeScript."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("My current experience and skills in front-end include:")
-      ]),
-      _vm._v(" "),
-      _c("ul", [
-        _c("li", [
-          _vm._v(
-            "\n          lead TypeScript/JavaScript development: bootstraping or refactoring an existing app architecture, by improving its' extensibility and reliability;\n          "
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n          full integration of front-end development using tools like "
-          ),
-          _c(
-            "a",
-            { attrs: { href: "https://webpack.js.org/", rel: "nofollow" } },
-            [_vm._v("Webpack")]
-          ),
-          _vm._v(
-            " with features like automatic code reload, code minifications, multiple environments support,\n          "
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n          good sense of design and UX, by having some small past experience in graphic design\n          "
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n          knowledge and huge experience in many JS ecosystem, by using many libraries like React, Redux, Redux-Observable, RxJS, Angular, Ionic Framework, Backbone, jQuery, Lodash/Underscore and whatever else was needed.\n          "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("h3", [_vm._v("Back-end Web Development")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "In back-end development, my current stack involves Elixir and Phoenix Framework, and alternatively Ruby on Rails or NodeJS."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Nearly every app I have done in the past had the back-end written also by me. In order to improve the development speed, performance and reliability, I have changed languages and frameworks already multiple times, from PHP to Ruby and now to Elixir."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Luckily, my experience and lessons I learned while doing all those apps, will stay with me and be useful forever, no matter what framework I will use in the next project."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("What I can do is:")]),
-      _vm._v(" "),
-      _c("ul", [
-        _c("li", [
-          _vm._v(
-            "\n              lead development of web apps in Elixir/Ruby\n              "
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n              cooperation with APIs, remote data synchronizations, cloud servers, asynchronous workers\n              "
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v("\n              using different types of databases (like "),
-          _c(
-            "a",
-            { attrs: { href: "http://www.postgresql.org/", rel: "nofollow" } },
-            [_vm._v("PostgreSQL")]
-          ),
-          _vm._v(", "),
-          _c(
-            "a",
-            { attrs: { href: "http://www.mysql.com/", rel: "nofollow" } },
-            [_vm._v("MySQL")]
-          ),
-          _vm._v(", "),
-          _c(
-            "a",
-            {
-              attrs: { href: "http://www.elasticsearch.org/", rel: "nofollow" }
-            },
-            [_vm._v("Elasticsearch")]
-          ),
-          _vm._v(", "),
-          _c("a", { attrs: { href: "http://redis.io/", rel: "nofollow" } }, [
-            _vm._v("Redis")
-          ]),
-          _vm._v(")\n              ")
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n              dividing the servers into different machine nodes / docker containers; database sharding; load balancing\n              "
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v(
-            "\n              refactoring existing applications, by improving code readibility, separating concerns into separate functions and classes, splitting out the business logic from app's views and controllers ("
-          ),
-          _c(
-            "a",
-            {
-              attrs: {
-                href: "https://en.wikipedia.org/wiki/Domain-driven_design",
-                rel: "nofollow"
-              }
-            },
-            [_vm._v("DDD")]
-          ),
-          _vm._v(
-            "), and moving the app architecture into more event-based one\n              "
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _vm._v("\n              writing unit and e2e tests\n              ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Thus, not only I have coded their back-end and front-end code, but often I also had to care about other things needed in a successful web application:"
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
