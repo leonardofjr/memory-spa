@@ -27,8 +27,8 @@
                 </div>
 
                 <div class="offset-11">
-                <a href="portfolio/edit/{{$item['id']}}" class="fas fa-edit"></a>
-                <form id="deleteWorkForm" action="api/delete-portfolio-entry/{{$item['id']}}" method="post">
+                <a href="/admin/portfolio/edit/{{$item['id']}}" class="fas fa-edit"></a>
+                <form id="deleteWorkForm" action="/api/delete-portfolio-entry/{{$item['id']}}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                      <input type="hidden" name="_method" value="DELETE">

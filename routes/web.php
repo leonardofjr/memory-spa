@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('setup', 'AdminUserControlPanel@getSetupPage')->name('Setup');
     Route::get('setup-skills', 'AdminUserControlPanel@getSetupSkillsPage')->name('Setup Skills');
     Route::get('skills', 'AdminUserControlPanel@getSkillsPage')->name('Edit Skills');
-    Route::get('work', 'AdminUserControlPanel@getWorkPage')->name('Portfolio Entries');
+    Route::get('portfolio', 'AdminUserControlPanel@getWorkPage')->name('Portfolio Entries');
     Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
     Route::get('portfolio/add', 'PortfolioController@getAddPortfolioEntry')->name('Add Portfolio Entry');
 });

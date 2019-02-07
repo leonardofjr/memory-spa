@@ -67,7 +67,7 @@ class PortfolioController extends Controller
         ]);
         $portfolio->save();
         $portfolio->portfolio_entries()->save($portfolio_photos);
-        return redirect('admin/home');
+        return redirect('admin/portfolio');
     }   else {
             response('fail');
     }
@@ -112,6 +112,6 @@ class PortfolioController extends Controller
 
        $portfolio->portfolio_entries()->delete();
        $portfolio->delete();
-       return redirect('admin/home');
+       return redirect('admin/portfolio');
    }
 }
