@@ -21,9 +21,9 @@
             <div class="row">
                 <aside class="col-3 col-md-2 admin-sidebar-bg">
                     <ul>
-                        <li><a href="/settings">Settings</a></li>
-                        <li><a href="/skills">Skills</a></li>
-                        <li><a href="/work">Work</a></li>
+                        <li><a href="{{route('User Settings')}}">Settings</a></li>
+                    <li><a href="{{route('Edit Skills')}}">Skills</a></li>
+                        <li><a href="{{route('Portfolio Entries')}}">Work</a></li>
                     </ul>
                 </aside>
 

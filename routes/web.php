@@ -24,14 +24,14 @@ Route::get('/contact', 'FrontendController@getContactPage');
 
 
 // ** Backend ** 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 
     // ** Page Routes //
-    Route::get('settings', 'AdminUserControlPanel@getSettingsPage')->name('settings');
-    Route::get('setup', 'AdminUserControlPanel@getSetupPage');
-    Route::get('setup-skills', 'AdminUserControlPanel@getSetupSkillsPage');
-    Route::get('skills', 'AdminUserControlPanel@getSkillsPage');
-    Route::get('work', 'AdminUserControlPanel@getWorkPage');
-    Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage');
-    Route::get('portfolio/add', 'PortfolioController@getAddPortfolioEntry');
+    Route::get('settings', 'AdminUserControlPanel@getSettingsPage')->name('User Settings');
+    Route::get('setup', 'AdminUserControlPanel@getSetupPage')->name('Setup');
+    Route::get('setup-skills', 'AdminUserControlPanel@getSetupSkillsPage')->name('Setup Skills');
+    Route::get('skills', 'AdminUserControlPanel@getSkillsPage')->name('Edit Skills');
+    Route::get('work', 'AdminUserControlPanel@getWorkPage')->name('Portfolio Entries');
+    Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
+    Route::get('portfolio/add', 'PortfolioController@getAddPortfolioEntry')->name('Add Portfolio Entry');
 });

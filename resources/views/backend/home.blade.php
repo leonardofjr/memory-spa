@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
           <div class="offset-10">
-           <a class="btn-primary btn" href="/portfolio/add">Add Portfolio Entry</a>
+              <a class="btn-primary btn" href="{{route('Add Portfolio Entry')}}">Add Portfolio Entry</a>
           </div>
           <div class="col-12">
               @foreach($data as $item)
