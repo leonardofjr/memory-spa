@@ -16,6 +16,7 @@ class UserSettingController extends Controller
             $file = $request->file('profile_image')->store('public');
 
             $user_settings = new UserSetting([
+                'user_id' => $request->user_id,
                 'bio' => $request->bio,
                 'phone' => $request->phone,
                 'twitter_url' => $request->twitter_url,
@@ -48,6 +49,7 @@ class UserSettingController extends Controller
 
     function createSkills(Request $request) {
         $skill = new Skill([
+            'user_id' => $request->user_id,
             'skills-and-offer' => $request->skills_and_offer,
             'html' => $request->html,
             'css' => $request->css,

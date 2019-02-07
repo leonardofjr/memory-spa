@@ -11,7 +11,8 @@
                         <span></span>
                     </div>
                 </div>
-                
+                 <input type="hidden" name="user_id" value="{{Auth::user()->id }}">
+
                 <div class="form-group">
                     <label for="type">Type:</label>
                         <select class="form-control" id="type" name="type" >

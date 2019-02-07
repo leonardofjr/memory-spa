@@ -39,7 +39,6 @@ class PortfolioController extends Controller
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
     $helper = new HelperMethodsController;
     $file_1 = $request->file_1;
-   
     if ($request->hasFile('file_1') ) {
         // Storing File into variable and storing file in the the storage public folder
         $file_1 = $request->file('file_1')->store('public');
@@ -55,6 +54,7 @@ class PortfolioController extends Controller
         ];
 
         $portfolio = new Portfolio([
+            'user_id' => $request->user_id,
             'title' => $request->title,
             'type' => $request->type,
             'website_url' => $request->website_url,

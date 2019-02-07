@@ -29,13 +29,13 @@ class User extends Authenticatable
     ];
 
     public function skills() {
-        return $this->hasOne('App\Skill', 'id');
+        return $this->hasOne('App\Skill', 'user_id');
     }
     public function user_settings() {
-        return $this->hasOne('App\UserSetting', 'id');
+        return $this->hasOne('App\UserSetting', 'user_id');
     }
 
     public function portfolio() {
-        return $this->hasMany('App\Portfolio', 'id');
+        return $this->hasMany('App\Portfolio', 'user_id');
     }
 }

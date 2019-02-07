@@ -5,6 +5,7 @@
                 <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/api/post-user-settings">
                     <script type="text/javascript" src="/js/imagePreview.js"></script>
                     {{ csrf_field() }}
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id }}">
                       <img id="imgPreview" class="img-fluid" src="https://via.placeholder.com/150" alt="image preview">
                     <div class="form-group">
                         <input type="file" id="profile_image" name="profile_image" accept="image/*" onchange='previewImageToUpload("profile_image")'>

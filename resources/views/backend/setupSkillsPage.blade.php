@@ -4,6 +4,7 @@
                <h2>Set your skills</h2>
                 <form id="setupSkillsForm" method="POST" enctype="multipart/form-data" action="/api/post-setup-skills">
                     {{ csrf_field() }}
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id }}">
                         <div class="form-group">
                             <label for="title">Skills & Offer:</label>
                             <textarea id="article-ckeditor" class="form-control" name="skills_and_offer" ></textarea>

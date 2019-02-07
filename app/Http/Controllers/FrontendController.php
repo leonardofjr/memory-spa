@@ -104,7 +104,7 @@ class FrontendController extends Controller
                 $user_id = 1;
             }
              $user = User::find($user_id);
-             $data = $user->user_settings;
+             $data = $user->skills;
             return $data;
         }
 

@@ -18,12 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
     // **  Routes //
-    Route::post('post-portfolio-entry', 'PortfolioController@postPortfolioEntry');
-    Route::put('update-portfolio-entry/{id}', 'PortfolioController@updatePortfolioEntry');
-    Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfolioEntry');
-    // **  Routes //
-    Route::post('post-setup-skills', 'UserSettingController@createSkills');
-    Route::put('update-setup-skills/{id}', 'UserSettingController@updateSkills');
-    // **  Routes //
-    Route::post('post-user-settings', 'UserSettingController@createUserSettings');
-    Route::put('update-user-settings/{id}', 'UserSettingController@updateUserSettings');
+Route::post('post-portfolio-entry', 'PortfolioController@postPortfolioEntry');
+Route::put('update-portfolio-entry/{id}', 'PortfolioController@updatePortfolioEntry');
+Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfolioEntry');
+// **  Routes //
+Route::post('post-setup-skills', 'UserSettingController@createSkills');
+Route::put('update-setup-skills/{id}', 'UserSettingController@updateSkills');
+// **  Routes //
+Route::post('post-user-settings', 'UserSettingController@createUserSettings');
+Route::put('update-user-settings/{id}', 'UserSettingController@updateUserSettings');

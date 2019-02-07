@@ -22,7 +22,7 @@ class AdminUserControlPanel extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
-            // Issue Resolved
+        // Issue Resolved
         $portfolio = $user->portfolio;
         $portfolio_photos = PortfolioPhoto::all();
         $data = [];
