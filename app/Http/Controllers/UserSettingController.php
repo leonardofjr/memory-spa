@@ -22,7 +22,7 @@ class UserSettingController extends Controller
         ]);
 
         $user_settings->save();
-        return redirect('/setup-skills');
+        return redirect('admin/setup-skills');
 
     }
     function updateUserSettings(Request $request, $id)
@@ -37,7 +37,7 @@ class UserSettingController extends Controller
         $user_settings->github_url = $request->github_url;
         $user_settings->email = $request->email;
         $user_settings->save();
-        return redirect('/settings');
+        return redirect('admin/settings');
 
     }
 
@@ -60,7 +60,7 @@ class UserSettingController extends Controller
         ]);
 
         $skill->save();
-        return redirect('/settings');
+        return redirect('admin/settings');
 
     }
     function updateSkills(Request $request, $id) {
@@ -80,7 +80,7 @@ class UserSettingController extends Controller
         $skill->mac = $request->mac;
         $skill->linux = $request->linux;
         $skill->save();
-        return redirect('/skills');
+        return redirect('admin/skills');
     }
 
 }

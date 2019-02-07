@@ -83,23 +83,6 @@ class FrontendController extends Controller
         }
 
         public function getPortfolioEntryById($id) {
-            /*
-            // Issue Resolved
-           $portfolio = Portfolio::all();
-           $portfolio_photos = PortfolioPhoto::all();
-            $data = [];
-           foreach ($portfolio as $i => $item) {
-               $data[$i] = [
-                    'id' => $item->id,
-                    'title' => $item->title,
-                    'description' => $item->description,
-                    'technologies' => $item->technologies,
-                    'files' => $portfolio_photos->where('portfolio_entry_id', $item->id)
-               ];
-           }
-
-        
-      */
             $data = Portfolio::findOrFail($id);   
             return response($data);
         } 
