@@ -3,8 +3,15 @@
             <section class="container"> 
                <h2>Settings</h2>        
                 <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/api/update-user-settings/{{$id}}">
+                    <script type="text/javascript" src="/js/imagePreview.js"></script>
                     <input name="_method" type="hidden" value="PUT">
                     {{ csrf_field() }}
+                      <img id="imgPreview" class="img-fluid" src="/storage/{{$data->profile_image}}" alt="image preview">
+                    <div class="form-group">
+                        <input type="file" id="profile_image" name="profile_image" accept="image/*" onchange='previewImageToUpload("profile_image")'>
+                    </div>
+                    <div class="my-3 d-none alert alert-warning error error-image" role="alert">
+                    </div>
                     <div class="form-group">
                         <label for="title">Bio:</label>
                         <textarea id="article-ckeditor" class="form-control" name="bio">{{$data->bio}}</textarea>

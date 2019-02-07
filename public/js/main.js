@@ -50568,7 +50568,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page" }, [
     _c("div", { staticClass: " row" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "col-sm-4 text-center" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/storage/" + this.data.profile_image, alt: "" }
+        })
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-8" }, [
         _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } }),
@@ -50580,19 +50585,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-4 text-center" }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "imgs/leo-felipa.jpeg", alt: "" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

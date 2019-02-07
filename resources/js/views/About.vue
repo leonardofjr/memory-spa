@@ -2,7 +2,7 @@
   <div class="page">
         <div class=" row">
             <div class="col-sm-4 text-center">
-                <img src="imgs/leo-felipa.jpeg" alt="" class="img-fluid">
+                <img :src='"/storage/" + this.data.profile_image' alt="" class="img-fluid">
             </div>
 
             <div class="col-sm-8">
