@@ -32,7 +32,7 @@ class BasicValidation {
     }
 }
 
-    $('#addWorkForm').submit(function () {
+    $('#addWorkForm, #editWorkForm').submit(function () {
         event.preventDefault();
         $.ajax({
             url: $(this).attr('action'),

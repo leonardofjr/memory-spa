@@ -7,9 +7,8 @@
                  <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
                     <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{$data->title}}">
-                    <div class="flash-message-title d-none">
-                        <span></span>
+                <input type="text" class="form-control" name="title" value="{{$data->title}}">
+                   <div class="my-3 d-none alert alert-warning error error-title" role="alert">
                     </div>
                 </div>
                 
@@ -24,8 +23,7 @@
                                 @endif
                             @endforeach
                         </select>
-                    <div class="flash-message-type d-none">
-                        <span></span>
+                   <div class="my-3 d-none alert alert-warning error error-type" role="alert">
                     </div>
                 </div>
 
@@ -34,8 +32,13 @@
                 <div class="form-group">
                     <label for="description">Description:</label>
                     <textarea type="text" id="summernote" class="form-control" id="description" name="description">{{$data->description}} </textarea>
-                    <div class="flash-message-description d-none">
-                        <span></span>
+                    <div class="my-3 d-none alert alert-warning error error-description" role="alert">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="website_url">Website Url:</label>
+                    <input type="text" class="form-control" name="website_url" value="{{$data->website_url}} ">
+                   <div class="my-3 d-none alert alert-warning error error-website-url" role="alert">
                     </div>
                 </div>
                 <div class="form-group">

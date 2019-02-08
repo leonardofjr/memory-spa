@@ -26,7 +26,7 @@
             
                 <!-- File Selector -->
                 <div class="form-group">
-                    <label for="image">Image:</label>
+                    <label for="file_1">Image:</label>
                     <input type="file" class="form-control" name="file_1" >
                    <div class="my-3 d-none alert alert-warning error error-file" role="alert">
                     </div>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Website Url:</label>
+                    <label for="website_url">Website Url:</label>
                     <input type="text" class="form-control" name="website_url" >
                    <div class="my-3 d-none alert alert-warning error error-website-url" role="alert">
                     </div>
