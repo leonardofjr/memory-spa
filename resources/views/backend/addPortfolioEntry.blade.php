@@ -6,23 +6,21 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="title">Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" >
-                    <div class="alert alert-warning mt-2 flash-message-title d-none">
-                        <span></span>
+                    <input type="text" class="form-control" name="title" >
+                   <div class="my-3 d-none alert alert-warning error error-title" role="alert">
                     </div>
                 </div>
                  <input type="hidden" name="user_id" value="{{Auth::user()->id }}">
 
                 <div class="form-group">
                     <label for="type">Type:</label>
-                        <select class="form-control" id="type" name="type" >
+                        <select class="form-control"  name="type" >
                             @foreach($type_dropdown as $type)
                                     <option value="{{strtolower($type)}}">{{$type}}</option>
                       
                             @endforeach
                         </select>
-                    <div class="alert alert-warning mt-2 flash-message-type d-none">
-                        <span></span>
+                   <div class="my-3 d-none alert alert-warning error error-type" role="alert">
                     </div>
                 </div>
             
@@ -30,8 +28,7 @@
                 <div class="form-group">
                     <label for="image">Image:</label>
                     <input type="file" class="form-control" name="file_1" >
-                        <div class="alert alert-warning mt-2 flash-message-image d-none">
-                        <span></span>
+                   <div class="my-3 d-none alert alert-warning error error-file" role="alert">
                     </div>
                 </div>
         
@@ -40,17 +37,15 @@
                                 
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea type="text" class="form-control" id="description" name="description" ></textarea>
-                        <div class="alert alert-warning mt-2 flash-message-description d-none">
-                        <span></span>
+                    <textarea type="text" class="form-control"  name="description" ></textarea>
+                    <div class="my-3 d-none alert alert-warning error error-description" role="alert">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Website Url:</label>
-                    <input type="text" class="form-control" id="description" name="website_url" >
-                        <div class="alert alert-warning mt-2 flash-message-website-url d-none">
-                        <span></span>
+                    <input type="text" class="form-control" name="website_url" >
+                   <div class="my-3 d-none alert alert-warning error error-website-url" role="alert">
                     </div>
                 </div>
                 <div class="form-group">
