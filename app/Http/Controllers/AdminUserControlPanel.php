@@ -18,7 +18,7 @@ class AdminUserControlPanel extends Controller
         return view('backend.skillsPage')->with('data', $user->skills);
     }
   
-    public function getWorkPage() {
+    public function getPortfolioPage() {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
@@ -39,7 +39,21 @@ class AdminUserControlPanel extends Controller
 
        return view('backend.home')->withData($data);
     }
-  
+
+    public function getAddPortfolioEntryPage()
+    {
+        $helper = new HelperMethodsController;
+        $programming_languages = $helper->listOfProgrammingLanguages();
+        $type_dropdown = $helper->typeDrowndown();
+       // Passing in array of $langauges to View
+        return view('backend.addPortfolioEntry')->with([
+
+            'type_dropdown' => $type_dropdown,
+            'programming_languages' => $programming_languages
+        ]);
+    }
+
+   
     public function getEditPortfolioPage($id) {
         $helper = new HelperMethodsController();
         $programming_languages = $helper->listOfProgrammingLanguages();

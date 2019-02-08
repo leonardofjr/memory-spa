@@ -17,12 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 /* Frontend */
-Route::get('/home', 'FrontendController@index')->name('home');
-Route::get('/portfolio', 'FrontendController@portfolio')->name('portfolio');
+Route::get('/home', 'FrontendController@getHomePage')->name('home');
+Route::get('/portfolio', 'FrontendController@getPortfolioPage')->name('portfolio');
 Route::get('/about', 'FrontendController@getAboutPage')->name('about');
 Route::get('/skills', 'FrontendController@getSkillsPage')->name('skills');
-Route::get('/details/{id}', 'FrontendController@getPortfolioEntryById');
-Route::get('/contact', 'FrontendController@getContactPage');
+Route::get('/contact', 'FrontendController@getContactPage')->name('contact');
 
 
 // ** Backend ** 
@@ -33,7 +32,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('setup', 'AdminUserControlPanel@getSetupPage')->name('Setup');
     Route::get('setup-skills', 'AdminUserControlPanel@getSetupSkillsPage')->name('Setup Skills');
     Route::get('skills', 'AdminUserControlPanel@getSkillsPage')->name('Edit Skills');
-    Route::get('portfolio', 'AdminUserControlPanel@getWorkPage')->name('Portfolio Entries');
+    Route::get('portfolio', 'AdminUserControlPanel@getPortfolioPage')->name('Portfolio Entries');
     Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
-    Route::get('portfolio/add', 'PortfolioController@getAddPortfolioEntry')->name('Add Portfolio Entry');
+    Route::get('portfolio/add', 'AdminUserControlPanel@getAddPortfolioEntryPage')->name('Add Portfolio Entry');
 });

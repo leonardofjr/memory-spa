@@ -23,7 +23,7 @@
                     <ul>
                         <li><a href="{{route('User Settings')}}">Settings</a></li>
                     <li><a href="{{route('Edit Skills')}}">Skills</a></li>
-                        <li><a href="{{route('Portfolio Entries')}}">Work</a></li>
+                        <li><a href="{{route('Portfolio Entries')}}">Portfolio</a></li>
                     </ul>
                 </aside>
 

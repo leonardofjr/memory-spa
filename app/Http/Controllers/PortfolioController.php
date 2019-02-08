@@ -23,19 +23,7 @@ use Storage;
 class PortfolioController extends Controller
 {
 
-    public function getAddPortfolioEntry() {
-        $helper = new HelperMethodsController;
-        $programming_languages = $helper->listOfProgrammingLanguages();
-        $type_dropdown = $helper->typeDrowndown();
-       // Passing in array of $langauges to View
-       return view('backend.addPortfolioEntry')->with([
-           
-           'type_dropdown' =>$type_dropdown,
-           'programming_languages' => $programming_languages
-           ]);
-   }
 
-   
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
     $helper = new HelperMethodsController;
     $file_1 = $request->file_1;
