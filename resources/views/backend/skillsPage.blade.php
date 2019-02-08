@@ -1,9 +1,8 @@
 @extends('layouts.admin')
 @section('content')
             <section class="container"> 
-            <h2>Skills</h2>
-
-            <form id="profileSettingsForm" method="POST" action="/api/update-setup-skills/1">
+            <h2>{{\Request::route()->getName()}}</h2>
+            <form id="profileSettingsForm" method="POST" action="/api/update-setup-skills/{{$data->id}}">
                 {{ csrf_field() }}
                 <input name="_method" type="hidden" value="PUT">
                 <div class="form-group">

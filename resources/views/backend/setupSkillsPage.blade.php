@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
             <section class="container"> 
-               <h2>Set your skills</h2>
+            <h2>{{\Request::route()->getName()}}</h2>
                 <form id="setupSkillsForm" method="POST" enctype="multipart/form-data" action="/api/post-setup-skills">
                     {{ csrf_field() }}
                         <input type="hidden" name="user_id" value="{{Auth::user()->id }}">

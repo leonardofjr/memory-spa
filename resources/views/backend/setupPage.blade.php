@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
             <section class="container"> 
-               <h2>Setup your website</h2>
+            <h2>{{\Request::route()->getName()}}</h2>
                 <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/api/post-user-settings">
                     <script type="text/javascript" src="/js/imagePreview.js"></script>
                     {{ csrf_field() }}

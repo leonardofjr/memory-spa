@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
             <section class="container"> 
-            <h2>Add Work</h2>
+            <h2>{{\Request::route()->getName()}}</h2>
             <form id="addWorkForm" method="POST" enctype="multipart/form-data" action="/api/post-portfolio-entry">
                 {{ csrf_field() }}
                 <div class="form-group">
