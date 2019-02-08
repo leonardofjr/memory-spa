@@ -58,9 +58,10 @@ class AdminUserControlPanel extends Controller
         $helper = new HelperMethodsController();
         $programming_languages = $helper->listOfProgrammingLanguages();
         $type_dropdown = $helper->typeDrowndown();
-        $portfolio_data = Portfolio::findOrFail($id);
+        $portfolio = Portfolio::findOrFail($id);
+        $portfolio_photos = PortfolioPhoto::all();
         return view('backend.editWorkPost')->with([
-            'data' => $portfolio_data,
+            'data' => $portfolio,
             'type_dropdown' => $type_dropdown,
             'programming_languages' => $programming_languages,
             ]);

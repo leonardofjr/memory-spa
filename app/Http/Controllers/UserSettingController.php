@@ -33,17 +33,23 @@ class UserSettingController extends Controller
     }
     function updateUserSettings(Request $request, $id)
     {
-        $user_settings = UserSetting::findOrFail($id);
-        $user_settings->profile_image = $request->profile_image;
-        $user_settings->bio = $request->bio;
-        $user_settings->phone = $request->phone;
-        $user_settings->twitter_url = $request->twitter_url;
-        $user_settings->facebook_url = $request->facebook_url;
-        $user_settings->instagram_url = $request->instagram_url;
-        $user_settings->github_url = $request->github_url;
-        $user_settings->email = $request->email;
-        $user_settings->save();
-        return redirect('admin/settings');
+        if ($request->hasFile('profile_image')) {
+
+            $file = $request->file('profile_image')->store('public');
+            
+            $user_settings = UserSetting::findOrFail($id);
+            $user_settings->profile_image = basename($file);
+            $user_settings->bio = $request->bio;
+            $user_settings->phone = $request->phone;
+            $user_settings->twitter_url = $request->twitter_url;
+            $user_settings->facebook_url = $request->facebook_url;
+            $user_settings->instagram_url = $request->instagram_url;
+            $user_settings->github_url = $request->github_url;
+            $user_settings->email = $request->email;
+            
+            $user_settings->save();
+            return redirect('admin/settings');
+        }
 
     }
 

@@ -23,17 +23,17 @@
                    <div class="my-3 d-none alert alert-warning error error-type" role="alert">
                     </div>
                 </div>
-            
                 <!-- File Selector -->
+                <script type="text/javascript" src="/js/imagePreview.js"></script>
+                <img id="imgPreview" class="img-fluid" src="https://via.placeholder.com/150" alt="image preview">
+
                 <div class="form-group">
                     <label for="file_1">Image:</label>
-                    <input type="file" class="form-control" name="file_1" >
+                    <input type="file" class="form-control" id="file_1" name="file_1" onchange='previewImageToUpload("file_1")'>
                    <div class="my-3 d-none alert alert-warning error error-file" role="alert">
                     </div>
                 </div>
-        
-
-                <!-- File Selector END -->
+                <!-- File Selector END -->      
                                 
                 <div class="form-group">
                     <label for="description">Description:</label>

@@ -11,7 +11,7 @@ class Portfolio extends Model
 
     public function portfolio_entries()
     {
-        return $this->hasMany('App\PortfolioPhoto', 'portfolio_entry_id');
+        return $this->hasOne('App\PortfolioPhoto', 'portfolio_entry_id');
     }
 
     public function user()
