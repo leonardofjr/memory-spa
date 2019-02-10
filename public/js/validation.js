@@ -33,20 +33,22 @@ class BasicValidation {
 }
 
     $('#addWorkForm, #editWorkForm').submit(function () {
+        let formData = new FormData($(this)[0]);
+
         event.preventDefault();
         $.ajax({
             url: $(this).attr('action'),
             type: $(this).attr('method'),
             dataType: 'json',
-            data: $(this).serialize(),
+            processData: false,
+            contentType: false,
+            data: formData,
 
             success: function (data, status) {
-                if (status === 'success') {
-                    $('.flash-message-success').removeClass('d-none');
-                }
+                location.href = data.redirect;
             },
             error: function (err) {
-                console.log(err.responseJSON.errors)
+                console.log(err)
                 let validation = new BasicValidation();
                 validation.addField('.error-title', err.responseJSON.errors.title);
                 validation.addField('.error-description', err.responseJSON.errors.description);
@@ -61,38 +63,38 @@ class BasicValidation {
 
         return false;
     });
+    $('#setupPageForm').submit(function () {
 
-
-    $('#gallery-upload-form').submit(function () {
-        var formData = new FormData($('#gallery-upload-form')[0]);
-        if ($('#gallery-overlay-checkbox').attr('data-id')) {
-            formData.set('gallery-overlay-checkbox', $('#gallery-overlay-checkbox').attr('data-id'));
+        // Fix to save textarea field value using CKEDITOR
+        for (instance in CKEDITOR.instances) {
+            CKEDITOR.instances[instance].updateElement();
         }
+        // Storing Form data into variable
+        let formData = new FormData($(this)[0]);
+
+        event.preventDefault();
+
         $.ajax({
             url: $(this).attr('action'),
             type: $(this).attr('method'),
             dataType: 'json',
             processData: false,
             contentType: false,
-            headers: {
-                'X-CSRF-Token': $('[name="_token"]').val()
-            },
             data: formData,
-
             success: function (data, status) {
-                if (status === 'success') {
-                    console.log(data);
-                    location.href = '/admin/user-panel/gallery/';
-                }
+                location.href = data.redirect;
             },
-            error: function (xhr, status, err) {
-                response = err.responseJSON;
-                console.log(xhr.responseText);
+            error: function (err) {
+                console.log(err);
+                let validation = new BasicValidation();
+                validation.addField('.error-bio', err.responseJSON.errors.bio);
+                validation.init('.error');
             }
         });
 
         return false;
     });
+
 
 
 

@@ -27,7 +27,6 @@ class PortfolioEntryRequest extends FormRequest
                 'title' => 'required|min:2|max:25',
                 'description' => 'required|min:50|max:1000',
                 'website_url' => 'required',
-                'file_1' => 'required',
         ];
     }
 
@@ -41,7 +40,6 @@ class PortfolioEntryRequest extends FormRequest
                 'description.max' => 'Description field must be less than 1000 characters',
                 'description.min' => 'Description field must be greater than 50 characters',
                 'website_url.required' => 'Website url field is required',
-                'file_1.required' => 'Image is required',
         ];
     }
 }

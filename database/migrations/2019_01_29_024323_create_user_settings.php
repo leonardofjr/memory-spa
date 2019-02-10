@@ -16,10 +16,10 @@ class CreateUserSettings extends Migration
         Schema::create('user_settings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->text('bio')->nullable();
+            $table->text('bio');
             $table->string('profile_image')->nullable();
-            $table->string('phone');
-            $table->string('email');
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('instagram_url')->nullable();
             $table->string('twitter_url')->nullable();

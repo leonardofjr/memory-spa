@@ -26,7 +26,6 @@ class PortfolioController extends Controller
 
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
     $helper = new HelperMethodsController;
-    $file_1 = $request->file_1;
     if ($request->hasFile('file_1') ) {
         // Storing File into variable and storing file in the the storage public folder
         $file_1 = $request->file('file_1')->store('public');
@@ -41,6 +40,8 @@ class PortfolioController extends Controller
             $request->input('laravel'),
         ];
 
+        // Preparing data to database
+
         $portfolio = new Portfolio([
             'user_id' => $request->user_id,
             'title' => $request->title,
@@ -51,13 +52,17 @@ class PortfolioController extends Controller
 
         ]);
         $portfolio_photos = new PortfolioPhoto([
-            'filename_1' => basename($file_1),
+            'filename_1' => $request->file_1->hashName(),
         ]);
         $portfolio->save();
         $portfolio->portfolio_entries()->save($portfolio_photos);
-        return redirect('admin/portfolio');
+
+        // Responding by sending redirect value 
+        return response()->json([
+            "redirect" => "/admin/portfolio",
+        ]);
     }   else {
-            response('fail');
+            return false;
     }
    }
 
@@ -74,18 +79,37 @@ class PortfolioController extends Controller
            $request->input('laravel'),
        ];
 
-       $data = [
-           'title' => $request->input('title'),
-           'description' => $request->input('description'),
-           'website_url' => $request->website_url,
-           'type' => $request->input('type'),
-           'technologies' => json_encode($helper->array_filter_null($technologies)),
-       ];
+      // Searching by Users corresponding id
+        $portfolio = Portfolio::findOrFail($id);
+        $portfolio_photos = PortfolioPhoto::findOrFail($id);
+       
+        // Getting current file name
+        $current_file = $portfolio_photos->filename_1;
+            
+        // Removing file from storage
+        Storage::disk('public')->delete($current_file);
 
-       DB::table('portfolio')
-           ->where('id', $id)
-           ->update($data);
-       return response()->json($data);
+        // Storing new File using laravels file storage
+        $new_file = $request->file('file_1')->store('public');
+
+        // Preparing updated data to database
+        $portfolio->title = $request->title;
+        $portfolio->description = $request->description;
+        $portfolio->website_url = $request->website_url;
+        $portfolio->type = $request->type;
+        $portfolio->technologies = json_encode($helper->array_filter_null($technologies));
+
+        // Saving data to database
+        $portfolio->save();
+        // Updating Portfolio Photo Table 
+        PortfolioPhoto::where('portfolio_entry_id', $id)->update([
+            'filename_1' => $request->file_1->hashName(),
+        ]);
+
+        // Responding by sending redirect value 
+        return response()->json([
+            "redirect" => "/admin/portfolio",
+        ]);
    }
    
    public function deletePortfolioEntry(Request $request, $id) {

@@ -83,7 +83,7 @@ class AdminUserControlPanel extends Controller
     public function getSetupPage()
     {
         if (!request()->is('setup') && url()->previous() != url('register') ) {
-            return redirect()-to('register');
+            return redirect()->to('register');
         }
         else {
             return view('backend.setupPage');
