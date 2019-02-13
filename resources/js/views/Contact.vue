@@ -1,11 +1,11 @@
 <template>
   <div id="contact" class="page">
     <div class="row">
-        <div class=" col-lg-4">
+        <div class=" col-lg-5">
             <!-- If email is not null -->
            <div v-if="data.email">
             <h3>EMAIL</h3>
-                <i class="fas fa-envelope"></i> <a :href="data.email">{{data.email}}</a>
+                <i class="fas fa-envelope"></i> <a :href="'mailto:' + data.email">{{data.email}}</a>
                 <p><b>-or-</b></p>
             </div>
             <h3>FIND ME HERE</h3>
@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="col-lg-8">
+        <div class="col-lg-7">
             <form method="POST" action="/contact" class="mr-auto ml-auto py-4 contact-form">  
                 <div class="form-group">
                     <input class="form-control" type="text" name="contactFormEmail" placeholder="EMAIL"/>
