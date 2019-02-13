@@ -100,7 +100,7 @@
               </nav>
               <div class="py-1 pl-3 social-icons d-none d-lg-block">
                   <!-- Contact link icons -->
-                  <p class="pb-1">Get In touch</p>
+                  <p class="pb-1 pl-0">Get In touch</p>
                   <!-- If email is not null -->
                   <span v-if="data.email" class="px-1">
                         <a :href="'mailto:' + data.email">

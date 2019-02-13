@@ -3,22 +3,17 @@
 
 aside {
     
-        background-color: #ef3b39;
+        background-color: $primary-color;
 
-        color: rgba(255, 255, 255, .8);
+        color: $sidebar-font-color;
 
         a {
-            color: rgba(255, 255, 255, .8);
+            color: $sidebar-font-color;
         }
         a:hover {
-        color: rgba(255, 255, 255, 1);
-
+            color: $sidebar-hyperlink-font-color;
         }
 
-        .nav a:hover {
-            text-decoration: underline;
-            color: #fff;
-        }
 
         .navbar-toggler {
             border-color: white;
@@ -29,6 +24,17 @@ aside {
                 max-width: 190px;
             }
         }
+
+        @media (max-width: 992px) {
+            .nav {
+                text-align: right;
+                .nav-link {
+                    padding-top: .9rem;
+                    padding-bottom: .9rem;
+                }
+            }
+        }
+
 }
 
 

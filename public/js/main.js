@@ -50521,7 +50521,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "py-1 pl-3 social-icons d-none d-lg-block" }, [
-        _c("p", { staticClass: "pb-1" }, [_vm._v("Get In touch")]),
+        _c("p", { staticClass: "pb-1 pl-0" }, [_vm._v("Get In touch")]),
         _vm._v(" "),
         _vm.data.email
           ? _c("span", { staticClass: "px-1" }, [
@@ -50711,7 +50711,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: " row", attrs: { id: "home" } }, [
-      _c("div", { staticClass: "col-sm-12 col-12" }, [
+      _c("div", { staticClass: "col-12" }, [
         _c("h2", { staticClass: "text-center" }, [
           _c("b", [_vm._v("Hi!")]),
           _c("br"),

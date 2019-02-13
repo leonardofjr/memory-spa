@@ -247,7 +247,7 @@ h4 {
 /** Components **/
 
 aside {
-  background-color: #ef3b39;
+  background-color: #EB2427;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -256,11 +256,6 @@ aside a {
 }
 
 aside a:hover {
-  color: white;
-}
-
-aside .nav a:hover {
-  text-decoration: underline;
   color: #fff;
 }
 
@@ -270,6 +265,17 @@ aside .navbar-toggler {
 
 aside .user .avatar {
   max-width: 190px;
+}
+
+@media (max-width: 992px) {
+  aside .nav {
+    text-align: right;
+  }
+
+  aside .nav .nav-link {
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+  }
 }
 
 .btn-primary {
@@ -284,6 +290,14 @@ aside .user .avatar {
   padding-top: 50px;
   color: #000;
   height: 100vh;
+}
+
+#frontend a {
+  color: #EB2427;
+}
+
+#frontend a:hover {
+  text-decoration: underline;
 }
 
 footer {

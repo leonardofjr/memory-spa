@@ -1,5 +1,13 @@
+@import "../helpers/_variables";
+
 #frontend {
     padding-top: 50px;
     color: #000;
     height: 100vh;
+    a {
+        color: $primary-color;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
 }

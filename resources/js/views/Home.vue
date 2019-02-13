@@ -1,6 +1,6 @@
 <template>
         <div id="home" class=" row">
-            <div class="col-sm-12 col-12">
+            <div class="col-12">
                 <h2 class="text-center"><b>Hi!</b><br>I'm <span class="developer-name">Leo</span></h2>
                 <div class="text-center">
                     <img src="imgs/leo-illustration.svg" class="mt-5 mb-2 img-fluid" style="max-width: 600px"  alt="">
