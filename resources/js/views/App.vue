@@ -1,6 +1,6 @@
 <template>     
       <div class="row">
-        <aside class="col-sm-3 nav-bg">
+        <aside class="col-lg-3 nav-bg">
           <!-- If user is null -->  
           <div  v-if="!user" class="mr-3 my-3 text-right">
             <a  class="ml-2" href="/login">Login</a> 
@@ -54,7 +54,7 @@
               <!-- Navigation Links -->
               <nav class="navbar navbar-expand-lg my-3 " style="z-index: 1000">            
                 
-                <div class="py-1 pl-3 social-icons d-block d-sm-none">
+                <div class="py-1 pl-3 social-icons d-block d-lg-none">
                   <!-- If email is not null -->
                   <span v-if="data.email" class="px-1">
                         <a :href="'mailto:' + data.email">
@@ -98,7 +98,7 @@
                       </div>
                   </div>
               </nav>
-              <div class="py-1 pl-3 social-icons d-none d-sm-block">
+              <div class="py-1 pl-3 social-icons d-none d-lg-block">
                   <!-- Contact link icons -->
                   <p class="pb-1">Get In touch</p>
                   <!-- If email is not null -->
@@ -134,7 +134,7 @@
                 </div>        
           </aside>
 
-          <main id="frontend" class="col-sm-9">
+          <main id="frontend" class="col-lg-9">
                     <transition
                     name="fade"
                       :name="transitionName"

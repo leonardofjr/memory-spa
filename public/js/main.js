@@ -50269,7 +50269,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("aside", { staticClass: "col-sm-3 nav-bg" }, [
+    _c("aside", { staticClass: "col-lg-3 nav-bg" }, [
       !_vm.user
         ? _c("div", { staticClass: "mr-3 my-3 text-right" }, [
             _c("a", { staticClass: "ml-2", attrs: { href: "/login" } }, [
@@ -50415,7 +50415,7 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "py-1 pl-3 social-icons d-block d-sm-none" },
+            { staticClass: "py-1 pl-3 social-icons d-block d-lg-none" },
             [
               _vm.data.email
                 ? _c("span", { staticClass: "px-1" }, [
@@ -50520,7 +50520,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "py-1 pl-3 social-icons d-none d-sm-block" }, [
+      _c("div", { staticClass: "py-1 pl-3 social-icons d-none d-lg-block" }, [
         _c("p", { staticClass: "pb-1" }, [_vm._v("Get In touch")]),
         _vm._v(" "),
         _vm.data.email
@@ -50569,7 +50569,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "main",
-      { staticClass: "col-sm-9", attrs: { id: "frontend" } },
+      { staticClass: "col-lg-9", attrs: { id: "frontend" } },
       [
         _c(
           "transition",
