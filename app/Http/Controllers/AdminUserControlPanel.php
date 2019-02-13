@@ -15,7 +15,7 @@ class AdminUserControlPanel extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
-        return view('backend.skillsPage')->with('data', $user->skills);
+        return view('backend.skillsPage')->with('data', $user);
     }
   
     public function getPortfolioPage() {
@@ -71,25 +71,9 @@ class AdminUserControlPanel extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('backend.settingsPage')->with([
-            'data' => $user->user_settings,
+            'data' => $user,
             'id' => $user_id
             ]);
-    }
-
-    public function getSetupSkillsPage() {
-        return view('backend.setupSkillsPage')->withSkills($this->getSkillsArray());
-    }
-
-    public function getSetupPage()
-    {
-        if (!request()->is('setup') && url()->previous() != url('register') ) {
-            return redirect()->to('register');
-        }
-        else {
-            return view('backend.setupPage');
-
-        }
-        
     }
 
     public function getSkillsArray() {

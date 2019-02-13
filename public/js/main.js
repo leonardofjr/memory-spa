@@ -51170,12 +51170,12 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.data.instagram_url
+        _vm.data.linkedin_url
           ? _c("div", [
-              _c("i", { staticClass: "fab fa-instagram" }),
+              _c("i", { staticClass: "fab fa-linkedin-in" }),
               _vm._v(" "),
-              _c("a", { attrs: { href: _vm.data.instagram_url } }, [
-                _vm._v(_vm._s(_vm.data.instagram_url))
+              _c("a", { attrs: { href: _vm.data.linkedin_url } }, [
+                _vm._v(_vm._s(_vm.data.linkedin_url))
               ]),
               _c("br")
             ])

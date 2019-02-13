@@ -4,70 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserSettingsRequest;
-use App\UserSetting;
+use App\User;
 use App\Skill;
 use Illuminate\Support\Facades\Storage;
 
 class UserSettingController extends Controller
 {
 
-    function createUserSettings(UserSettingsRequest $request)
-    {
-        if ($request->hasFile('profile_image')) {
-            // Storing new File using laravels file storage
-            $file = $request->file('profile_image')->store('public');
 
-            // Preparing data
-            $user_settings = new UserSetting([
-                'user_id' => $request->user_id,
-                'bio' => $request->bio,
-                'phone' => $request->phone,
-                'twitter_url' => $request->twitter_url,
-                'facebook_url' => $request->facebook_url,
-                'instagram_url' => $request->instagram_url,
-                'github_url' => $request->github_url,
-                'email' => $request->email,
-                'profile_image' => $request->profile_image->hashName(),
-            ]);
-
-            // Storing data to database
-            $user_settings->save();
-
-           // Responding by sending redirect value 
-            return response()->json([
-                "redirect" => "/admin/setup-skills",
-            ]);
-        } else {
-            // Preparing data
-            $user_settings = new UserSetting([
-                'user_id' => $request->user_id,
-                'bio' => $request->bio,
-                'phone' => $request->phone,
-                'twitter_url' => $request->twitter_url,
-                'facebook_url' => $request->facebook_url,
-                'instagram_url' => $request->instagram_url,
-                'github_url' => $request->github_url,
-                'email' => $request->email,
-            ]);
-            // Storing data to database
-            $user_settings->save();
-
-           // Responding by sending redirect value 
-            return response()->json([
-                "redirect" => "/admin/setup-skills",
-            ]);
-
-        }
-    }
     function updateUserSettings(UserSettingsRequest $request, $id)
     {
         if ($request->hasFile('profile_image')) {
                         
             // Searching by Users corresponding id
-            $user_settings = UserSetting::findOrFail($id);
+            $user = User::findOrFail($id);
             
             // Getting current file name
-            $current_file = $user_settings->profile_image;
+            $current_file = $user->profile_image;
             
             // Removing file from storage
             Storage::disk('public')->delete($current_file);
@@ -76,16 +29,16 @@ class UserSettingController extends Controller
             $new_file = $request->file('profile_image')->store('public');
 
             // Preparing updated data to database
-            $user_settings->profile_image = $request->profile_image->hashName();
-            $user_settings->bio = $request->bio;
-            $user_settings->phone = $request->phone;
-            $user_settings->twitter_url = $request->twitter_url;
-            $user_settings->facebook_url = $request->facebook_url;
-            $user_settings->instagram_url = $request->instagram_url;
-            $user_settings->github_url = $request->github_url;
-            $user_settings->email = $request->email;
+            $user->profile_image = $request->profile_image->hashName();
+            $user->bio = $request->bio;
+            $user->phone = $request->phone;
+            $user->twitter_url = $request->twitter_url;
+            $user->facebook_url = $request->facebook_url;
+            $user->linkedin_url = $request->linkedin_url;
+            $user->github_url = $request->github_url;
+            $user->email = $request->email;
             // Saving data to database
-            $user_settings->save();
+            $user->save();
             return response()->json([
                 "redirect" => "/admin/settings",
             ]);
@@ -93,18 +46,18 @@ class UserSettingController extends Controller
 
         else {
             // Searching by his corresponding id
-            $user_settings = UserSetting::findOrFail($id);
+            $user = User::findOrFail($id);
          
             // Updating Database
-            $user_settings->bio = $request->bio;
-            $user_settings->phone = $request->phone;
-            $user_settings->twitter_url = $request->twitter_url;
-            $user_settings->facebook_url = $request->facebook_url;
-            $user_settings->instagram_url = $request->instagram_url;
-            $user_settings->github_url = $request->github_url;
-            $user_settings->email = $request->email;
+            $user->bio = $request->bio;
+            $user->phone = $request->phone;
+            $user->twitter_url = $request->twitter_url;
+            $user->facebook_url = $request->facebook_url;
+            $user->linkedin_url = $request->linkedin_url;
+            $user->github_url = $request->github_url;
+            $user->email = $request->email;
 
-            $user_settings->save();
+            $user->save();
             return response()->json([
                 "redirect" => "/admin/settings",
             ]);
@@ -112,46 +65,25 @@ class UserSettingController extends Controller
 
     }
 
-    function createSkills(Request $request) {
-        $skill = new Skill([
-            'user_id' => $request->user_id,
-            'skills-and-offer' => $request->skills_and_offer,
-            'html' => $request->html,
-            'css' => $request->css,
-            'javascript' => $request->javascript,
-            'php' => $request->php,
-            'bootstrap' => $request->bootstrap,
-            'angular' => $request->angular,
-            'vuejs' => $request->vuejs,
-            'laravel' => $request->laravel,
-            'expressjs' => $request->expressjs,
-            'git' => $request->git,
-            'windows' => $request->windows,
-            'mac' => $request->mac,
-            'linux' => $request->linux,
-        ]);
 
-        $skill->save();
-        return redirect('/admin/settings');
-
-    }
     function updateSkills(Request $request, $id) {
-        $skill = Skill::findOrFail($id);
-        $skill->skills_and_offer = $request->skills_and_offer;
-        $skill->html = $request->html;
-        $skill->css = $request->css;
-        $skill->javascript = $request->javascript;
-        $skill->php = $request->php;
-        $skill->bootstrap = $request->bootstrap;
-        $skill->angular = $request->angular;
-        $skill->vuejs = $request->vuejs;
-        $skill->laravel = $request->laravel;
-        $skill->expressjs = $request->expressjs;
-        $skill->git = $request->git;
-        $skill->windows = $request->windows;
-        $skill->mac = $request->mac;
-        $skill->linux = $request->linux;
-        $skill->save();
+        $user = User::findOrFail($id);
+        $user->skills_and_offer = $request->skills_and_offer;
+        /*
+        $user->html = $request->html;
+        $user->css = $request->css;
+        $user->javascript = $request->javascript;
+        $user->php = $request->php;
+        $user->bootstrap = $request->bootstrap;
+        $user->angular = $request->angular;
+        $user->vuejs = $request->vuejs;
+        $user->laravel = $request->laravel;
+        $user->expressjs = $request->expressjs;
+        $user->git = $request->git;
+        $user->windows = $request->windows;
+        $user->mac = $request->mac;
+        $user->linux = $request->linux; */
+        $user->save();
         return redirect('/admin/skills');
     }
 

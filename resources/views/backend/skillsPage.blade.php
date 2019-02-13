@@ -9,7 +9,7 @@
                     <label for="title">Skills & Offer:</label>
                     <textarea id="article-ckeditor" class="form-control" name="skills_and_offer">{{$data->skills_and_offer}}</textarea>
                 </div>
-                <div class="form-group">
+              <!--  <div class="form-group">
                     <label for="title">HTML5</label>
                 <input type="range" class="form-control" id="html5" name="html" value="{{$data->html}}" onchange='evalSlider(this.id)'>
                     <output></output>
@@ -73,7 +73,7 @@
                     <label for="title">Linux</label>
                 <input type="range" class="form-control" id="linux" name="linux" value="{{$data->linux}}" onchange='evalSlider(this.id)'>
                     <output></output>
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </section>

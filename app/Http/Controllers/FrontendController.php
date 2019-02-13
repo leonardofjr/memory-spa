@@ -48,7 +48,7 @@ class FrontendController extends Controller
             $user_id = 1;
         }
             $user = User::find($user_id);
-            $data = $user->user_settings;
+            $data = $user;
         return $data;
     }
     public function getSkillsPage() {
@@ -61,7 +61,7 @@ class FrontendController extends Controller
             $user_id = 1;
         }
             $user = User::find($user_id);
-            $data = $user->skills;
+            $data = $user;
         return $data;
     }
 
@@ -75,7 +75,7 @@ class FrontendController extends Controller
             $user_id = 1;
         }
         $user = User::find($user_id);
-        $data = $user->user_settings;
+        $data = $user;
         return $data;
     }
 

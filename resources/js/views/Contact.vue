@@ -13,9 +13,9 @@
             <div v-if="data.twitter_url">
                 <i class="fab fa-twitter"></i> <a :href="data.twitter_url">{{data.twitter_url}}</a><br>
             </div>
-            <!-- If instagram_url is not null -->
-            <div v-if="data.instagram_url">
-                <i class="fab fa-instagram"></i> <a :href="data.instagram_url">{{data.instagram_url}}</a><br>
+            <!-- If linkedin_url is not null -->
+            <div v-if="data.linkedin_url">
+                <i class="fab fa-linkedin-in"></i> <a :href="data.linkedin_url">{{data.linkedin_url}}</a><br>
             </div>
             <!-- If facebook_url is not null -->
             <div v-if="data.facebook_url"><i class="fab fa-facebook">

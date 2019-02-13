@@ -29,8 +29,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 
     // ** Page Routes //
     Route::get('settings', 'AdminUserControlPanel@getSettingsPage')->name('User Settings');
-    Route::get('setup', 'AdminUserControlPanel@getSetupPage')->name('Setup');
-    Route::get('setup-skills', 'AdminUserControlPanel@getSetupSkillsPage')->name('Setup Skills');
     Route::get('skills', 'AdminUserControlPanel@getSkillsPage')->name('Edit Skills');
     Route::get('portfolio', 'AdminUserControlPanel@getPortfolioPage')->name('Portfolio Entries');
     Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
