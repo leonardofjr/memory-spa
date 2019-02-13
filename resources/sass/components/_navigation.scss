@@ -1,5 +1,20 @@
-@import "../helpers/variables";
+@import "../helpers/_variables";
+@import "../helpers/_mixins";
 
 nav {
     z-index: 10000;
+}
+
+.nav-bg {
+    background-color: #ef3b39;
+    color: #fff;
+
+    @include breakpoint(sm) {
+            height: 100vh;
+
+    }
+
+    a {
+        color: #fff;
+    }
 }
