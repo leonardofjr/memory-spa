@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h2>Skills</h2>
+    <h2>Skills & Offer</h2>
     <div v-html="this.data.skills_and_offer"></div>
   </div>
 </template>

@@ -50242,9 +50242,9 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-item nav-link",
-                        attrs: { to: "/skills" }
+                        attrs: { to: "/skills-and-offer" }
                       },
-                      [_vm._v("SKILLS")]
+                      [_vm._v("SKILLS & OFFER")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -50972,7 +50972,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page" }, [
-    _c("h2", [_vm._v("Skills")]),
+    _c("h2", [_vm._v("Skills & Offer")]),
     _vm._v(" "),
     _c("div", { domProps: { innerHTML: _vm._s(this.data.skills_and_offer) } })
   ])

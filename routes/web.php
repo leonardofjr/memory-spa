@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'FrontendController@getHomePage')->name('home');
 Route::get('/portfolio', 'FrontendController@getPortfolioPage')->name('portfolio');
 Route::get('/about', 'FrontendController@getAboutPage')->name('about');
-Route::get('/skills', 'FrontendController@getSkillsPage')->name('skills');
+Route::get('/skills-and-offer', 'FrontendController@getSkillsPage')->name('skills');
 Route::get('/contact', 'FrontendController@getContactPage')->name('contact');
 
 
