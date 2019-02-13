@@ -1,16 +1,11 @@
 <template>     
       <div class="row">
-        <div class="col-sm-3 nav-bg">
-          <!-- If user is null -->
-          <ul v-if="!user" class="navbar-nav ml-4">
-                  <!-- Authentication Links -->
-                <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/register">Register</a>
-                    </li>
-            </ul>
+        <aside class="col-sm-3 nav-bg">
+          <!-- If user is null -->  
+          <div  v-if="!user" class="mr-3 my-3 text-right">
+            <a  class="ml-2" href="/login">Login</a> 
+            <a  class="ml-2" href="/register">Register</a>
+          </div>
             <!-- else if user data is returned -->
             <ul v-else  class="navbar-nav ml-4">
                 <li class="nav-item dropdown">
@@ -34,24 +29,64 @@
                       </div>
                   </li>
             </ul>
-              
-              <!-- User Image -->
-              <div class="d-flex justify-content-center">
-                  <router-link to="/"  class="navbar-brand"  exact><img :src='"/storage/" + this.data.profile_image' alt="" class="img-fluid rounded-circle py-4"></router-link>
-              </div>
-              
-              <!-- User Name -->
-              <div  class="d-flex justify-content-center">
-                <router-link to="/"  class="navbar-brand"  exact>LEO FELIPA JR.</router-link>
-              </div>
-              <router-link to="/">
 
-              <!-- User Job Title -->
-              <h2 class="text-center h5 pt-1">Full Stack Web Developer</h2></router-link>
-              
+              <!-- User -->
+              <div class="user">
+                <!-- User Avatar -->
+                <div class="user-avatar d-flex justify-content-center">
+                    <router-link to="/"  class="navbar-brand"  exact>
+                      <img :src='"/storage/" + this.data.profile_image' alt="" class="avatar img-fluid rounded-circle my-4">
+                    </router-link>
+                </div>
+                
+                <!-- User Name -->
+                <div  class="user-name d-flex justify-content-center">
+                  <router-link to="/"  class="navbar-brand"  exact>LEO FELIPA JR.</router-link>
+                </div>
+                
+                <!-- User Job Title -->
+                <div class="user-title">
+                <router-link to="/">
+                  <h2 class="text-center h5 pt-1">Full Stack Web Developer</h2>
+                  </router-link>
+                </div>
+              </div>
               <!-- Navigation Links -->
-              <nav class="navbar navbar-expand-lg my-3" style="z-index: 1000">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <nav class="navbar navbar-expand-lg my-3 " style="z-index: 1000">            
+                
+                <div class="py-1 pl-3 social-icons d-block d-sm-none">
+                  <!-- If email is not null -->
+                  <span v-if="data.email" class="px-1">
+                        <a :href="'mailto:' + data.email">
+                          <i class="fas fa-2x fa-envelope"></i>
+                        </a>
+                    </span>
+                    <!-- If twitter_url is not null -->
+                    <span v-if="data.twitter_url" class="px-1">
+                        <a :href="data.twitter_url">
+                          <i class="fab fa-2x fa-twitter"></i>
+                          </a>
+                    </span>
+                    <!-- If linkedin_url is not null -->
+                    <span v-if="data.linkedin_url" class="px-1">
+                        <a :href="data.linkedin_url" class="px-1">
+                          <i class="fab fa-2x fa-linkedin-in"></i> 
+                        </a>
+                    </span>
+                    <!-- If facebook_url is not null -->
+                    <span v-if="data.facebook_url" class="px-1">
+                      <a :href="data.facebook_url">
+                        <i class="fab fa-2x fa-facebook"></i>
+                      </a>
+                    </span>
+                    <!-- If github_url is not null -->
+                    <span v-if="data.github_url" class="px-1">
+                        <a :href="data.github_url">
+                          <i class="fab fa-2x fa-github"></i>
+                        </a>
+                    </span>
+                </div>            
+                  <button class="navbar-toggler navbar-dark ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -63,42 +98,41 @@
                       </div>
                   </div>
               </nav>
-
-            <!-- Contact link icons -->
-            <p class="pb-1">Get In touch</p>
-            <p class="pt-1">
-              <!-- If email is not null -->
-            <span v-if="data.email">
-                  <a :href="'mailto:' + data.email">
-                    <i class="fas fa-2x fa-envelope"></i>
-                  </a>
-              </span>
-              <!-- If twitter_url is not null -->
-              <span v-if="data.twitter_url">
-                  <a :href="data.twitter_url">
-                    <i class="fab fa-2x fa-twitter"></i>
-                    </a>
-              </span>
-              <!-- If linkedin_url is not null -->
-              <span v-if="data.linkedin_url">
-                  <a :href="data.linkedin_url">
-                    <i class="fab fa-2x fa-linkedin-in"></i> 
-                  </a>
-              </span>
-              <!-- If facebook_url is not null -->
-              <span v-if="data.facebook_url">
-                <a :href="data.facebook_url">
-                  <i class="fab fa-2x fa-facebook"></i>
-                </a>
-              </span>
-              <!-- If github_url is not null -->
-              <span v-if="data.github_url">
-                  <a :href="data.github_url">
-                    <i class="fab fa-2x fa-github"></i>
-                  </a>
-              </span>
-            </p>            
-          </div>
+              <div class="py-1 pl-3 social-icons d-none d-sm-block">
+                  <!-- Contact link icons -->
+                  <p class="pb-1">Get In touch</p>
+                  <!-- If email is not null -->
+                  <span v-if="data.email" class="px-1">
+                        <a :href="'mailto:' + data.email">
+                          <i class="fas fa-2x fa-envelope"></i>
+                        </a>
+                    </span>
+                    <!-- If twitter_url is not null -->
+                    <span v-if="data.twitter_url" class="px-1">
+                        <a :href="data.twitter_url">
+                          <i class="fab fa-2x fa-twitter"></i>
+                          </a>
+                    </span>
+                    <!-- If linkedin_url is not null -->
+                    <span v-if="data.linkedin_url" class="px-1">
+                        <a :href="data.linkedin_url" class="px-1">
+                          <i class="fab fa-2x fa-linkedin-in"></i> 
+                        </a>
+                    </span>
+                    <!-- If facebook_url is not null -->
+                    <span v-if="data.facebook_url" class="px-1">
+                      <a :href="data.facebook_url">
+                        <i class="fab fa-2x fa-facebook"></i>
+                      </a>
+                    </span>
+                    <!-- If github_url is not null -->
+                    <span v-if="data.github_url" class="px-1">
+                        <a :href="data.github_url">
+                          <i class="fab fa-2x fa-github"></i>
+                        </a>
+                    </span>
+                </div>        
+          </aside>
 
           <main id="frontend" class="col-sm-9">
                     <transition

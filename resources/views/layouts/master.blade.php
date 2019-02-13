@@ -4,7 +4,7 @@
             <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js"></script>
-        <title>@yield('title')</title>
+        <title>Full-Stack Web Developer - Leo Felipa Jr.</title>
         <meta name="viewport" content="width=device-width, initial scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400|Open+Sans:300,400|Oswald:200,300,400|Roboto:100,300,400|Vollkorn" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

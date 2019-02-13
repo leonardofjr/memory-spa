@@ -1,20 +1,33 @@
 @import "../helpers/_variables";
 @import "../helpers/_mixins";
 
-nav {
-    z-index: 10000;
+aside {
+        background-color: #ef3b39;
+
+        color: rgba(255, 255, 255, .8);
+
+        a {
+            color: rgba(255, 255, 255, .8);
+        }
+        a:hover {
+        color: rgba(255, 255, 255, 1);
+
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .navbar-toggler {
+            border-color: white;
+        }
+
+        .user {
+            .avatar {
+                max-width: 190px;
+            }
+        }
 }
 
-.nav-bg {
-    background-color: #ef3b39;
-    color: #fff;
 
-    @include breakpoint(sm) {
-            height: 100vh;
-
-    }
-
-    a {
-        color: #fff;
-    }
-}

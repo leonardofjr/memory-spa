@@ -1,7 +1,9 @@
 <template>
-  <div class="page">
-    <h2>Skills & Offer</h2>
-    <div v-html="this.data.skills_and_offer"></div>
+  <div id="skills-and-offer" class="row">
+    <div class="col-sm-12">
+        <h2>Skills & Offer</h2>
+        <div v-html="this.data.skills_and_offer"></div>
+    </div>
   </div>
 </template>
 

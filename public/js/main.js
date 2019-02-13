@@ -50161,6 +50161,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var DEFAULT_TRANSITION = 'fade';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50235,106 +50269,108 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-sm-3 nav-bg" },
-      [
-        !_vm.user
-          ? _c("ul", { staticClass: "navbar-nav ml-4" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1)
-            ])
-          : _c("ul", { staticClass: "navbar-nav ml-4" }, [
-              _c("li", { staticClass: "nav-item dropdown" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link dropdown-toggle",
-                    attrs: {
-                      id: "navbarDropdown",
-                      href: "#",
-                      role: "button",
-                      "data-toggle": "dropdown",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _vm._v("\n                    " + _vm._s(_vm.data["name"])),
-                    _c("span", { staticClass: "caret" })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "dropdown-menu dropdown-menu-bg",
-                    attrs: { "aria-labelledby": "navbarDropdown" }
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item",
-                        attrs: { href: "/admin/settings" }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Settings\n                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item",
-                        attrs: {
-                          href: "/logout",
-                          onclick:
-                            "event.preventDefault();\n                                    document.getElementById('logout-form').submit();"
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Logout\n                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      {
-                        staticStyle: { display: "none" },
-                        attrs: {
-                          id: "logout-form",
-                          action: "/logout",
-                          method: "POST"
-                        }
-                      },
-                      [
-                        _c("input", {
-                          attrs: { type: "hidden", name: "_token" },
-                          domProps: { value: _vm.csrf }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ])
+    _c("aside", { staticClass: "col-sm-3 nav-bg" }, [
+      !_vm.user
+        ? _c("div", { staticClass: "mr-3 my-3 text-right" }, [
+            _c("a", { staticClass: "ml-2", attrs: { href: "/login" } }, [
+              _vm._v("Login")
             ]),
-        _vm._v(" "),
+            _vm._v(" "),
+            _c("a", { staticClass: "ml-2", attrs: { href: "/register" } }, [
+              _vm._v("Register")
+            ])
+          ])
+        : _c("ul", { staticClass: "navbar-nav ml-4" }, [
+            _c("li", { staticClass: "nav-item dropdown" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link dropdown-toggle",
+                  attrs: {
+                    id: "navbarDropdown",
+                    href: "#",
+                    role: "button",
+                    "data-toggle": "dropdown",
+                    "aria-haspopup": "true",
+                    "aria-expanded": "false"
+                  }
+                },
+                [
+                  _vm._v("\n                    " + _vm._s(_vm.data["name"])),
+                  _c("span", { staticClass: "caret" })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "dropdown-menu dropdown-menu-bg",
+                  attrs: { "aria-labelledby": "navbarDropdown" }
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-item",
+                      attrs: { href: "/admin/settings" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Settings\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-item",
+                      attrs: {
+                        href: "/logout",
+                        onclick:
+                          "event.preventDefault();\n                                    document.getElementById('logout-form').submit();"
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Logout\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "form",
+                    {
+                      staticStyle: { display: "none" },
+                      attrs: {
+                        id: "logout-form",
+                        action: "/logout",
+                        method: "POST"
+                      }
+                    },
+                    [
+                      _c("input", {
+                        attrs: { type: "hidden", name: "_token" },
+                        domProps: { value: _vm.csrf }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "user" }, [
         _c(
           "div",
-          { staticClass: "d-flex justify-content-center" },
+          { staticClass: "user-avatar d-flex justify-content-center" },
           [
             _c(
               "router-link",
               { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
               [
                 _c("img", {
-                  staticClass: "img-fluid rounded-circle py-4",
+                  staticClass: "avatar img-fluid rounded-circle my-4",
                   attrs: { src: "/storage/" + this.data.profile_image, alt: "" }
                 })
               ]
@@ -50345,7 +50381,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "d-flex justify-content-center" },
+          { staticClass: "user-name d-flex justify-content-center" },
           [
             _c(
               "router-link",
@@ -50356,121 +50392,180 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("router-link", { attrs: { to: "/" } }, [
-          _c("h2", { staticClass: "text-center h5 pt-1" }, [
-            _vm._v("Full Stack Web Developer")
-          ])
-        ]),
-        _vm._v(" "),
         _c(
-          "nav",
-          {
-            staticClass: "navbar navbar-expand-lg my-3",
-            staticStyle: { "z-index": "1000" }
-          },
+          "div",
+          { staticClass: "user-title" },
           [
-            _vm._m(2),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "collapse navbar-collapse",
-                attrs: { id: "navbarNavAltMarkup" }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "nav flex-column" },
-                  [
+            _c("router-link", { attrs: { to: "/" } }, [
+              _c("h2", { staticClass: "text-center h5 pt-1" }, [
+                _vm._v("Full Stack Web Developer")
+              ])
+            ])
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-lg my-3 ",
+          staticStyle: { "z-index": "1000" }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "py-1 pl-3 social-icons d-block d-sm-none" },
+            [
+              _vm.data.email
+                ? _c("span", { staticClass: "px-1" }, [
+                    _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
+                      _c("i", { staticClass: "fas fa-2x fa-envelope" })
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.data.twitter_url
+                ? _c("span", { staticClass: "px-1" }, [
+                    _c("a", { attrs: { href: _vm.data.twitter_url } }, [
+                      _c("i", { staticClass: "fab fa-2x fa-twitter" })
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.data.linkedin_url
+                ? _c("span", { staticClass: "px-1" }, [
                     _c(
-                      "router-link",
+                      "a",
                       {
-                        staticClass: "nav-item nav-link",
-                        attrs: { to: "/about", exact: "" }
+                        staticClass: "px-1",
+                        attrs: { href: _vm.data.linkedin_url }
                       },
-                      [_vm._v("ABOUT")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-item nav-link",
-                        attrs: { to: "/portfolio", exact: "" }
-                      },
-                      [_vm._v("PORTFOLIO")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-item nav-link",
-                        attrs: { to: "/skills-and-offer" }
-                      },
-                      [_vm._v("SKILLS AND OFFER")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-item nav-link",
-                        attrs: { to: "/contact" }
-                      },
-                      [_vm._v("CONTACT ME")]
+                      [_c("i", { staticClass: "fab fa-2x fa-linkedin-in" })]
                     )
-                  ],
-                  1
-                )
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.data.facebook_url
+                ? _c("span", { staticClass: "px-1" }, [
+                    _c("a", { attrs: { href: _vm.data.facebook_url } }, [
+                      _c("i", { staticClass: "fab fa-2x fa-facebook" })
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.data.github_url
+                ? _c("span", { staticClass: "px-1" }, [
+                    _c("a", { attrs: { href: _vm.data.github_url } }, [
+                      _c("i", { staticClass: "fab fa-2x fa-github" })
+                    ])
+                  ])
+                : _vm._e()
+            ]
+          ),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarNavAltMarkup" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "nav flex-column" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-item nav-link",
+                      attrs: { to: "/about", exact: "" }
+                    },
+                    [_vm._v("ABOUT")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-item nav-link",
+                      attrs: { to: "/portfolio", exact: "" }
+                    },
+                    [_vm._v("PORTFOLIO")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-item nav-link",
+                      attrs: { to: "/skills-and-offer" }
+                    },
+                    [_vm._v("SKILLS AND OFFER")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-item nav-link",
+                      attrs: { to: "/contact" }
+                    },
+                    [_vm._v("CONTACT ME")]
+                  )
+                ],
+                1
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "py-1 pl-3 social-icons d-none d-sm-block" }, [
         _c("p", { staticClass: "pb-1" }, [_vm._v("Get In touch")]),
         _vm._v(" "),
-        _c("p", { staticClass: "pt-1" }, [
-          _vm.data.email
-            ? _c("span", [
-                _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
-                  _c("i", { staticClass: "fas fa-2x fa-envelope" })
-                ])
+        _vm.data.email
+          ? _c("span", { staticClass: "px-1" }, [
+              _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
+                _c("i", { staticClass: "fas fa-2x fa-envelope" })
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.data.twitter_url
-            ? _c("span", [
-                _c("a", { attrs: { href: _vm.data.twitter_url } }, [
-                  _c("i", { staticClass: "fab fa-2x fa-twitter" })
-                ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.twitter_url
+          ? _c("span", { staticClass: "px-1" }, [
+              _c("a", { attrs: { href: _vm.data.twitter_url } }, [
+                _c("i", { staticClass: "fab fa-2x fa-twitter" })
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.data.linkedin_url
-            ? _c("span", [
-                _c("a", { attrs: { href: _vm.data.linkedin_url } }, [
-                  _c("i", { staticClass: "fab fa-2x fa-linkedin-in" })
-                ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.linkedin_url
+          ? _c("span", { staticClass: "px-1" }, [
+              _c(
+                "a",
+                { staticClass: "px-1", attrs: { href: _vm.data.linkedin_url } },
+                [_c("i", { staticClass: "fab fa-2x fa-linkedin-in" })]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.facebook_url
+          ? _c("span", { staticClass: "px-1" }, [
+              _c("a", { attrs: { href: _vm.data.facebook_url } }, [
+                _c("i", { staticClass: "fab fa-2x fa-facebook" })
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.data.facebook_url
-            ? _c("span", [
-                _c("a", { attrs: { href: _vm.data.facebook_url } }, [
-                  _c("i", { staticClass: "fab fa-2x fa-facebook" })
-                ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.github_url
+          ? _c("span", { staticClass: "px-1" }, [
+              _c("a", { attrs: { href: _vm.data.github_url } }, [
+                _c("i", { staticClass: "fab fa-2x fa-github" })
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.data.github_url
-            ? _c("span", [
-                _c("a", { attrs: { href: _vm.data.github_url } }, [
-                  _c("i", { staticClass: "fab fa-2x fa-github" })
-                ])
-              ])
-            : _vm._e()
-        ])
-      ],
-      1
-    ),
+            ])
+          : _vm._e()
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "main",
@@ -50495,30 +50590,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/login" } }, [
-        _vm._v("Login")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/register" } }, [
-        _vm._v("Register")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
       "button",
       {
-        staticClass: "navbar-toggler",
+        staticClass: "navbar-toggler navbar-dark ml-auto",
         attrs: {
           type: "button",
           "data-toggle": "collapse",
@@ -50610,9 +50685,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -50638,42 +50710,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page" }, [
-      _c("div", { staticClass: " row" }, [
-        _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12 col-12" }, [
-          _c("h2", { staticClass: "text-center" }, [
-            _c("b", [_vm._v("Hi!")]),
-            _c("br"),
-            _vm._v("I'm "),
-            _c("span", { staticClass: "developer-name" }, [_vm._v("Leo")])
-          ]),
+    return _c("div", { staticClass: " row", attrs: { id: "home" } }, [
+      _c("div", { staticClass: "col-sm-12 col-12" }, [
+        _c("h2", { staticClass: "text-center" }, [
+          _c("b", [_vm._v("Hi!")]),
+          _c("br"),
+          _vm._v("I'm "),
+          _c("span", { staticClass: "developer-name" }, [_vm._v("Leo")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-center" }, [
+          _c("img", {
+            staticClass: "mt-5 mb-2 img-fluid",
+            staticStyle: { "max-width": "600px" },
+            attrs: { src: "imgs/leo-illustration.svg", alt: "" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("h2", { staticClass: "pb-5 text-center" }, [
+          _vm._v("Web Developer")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-inline" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "create-dialog-box-btn btn btn-primary mb-2 col-12 col-lg-5"
+            },
+            [_vm._v("Change Name")]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "text-center" }, [
-            _c("img", {
-              staticClass: "mt-5 mb-2 img-fluid",
-              staticStyle: { "max-width": "600px" },
-              attrs: { src: "imgs/leo-illustration.svg", alt: "" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("h2", { staticClass: "pb-5 text-center" }, [
-            _vm._v("Web Developer")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-inline" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "create-dialog-box-btn btn btn-primary mb-2 col-12 col-lg-5"
-              },
-              [_vm._v("Change Name")]
-            ),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "col-lg-5 input-dialog-box form-group mb-2"
-            })
-          ])
+          _c("div", {
+            staticClass: "col-lg-5 input-dialog-box form-group mb-2"
+          })
         ])
       ])
     ])
@@ -50751,9 +50821,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -50794,17 +50861,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page" }, [
-    _c("div", { staticClass: " row" }, [
-      _c("div", { staticClass: "col-sm-12" }, [
-        _c("h2", [_vm._v("About")]),
-        _vm._v(" "),
-        _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } }),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn btn-primary" }, [
-          _vm._v("VIEW RESUME")
-        ])
-      ])
+  return _c("div", { staticClass: " row", attrs: { id: "about" } }, [
+    _c("div", { staticClass: "col-sm-12" }, [
+      _c("h2", [_vm._v("About")]),
+      _vm._v(" "),
+      _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } }),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("VIEW RESUME")])
     ])
   ])
 }
@@ -50890,8 +50953,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -50950,47 +51011,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "page" },
-    [
-      _c("h2", [_vm._v("Portfolio")]),
-      _vm._v(" "),
-      _vm._l(_vm.posts, function(post) {
-        return _c(
-          "div",
-          { key: post.id, staticClass: "row m-2 portfolio-item" },
-          [
-            _vm._l(post.files, function(file) {
-              return _c("div", { key: file.id, staticClass: "col-md-5" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "storage/" + file.filename_1 }
-                })
+  return _c("div", { staticClass: "row", attrs: { id: "portfolio" } }, [
+    _c(
+      "div",
+      { staticClass: "col-sm-12" },
+      [
+        _c("h2", [_vm._v("Portfolio")]),
+        _vm._v(" "),
+        _vm._l(_vm.posts, function(post) {
+          return _c(
+            "div",
+            { key: post.id, staticClass: "row m-2 portfolio-item" },
+            [
+              _vm._l(post.files, function(file) {
+                return _c("div", { key: file.id, staticClass: "col-md-5" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: { src: "storage/" + file.filename_1 }
+                  })
+                ])
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-7" }, [
+                _c("h2", [_vm._v(_vm._s(post.title))]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(post.description))]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: post.website_url }
+                  },
+                  [_vm._v("Launch Website")]
+                )
               ])
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-7" }, [
-              _c("h2", [_vm._v(_vm._s(post.title))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(post.description))]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { href: post.website_url }
-                },
-                [_vm._v("Launch Website")]
-              )
-            ])
-          ],
-          2
-        )
-      })
-    ],
-    2
-  )
+            ],
+            2
+          )
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51062,6 +51125,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51101,10 +51166,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page" }, [
-    _c("h2", [_vm._v("Skills & Offer")]),
-    _vm._v(" "),
-    _c("div", { domProps: { innerHTML: _vm._s(this.data.skills_and_offer) } })
+  return _c("div", { staticClass: "row", attrs: { id: "skills-and-offer" } }, [
+    _c("div", { staticClass: "col-sm-12" }, [
+      _c("h2", [_vm._v("Skills & Offer")]),
+      _vm._v(" "),
+      _c("div", { domProps: { innerHTML: _vm._s(this.data.skills_and_offer) } })
+    ])
   ])
 }
 var staticRenderFns = []
@@ -51201,6 +51268,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51248,66 +51320,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page", attrs: { id: "contact" } }, [
-    _c("h2", [_vm._v("CONTACT ME")]),
-    _vm._v(" "),
-    _c("dl", { staticClass: "dl dl-vertical" }, [
-      _c("dt", [_vm._v("Email:")]),
+  return _c("div", { staticClass: "row'", attrs: { id: "contact" } }, [
+    _c("div", { staticClass: "col-sm-12" }, [
+      _c("h2", [_vm._v("CONTACT ME")]),
       _vm._v(" "),
-      _vm.data.email
-        ? _c("dd", [
-            _c("i", { staticClass: "fas fa-envelope" }),
-            _vm._v(" "),
-            _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
-              _vm._v(_vm._s(_vm.data.email))
+      _c("p", [
+        _vm._v("I am available for hire and open to any ideas of cooperation.")
+      ]),
+      _vm._v(" "),
+      _c("dl", { staticClass: "dl dl-vertical" }, [
+        _vm.data.email ? _c("dt", [_vm._v("Email:")]) : _vm._e(),
+        _vm._v(" "),
+        _vm.data.email
+          ? _c("dd", { staticClass: "mb-5" }, [
+              _c("i", { staticClass: "fas fa-envelope" }),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
+                _vm._v(_vm._s(_vm.data.email))
+              ])
             ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.data.twitter_url
-        ? _c("div", [
-            _c("i", { staticClass: "fab fa-twitter" }),
-            _vm._v(" "),
-            _c("a", { attrs: { href: _vm.data.twitter_url } }, [
-              _vm._v(_vm._s(_vm.data.twitter_url))
-            ]),
-            _c("br")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.data.linkedin_url
-        ? _c("div", [
-            _c("i", { staticClass: "fab fa-linkedin-in" }),
-            _vm._v(" "),
-            _c("a", { attrs: { href: _vm.data.linkedin_url } }, [
-              _vm._v(_vm._s(_vm.data.linkedin_url))
-            ]),
-            _c("br")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.data.facebook_url
-        ? _c("div", [
-            _c("i", { staticClass: "fab fa-facebook" }),
-            _vm._v(" "),
-            _c("a", { attrs: { href: _vm.data.facebook_url } }, [
-              _vm._v(_vm._s(_vm.data.facebook_url))
-            ]),
-            _c("br")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("dt", [_vm._v("Github:")]),
-      _vm._v(" "),
-      _vm.data.github_url
-        ? _c("dd", [
-            _c("i", { staticClass: "fab fa-github" }),
-            _vm._v(" "),
-            _c("a", { attrs: { href: _vm.data.github_url } }, [
-              _vm._v(_vm._s(_vm.data.github_url))
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.twitter_url ? _c("dt", [_vm._v("Twitter:")]) : _vm._e(),
+        _vm._v(" "),
+        _vm.data.twitter_url
+          ? _c("dd", [
+              _c("i", { staticClass: "fab fa-twitter" }),
+              _vm._v(" "),
+              _c("a", { attrs: { href: _vm.data.twitter_url } }, [
+                _vm._v(_vm._s(_vm.data.twitter_url))
+              ]),
+              _c("br")
             ])
-          ])
-        : _vm._e()
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.linkedin_url ? _c("dt", [_vm._v("Linkedin:")]) : _vm._e(),
+        _vm._v(" "),
+        _vm.data.linkedin_url
+          ? _c("dd", [
+              _c("i", { staticClass: "fab fa-linkedin-in" }),
+              _vm._v(" "),
+              _c("a", { attrs: { href: _vm.data.linkedin_url } }, [
+                _vm._v(_vm._s(_vm.data.linkedin_url))
+              ]),
+              _c("br")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.facebook_url ? _c("dt", [_vm._v("Facebook:")]) : _vm._e(),
+        _vm._v(" "),
+        _vm.data.facebook_url
+          ? _c("dd", [
+              _c("i", { staticClass: "fab fa-facebook" }),
+              _vm._v(" "),
+              _c("a", { attrs: { href: _vm.data.facebook_url } }, [
+                _vm._v(_vm._s(_vm.data.facebook_url))
+              ]),
+              _c("br")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.data.github_url ? _c("dt", [_vm._v("Github:")]) : _vm._e(),
+        _vm._v(" "),
+        _vm.data.github_url
+          ? _c("dd", [
+              _c("i", { staticClass: "fab fa-github" }),
+              _vm._v(" "),
+              _c("a", { attrs: { href: _vm.data.github_url } }, [
+                _vm._v(_vm._s(_vm.data.github_url))
+              ])
+            ])
+          : _vm._e()
+      ])
     ])
   ])
 }

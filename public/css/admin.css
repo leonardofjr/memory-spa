@@ -185,6 +185,10 @@ ul {
   margin-bottom: 1rem;
 }
 
+dl.dl-vertical {
+  padding: 1rem;
+}
+
 dl.dl-vertical dt {
   float: left;
 }

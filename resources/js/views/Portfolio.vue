@@ -1,5 +1,6 @@
 <template>
-    <div class="page">
+    <div id="portfolio" class="row">
+        <div class="col-sm-12">
         <h2>Portfolio</h2>
             <div v-for="post of posts" class="row m-2 portfolio-item" :key="post.id">
                 <div class="col-md-5" v-for="file of post.files" :key="file.id">
@@ -11,10 +12,7 @@
                         <a :href="post.website_url" class="btn btn-primary">Launch Website</a>
                 </div>
             </div>
-    </div>
-
-             
-
+        </div>
     </div>
 </template>
 <script>

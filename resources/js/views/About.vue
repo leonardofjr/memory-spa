@@ -1,13 +1,10 @@
 <template>
-  <div class="page">
-        <div class=" row">
+        <div id="about" class=" row">
             <div class="col-sm-12">
                 <h2>About</h2>
                 <div v-html="this.data.bio"></div>
                 <button class="btn btn-primary">VIEW RESUME</button>
             </div>
-        </div>
-        
     </div>
 </template>
 
