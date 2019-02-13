@@ -22,7 +22,7 @@
                 <aside class="col-3 col-md-2 admin-sidebar-bg">
                     <ul>
                         <li><a href="{{route('User Settings')}}">Settings</a></li>
-                    <li><a href="{{route('Edit Skills')}}">Skills</a></li>
+                    <li><a href="{{route('Edit Skills')}}">Skills & Offer</a></li>
                         <li><a href="{{route('Portfolio Entries')}}">Portfolio</a></li>
                     </ul>
                 </aside>

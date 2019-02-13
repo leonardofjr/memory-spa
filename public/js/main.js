@@ -14075,8 +14075,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_Portfolio___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__views_Portfolio__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_Details__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_Details___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__views_Details__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_Skills__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_Skills___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__views_Skills__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_SkillsAndOffer__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_SkillsAndOffer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__views_SkillsAndOffer__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_Contact__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_Contact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__views_Contact__);
 
@@ -14121,9 +14121,9 @@ var router = new __WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]({
         component: __WEBPACK_IMPORTED_MODULE_7__views_Details___default.a,
         meta: { transitionName: 'slide' }
     }, {
-        path: '/skills',
-        name: 'skills',
-        component: __WEBPACK_IMPORTED_MODULE_8__views_Skills___default.a
+        path: '/skills-and-offer',
+        name: 'Skills And Offer',
+        component: __WEBPACK_IMPORTED_MODULE_8__views_SkillsAndOffer___default.a
     }, {
         path: '/contact',
         name: 'contact',
@@ -50903,7 +50903,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/views/Skills.vue"
+Component.options.__file = "resources/js/views/SkillsAndOffer.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -50912,9 +50912,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-17594921", Component.options)
+    hotAPI.createRecord("data-v-6d445886", Component.options)
   } else {
-    hotAPI.reload("data-v-17594921", Component.options)
+    hotAPI.reload("data-v-6d445886", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -50952,7 +50952,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get(this.web_url + '/skills').then(function (response) {
+        axios.get(this.web_url + '/skills-and-offer').then(function (response) {
             _this.data = response.data;
             console.log(_this.data);
             return _this.data;
@@ -50983,7 +50983,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-17594921", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6d445886", module.exports)
   }
 }
 

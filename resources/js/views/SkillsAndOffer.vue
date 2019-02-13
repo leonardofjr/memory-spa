@@ -17,7 +17,7 @@
         },
         // Fetches posts when the component is created.
         created() {
-            axios.get(this.web_url + '/skills')
+            axios.get(this.web_url + '/skills-and-offer')
             .then(response => {
                 this.data = response.data;
                 console.log(this.data);
