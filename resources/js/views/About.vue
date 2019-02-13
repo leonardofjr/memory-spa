@@ -1,11 +1,8 @@
 <template>
   <div class="page">
         <div class=" row">
-            <div class="col-sm-4 text-center">
-                <img :src='"/storage/" + this.data.profile_image' alt="" class="img-fluid">
-            </div>
-
-            <div class="col-sm-8">
+            <div class="col-sm-12">
+                <h2>About</h2>
                 <div v-html="this.data.bio"></div>
                 <button class="btn btn-primary">VIEW RESUME</button>
             </div>

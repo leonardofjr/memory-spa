@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+            <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js"></script>
         <title>@yield('title')</title>
         <meta name="viewport" content="width=device-width, initial scale=1.0">
@@ -10,7 +12,6 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     </head>
     <body>
-        @include('layouts.partials.top-header')
         <div id="app">
             <app></app>
         </div>

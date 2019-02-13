@@ -42,3 +42,12 @@ ul {
 		margin-bottom: 1rem;
 
 }
+
+dl.dl-vertical {
+	dt {
+		float: left;
+	}
+	dd {
+		margin-left: 8rem;
+	}
+}

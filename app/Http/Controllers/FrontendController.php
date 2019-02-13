@@ -28,7 +28,17 @@ class FrontendController extends Controller
      */
     public function getHomePage()
     {
-        return view('home');
+        /* If user is logged in then the $user_id value will be set to the users id */
+        if (Auth::user()) {
+            $user_id = auth()->user()->id;
+        } 
+            /* Else if the user is a guest then we will set the $user_id to 1 */
+        else if (Auth::guest()) {
+            $user_id = 1;
+        }
+        $user = User::find($user_id);
+        $data = $user;
+        return ["guest" => $data, "user" => Auth::user()];
     }
 
     

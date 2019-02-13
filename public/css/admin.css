@@ -185,6 +185,14 @@ ul {
   margin-bottom: 1rem;
 }
 
+dl.dl-vertical dt {
+  float: left;
+}
+
+dl.dl-vertical dd {
+  margin-left: 8rem;
+}
+
 /*** Hyperlinks ***/
 
 a {
@@ -193,7 +201,20 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #777;
+  color: #666766;
+}
+
+.nav-bg {
+  background-color: #ef3b39;
+  color: #fff;
+}
+
+.nav-bg a {
+  color: #fff;
+}
+
+.dropdown-menu-bg {
+  background: #777;
 }
 
 body {

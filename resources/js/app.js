@@ -15,7 +15,6 @@ import App from './views/App'
 import Home from './views/Home'
 import About from './views/About'
 import Portfolio from './views/Portfolio'
-import Details from './views/Details'
 import SkillsAndOffer from './views/SkillsAndOffer'
 import Contact from './views/Contact'
 
@@ -40,19 +39,13 @@ const router = new VueRouter({
             meta: { transitionName: 'slide' }
         },
         {
-            path: '/details/:id',
-            name: 'details',
-            component: Details,
-            meta: { transitionName: 'slide' }
-        },
-        {
             path: '/skills-and-offer',
             name: 'Skills And Offer',
             component: SkillsAndOffer,
         },
         {
             path: '/contact',
-            name: 'contact',
+            name: 'Contact Me',
             component: Contact,
             meta: { transitionName: 'slide' },
         }

@@ -1,8 +1,8 @@
 <template>
     <div class="page">
         <h2>Portfolio</h2>
-            <div v-for="post of posts" class="row m-2 portfolio-item">
-                <div class="col-md-5" v-for="file of post.files">
+            <div v-for="post of posts" class="row m-2 portfolio-item" :key="post.id">
+                <div class="col-md-5" v-for="file of post.files" :key="file.id">
                        <img :src="'storage/' + file.filename_1" class="img-fluid">
                 </div>
                 <div class="col-md-7">
@@ -19,11 +19,9 @@
 </template>
 <script>
 
-import Details from './Details.vue';
 import axios from 'axios';
 
 export default {
-    components: {Details},
     data() {
         return {
         posts: [],
