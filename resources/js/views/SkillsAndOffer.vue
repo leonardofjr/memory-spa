@@ -17,12 +17,18 @@
         },
         // Fetches posts when the component is created.
         created() {
-            axios.get(this.web_url + '/skills-and-offer')
+            axios.get(this.web_url + '/home')
             .then(response => {
-                this.data = response.data;
-                console.log(this.data);
-                return this.data;
-            // JSON responses are automatically parsed.
+                if (!response.data['user']) {
+                    this.data = response.data['guest'];
+                    this.user = false;
+                } else {
+                    this.data = response.data['user'];
+                    this.user = true;
+
+                }
+                    return this.data;
+                // JSON responses are automatically parsed.
             })
             .catch(e => {
                  this.errors.push(e)

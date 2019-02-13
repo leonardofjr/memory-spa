@@ -50148,9 +50148,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var DEFAULT_TRANSITION = 'fade';
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   data: function data() {
@@ -50345,7 +50357,7 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("router-link", { attrs: { to: "/" } }, [
-          _c("h2", { staticClass: "text-center h5" }, [
+          _c("h2", { staticClass: "text-center h5 pt-1" }, [
             _vm._v("Full Stack Web Developer")
           ])
         ]),
@@ -50353,7 +50365,7 @@ var render = function() {
         _c(
           "nav",
           {
-            staticClass: "navbar navbar-expand-lg ",
+            staticClass: "navbar navbar-expand-lg my-3",
             staticStyle: { "z-index": "1000" }
           },
           [
@@ -50413,9 +50425,9 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("p", [_vm._v("Get In touch")]),
+        _c("p", { staticClass: "pb-1" }, [_vm._v("Get In touch")]),
         _vm._v(" "),
-        _c("p", [
+        _c("p", { staticClass: "pt-1" }, [
           _vm.data.email
             ? _c("span", [
                 _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
@@ -50746,7 +50758,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            data: []
+            data: [],
+            user: null
         };
     },
     mounted: function mounted() {
@@ -50757,9 +50770,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get(this.web_url + '/about').then(function (response) {
-            _this.data = response.data;
-            console.log(_this.data);
+        axios.get(this.web_url + '/home').then(function (response) {
+            if (!response.data['user']) {
+                _this.data = response.data['guest'];
+                _this.user = false;
+            } else {
+                _this.data = response.data['user'];
+                _this.user = true;
+            }
             return _this.data;
             // JSON responses are automatically parsed.
         }).catch(function (e) {
@@ -51059,9 +51077,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get(this.web_url + '/skills-and-offer').then(function (response) {
-            _this.data = response.data;
-            console.log(_this.data);
+        axios.get(this.web_url + '/home').then(function (response) {
+            if (!response.data['user']) {
+                _this.data = response.data['guest'];
+                _this.user = false;
+            } else {
+                _this.data = response.data['user'];
+                _this.user = true;
+            }
             return _this.data;
             // JSON responses are automatically parsed.
         }).catch(function (e) {
@@ -51182,7 +51205,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            data: []
+            data: [],
+            user: null
         };
     },
     mounted: function mounted() {
@@ -51193,9 +51217,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get(this.web_url + '/contact').then(function (response) {
-            _this.data = response.data;
-            console.log(_this.data);
+        axios.get(this.web_url + '/home').then(function (response) {
+            if (!response.data['user']) {
+                _this.data = response.data['guest'];
+                _this.user = false;
+            } else {
+                _this.data = response.data['user'];
+                _this.user = true;
+            }
             return _this.data;
             // JSON responses are automatically parsed.
         }).catch(function (e) {

@@ -34,6 +34,7 @@
         data() {
             return {
                 data: [],
+                user: null,
             }
         },
         mounted() {
@@ -41,10 +42,16 @@
         },
         // Fetches posts when the component is created.
         created() {
-            axios.get(this.web_url + '/contact')
+            axios.get(this.web_url + '/home')
             .then(response => {
-                this.data = response.data;
-                console.log(this.data);
+            if (!response.data['user']) {
+                this.data = response.data['guest'];
+                this.user = false;
+            } else {
+                this.data = response.data['user'];
+                this.user = true;
+
+            }
                 return this.data;
             // JSON responses are automatically parsed.
             })

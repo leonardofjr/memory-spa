@@ -1,6 +1,7 @@
 <template>     
       <div class="row">
         <div class="col-sm-3 nav-bg">
+          <!-- If user is null -->
           <ul v-if="!user" class="navbar-nav ml-4">
                   <!-- Authentication Links -->
                 <li class="nav-item">
@@ -10,6 +11,7 @@
                             <a class="nav-link" href="/register">Register</a>
                     </li>
             </ul>
+            <!-- else if user data is returned -->
             <ul v-else  class="navbar-nav ml-4">
                 <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -26,20 +28,29 @@
                               Logout
                           </a>
                           <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                            <!-- the value for the csrf value will be set to the hidden csrf value that is placed on the head -->
                             <input type="hidden" name="_token" :value="csrf">
                           </form>
                       </div>
                   </li>
             </ul>
+              
+              <!-- User Image -->
               <div class="d-flex justify-content-center">
                   <router-link to="/"  class="navbar-brand"  exact><img :src='"/storage/" + this.data.profile_image' alt="" class="img-fluid rounded-circle py-4"></router-link>
               </div>
+              
+              <!-- User Name -->
               <div  class="d-flex justify-content-center">
                 <router-link to="/"  class="navbar-brand"  exact>LEO FELIPA JR.</router-link>
               </div>
               <router-link to="/">
-              <h2 class="text-center h5">Full Stack Web Developer</h2></router-link>
-              <nav class="navbar navbar-expand-lg " style="z-index: 1000">
+
+              <!-- User Job Title -->
+              <h2 class="text-center h5 pt-1">Full Stack Web Developer</h2></router-link>
+              
+              <!-- Navigation Links -->
+              <nav class="navbar navbar-expand-lg my-3" style="z-index: 1000">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                   </button>
@@ -52,8 +63,10 @@
                       </div>
                   </div>
               </nav>
-            <p>Get In touch</p>
-            <p>
+
+            <!-- Contact link icons -->
+            <p class="pb-1">Get In touch</p>
+            <p class="pt-1">
               <!-- If email is not null -->
             <span v-if="data.email">
                   <a :href="'mailto:' + data.email">
@@ -105,7 +118,6 @@
 
 <script>
 const DEFAULT_TRANSITION = 'fade';
-
  export default {
    name: 'App',
    data() {
@@ -133,9 +145,7 @@ const DEFAULT_TRANSITION = 'fade';
     });
 
 
-
-
-    axios.get(this.web_url + '/home')
+        axios.get(this.web_url + '/home')
         .then(response => {
           if (!response.data['user']) {
             this.data = response.data['guest'];
