@@ -50479,7 +50479,7 @@ var render = function() {
             [
               _c(
                 "div",
-                { staticClass: "nav flex-column" },
+                { staticClass: "primary-menu nav flex-column" },
                 [
                   _c(
                     "router-link",
@@ -50687,6 +50687,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -50705,41 +50714,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: " row", attrs: { id: "home" } }, [
+    _c("div", { staticClass: "home-background" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-12" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "home-buttons" },
+        [
+          _c("router-link", { attrs: { to: "/portfolio" } }, [
+            _c("button", { staticClass: "btn btn-secondary" }, [
+              _vm._v("PORTFOLIO")
+            ])
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: "/skills-and-offer" } }, [
+            _c("button", { staticClass: "btn btn-secondary" }, [
+              _vm._v("SKILLS & OFFER")
+            ])
+          ]),
+          _c("br")
+        ],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " row", attrs: { id: "home" } }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("h2", { staticClass: "text-center" }, [
-          _c("b", [_vm._v("Hi!")]),
-          _c("br"),
-          _vm._v("I'm "),
-          _c("span", { staticClass: "developer-name" }, [_vm._v("Leo")])
-        ]),
-        _vm._v(" "),
-        _c("h2", { staticClass: "pb-5 text-center" }, [
-          _vm._v("Web Developer")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-inline" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "create-dialog-box-btn btn btn-primary mb-2 col-12 col-lg-5"
-            },
-            [_vm._v("Change Name")]
-          ),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "col-lg-5 input-dialog-box form-group mb-2"
-          })
-        ])
-      ])
+    return _c("h2", [
+      _c("b", [_vm._v("Hi!")]),
+      _vm._v(" I'm "),
+      _c("span", { staticClass: "developer-name" }, [_vm._v("Leo")]),
+      _vm._v(",")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "pb-5" }, [
+      _vm._v("a freelance web developer specialized"),
+      _c("br"),
+      _c("strong", [_vm._v("in front-end and back-end web development")])
     ])
   }
 ]

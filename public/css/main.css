@@ -272,8 +272,13 @@ aside a:hover {
   color: #000;
 }
 
-aside .nav-item:hover:after,
-aside .nav-item.router-link-active:after {
+aside .router-link-active {
+  font-weight: 600;
+  color: #000;
+}
+
+aside .primary-menu .nav-item:hover:after,
+aside .primary-menu .nav-item.router-link-active:after {
   content: ' >';
 }
 
@@ -286,8 +291,8 @@ aside .user .avatar {
 }
 
 @media (max-width: 992px) {
-  aside .nav-item:hover:after,
-  aside .nav-item.router-link-active:after {
+  aside .primary-menu .nav-item:hover:after,
+  aside .primary-menu .nav-item.router-link-active:after {
     content: ' ';
   }
 
@@ -311,10 +316,23 @@ aside .user .avatar {
   border: 1px solid black !important;
 }
 
+.btn-secondary {
+  border: 1px white solid;
+  background: transparent;
+  padding: 1em 2em;
+  opacity: .8;
+  margin: 1em;
+}
+
+.btn-secondary:hover {
+  opacity: 1;
+  background: #ffc909;
+}
+
 /** Layout **/
 
 #frontend {
-  padding-top: 50px;
+  padding-top: 100px;
   color: #fff;
   height: 100vh;
   background: #000;
@@ -339,6 +357,20 @@ footer {
 }
 
 /** Pages **/
+
+.home-buttons {
+  margin-top: 5em;
+}
+
+.home-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-image: url("/imgs/toronto-bg.jpg");
+}
 
 #contact form input,
 #contact form textarea {

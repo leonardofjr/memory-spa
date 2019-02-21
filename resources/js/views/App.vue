@@ -90,7 +90,7 @@
                       <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                      <div class="nav flex-column">
+                      <div class="primary-menu nav flex-column">
                           <router-link to="/about" class="nav-item nav-link" exact>ABOUT</router-link>
                           <router-link to="/portfolio" class="nav-item nav-link" exact>PORTFOLIO</router-link>
                           <router-link to="/skills-and-offer" class="nav-item nav-link">SKILLS AND OFFER</router-link>

@@ -3,3 +3,16 @@
     color: black!important;
     border: 1px solid black!important;
 }
+
+.btn-secondary {
+    border: 1px white solid;
+    background: transparent;
+    padding: 1em 2em;
+    opacity: .8;
+    margin: 1em;
+}
+
+.btn-secondary:hover {
+    opacity: 1;
+    background: $secondary-color;
+}

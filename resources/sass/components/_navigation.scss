@@ -15,8 +15,12 @@ aside {
         a:hover {
             color: $sidebar-hyperlink-font-color;
         }
-        .nav-item:hover:after,
-        .nav-item.router-link-active:after {
+        .router-link-active {
+            font-weight: 600;
+            color: $sidebar-hyperlink-font-color;
+        }
+        .primary-menu .nav-item:hover:after,
+        .primary-menu .nav-item.router-link-active:after {
             content: ' >';
         }
 
@@ -31,8 +35,8 @@ aside {
         }
 
         @media (max-width: 992px) {
-            .nav-item:hover:after,
-            .nav-item.router-link-active:after {
+            .primary-menu .nav-item:hover:after,
+            .primary-menu .nav-item.router-link-active:after {
                 content: ' ';
             }
 
