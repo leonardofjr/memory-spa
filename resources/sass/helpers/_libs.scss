@@ -9,7 +9,14 @@
     max-width: 150px;
     margin: 5px;
   }
-
+.user-title-style {
+  background: black;
+  color: $secondary-color;
+  width: 60%;
+  margin: auto;
+  letter-spacing: 3px;
+  padding: 2px;
+}
 
 .fade-enter-active,
  .fade-leave-active {

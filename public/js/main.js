@@ -50370,7 +50370,7 @@ var render = function() {
               { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
               [
                 _c("img", {
-                  staticClass: "avatar img-fluid rounded-circle my-4",
+                  staticClass: "avatar img-fluid rounded-circle mt-4",
                   attrs: { src: "/storage/" + this.data.profile_image, alt: "" }
                 })
               ]
@@ -50385,7 +50385,11 @@ var render = function() {
           [
             _c(
               "router-link",
-              { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
+              {
+                staticClass: "navbar-brand",
+                staticStyle: { color: "#000", "font-weight": "600" },
+                attrs: { to: "/", exact: "" }
+              },
               [_vm._v("LEO FELIPA JR.")]
             )
           ],
@@ -50397,8 +50401,8 @@ var render = function() {
           { staticClass: "user-title" },
           [
             _c("router-link", { attrs: { to: "/" } }, [
-              _c("h2", { staticClass: "text-center h5 pt-1" }, [
-                _vm._v("Full Stack Web Developer")
+              _c("h2", { staticClass: "user-title-style text-center h5 " }, [
+                _vm._v("Web Developer")
               ])
             ])
           ],
@@ -50593,7 +50597,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "navbar-toggler navbar-dark ml-auto",
+        staticClass: "navbar-toggler navbar-light ml-auto",
         attrs: {
           type: "button",
           "data-toggle": "collapse",
@@ -50683,8 +50687,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -50717,14 +50719,6 @@ var staticRenderFns = [
           _c("br"),
           _vm._v("I'm "),
           _c("span", { staticClass: "developer-name" }, [_vm._v("Leo")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center" }, [
-          _c("img", {
-            staticClass: "mt-5 mb-2 img-fluid",
-            staticStyle: { "max-width": "600px" },
-            attrs: { src: "imgs/leo-illustration.svg", alt: "" }
-          })
         ]),
         _vm._v(" "),
         _c("h2", { staticClass: "pb-5 text-center" }, [

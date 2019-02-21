@@ -35,19 +35,19 @@
                 <!-- User Avatar -->
                 <div class="user-avatar d-flex justify-content-center">
                     <router-link to="/"  class="navbar-brand"  exact>
-                      <img :src='"/storage/" + this.data.profile_image' alt="" class="avatar img-fluid rounded-circle my-4">
+                      <img :src='"/storage/" + this.data.profile_image' alt="" class="avatar img-fluid rounded-circle mt-4">
                     </router-link>
                 </div>
                 
                 <!-- User Name -->
                 <div  class="user-name d-flex justify-content-center">
-                  <router-link to="/"  class="navbar-brand"  exact>LEO FELIPA JR.</router-link>
+                  <router-link to="/"  class="navbar-brand"  exact style="color: #000; font-weight: 600;">LEO FELIPA JR.</router-link>
                 </div>
                 
                 <!-- User Job Title -->
                 <div class="user-title">
                 <router-link to="/">
-                  <h2 class="text-center h5 pt-1">Full Stack Web Developer</h2>
+                  <h2 class="user-title-style text-center h5 ">Web Developer</h2>
                   </router-link>
                 </div>
               </div>
@@ -86,7 +86,7 @@
                         </a>
                     </span>
                 </div>            
-                  <button class="navbar-toggler navbar-dark ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <button class="navbar-toggler navbar-light ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">

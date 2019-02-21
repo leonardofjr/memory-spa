@@ -13,6 +13,15 @@
   margin: 5px;
 }
 
+.user-title-style {
+  background: black;
+  color: #ffc909;
+  width: 60%;
+  margin: auto;
+  letter-spacing: 3px;
+  padding: 2px;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   -webkit-transition-duration: 0.3s;
@@ -247,7 +256,7 @@ h4 {
 /** Components **/
 
 .btn-primary {
-  background: none !important;
+  background: #ffc909 !important;
   color: black !important;
   border: 1px solid black !important;
 }

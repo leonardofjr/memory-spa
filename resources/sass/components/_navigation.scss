@@ -2,7 +2,9 @@
 @import "../helpers/_mixins";
 
 aside {
-    
+        .navbar {
+            border-top: 0;
+        }
         background-color: $primary-color;
 
         color: $sidebar-font-color;
@@ -13,7 +15,10 @@ aside {
         a:hover {
             color: $sidebar-hyperlink-font-color;
         }
-
+        .nav-item:hover:after,
+        .nav-item.router-link-active:after {
+            content: ' >';
+        }
 
         .navbar-toggler {
             border-color: white;
@@ -26,6 +31,14 @@ aside {
         }
 
         @media (max-width: 992px) {
+            .nav-item:hover:after,
+            .nav-item.router-link-active:after {
+                content: ' ';
+            }
+
+            .navbar {
+               border-top: 2px solid black;
+            }
             .nav {
                 text-align: right;
                 .nav-link {

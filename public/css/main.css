@@ -13,6 +13,15 @@
   margin: 5px;
 }
 
+.user-title-style {
+  background: black;
+  color: #ffc909;
+  width: 60%;
+  margin: auto;
+  letter-spacing: 3px;
+  padding: 2px;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   -webkit-transition-duration: 0.3s;
@@ -247,16 +256,25 @@ h4 {
 /** Components **/
 
 aside {
-  background-color: #EB2427;
-  color: rgba(255, 255, 255, 0.8);
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+aside .navbar {
+  border-top: 0;
 }
 
 aside a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 aside a:hover {
-  color: #fff;
+  color: #000;
+}
+
+aside .nav-item:hover:after,
+aside .nav-item.router-link-active:after {
+  content: ' >';
 }
 
 aside .navbar-toggler {
@@ -268,6 +286,15 @@ aside .user .avatar {
 }
 
 @media (max-width: 992px) {
+  aside .nav-item:hover:after,
+  aside .nav-item.router-link-active:after {
+    content: ' ';
+  }
+
+  aside .navbar {
+    border-top: 2px solid black;
+  }
+
   aside .nav {
     text-align: right;
   }
@@ -279,7 +306,7 @@ aside .user .avatar {
 }
 
 .btn-primary {
-  background: none !important;
+  background: #ffc909 !important;
   color: black !important;
   border: 1px solid black !important;
 }
@@ -288,12 +315,13 @@ aside .user .avatar {
 
 #frontend {
   padding-top: 50px;
-  color: #000;
+  color: #fff;
   height: 100vh;
+  background: #000;
 }
 
 #frontend a {
-  color: #EB2427;
+  color: #fff;
 }
 
 #frontend a:hover {

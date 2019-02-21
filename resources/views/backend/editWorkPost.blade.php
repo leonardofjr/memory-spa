@@ -40,7 +40,7 @@
                                 
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea type="text" id="summernote" class="form-control" id="description" name="description">{{$data->description}} </textarea>
+                    <textarea  id="article-ckeditor" type="text" id="summernote" class="form-control" id="description" name="description">{{$data->description}} </textarea>
                     <div class="my-3 d-none alert alert-warning error error-description" role="alert">
                     </div>
                 </div>
