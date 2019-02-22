@@ -50296,7 +50296,7 @@ var render = function() {
                   }
                 },
                 [
-                  _vm._v("\n                    " + _vm._s(_vm.data["name"])),
+                  _vm._v("\n                    " + _vm._s(_vm.data["fname"])),
                   _c("span", { staticClass: "caret" })
                 ]
               ),
@@ -50304,7 +50304,7 @@ var render = function() {
               _c(
                 "div",
                 {
-                  staticClass: "dropdown-menu dropdown-menu-bg",
+                  staticClass: "dropdown-menu",
                   attrs: { "aria-labelledby": "navbarDropdown" }
                 },
                 [
@@ -50386,11 +50386,15 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "navbar-brand",
-                staticStyle: { color: "#000", "font-weight": "600" },
+                staticClass: "navbar-brand text-uppercase",
+                staticStyle: { color: "#fff", "font-weight": "600" },
                 attrs: { to: "/", exact: "" }
               },
-              [_vm._v("LEO FELIPA JR.")]
+              [
+                _vm._v(
+                  _vm._s(_vm.data["fname"]) + " " + _vm._s(_vm.data["lname"])
+                )
+              ]
             )
           ],
           1
@@ -50698,11 +50702,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: []
+        };
+    },
     mounted: function mounted() {
+        var _this = this;
+
         console.log('Component mounted.');
         var dialogbox = document.createElement('script');
         dialogbox.setAttribute('src', "/js/dialog-box.js");
         document.head.appendChild(dialogbox);
+
+        axios.get(this.web_url + '/home').then(function (response) {
+            if (!response.data['user']) {
+                _this.data = response.data['guest'];
+                _this.user = false;
+            } else {
+                _this.data = response.data['user'];
+                _this.user = true;
+            }
+            return _this.data;
+            // JSON responses are automatically parsed.
+        }).catch(function (e) {
+            _this.errors.push(e);
+        });
     }
 });
 
@@ -50718,9 +50743,16 @@ var render = function() {
     _c("div", { staticClass: "home-background" }),
     _vm._v(" "),
     _c("div", { staticClass: "col-12" }, [
-      _vm._m(0),
+      _c("h2", [
+        _c("b", [_vm._v("Hi!")]),
+        _vm._v(" I'm "),
+        _c("span", { staticClass: "developer-name" }, [
+          _vm._v(_vm._s(_vm.data["fname"]))
+        ]),
+        _vm._v(",")
+      ]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
@@ -50746,17 +50778,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", [
-      _c("b", [_vm._v("Hi!")]),
-      _vm._v(" I'm "),
-      _c("span", { staticClass: "developer-name" }, [_vm._v("Leo")]),
-      _vm._v(",")
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -10,10 +10,10 @@
             <ul v-else  class="navbar-nav ml-4">
                 <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                          {{data['name']}}<span class="caret"></span>
+                          {{data['fname']}}<span class="caret"></span>
                       </a>
 
-                      <div class="dropdown-menu dropdown-menu-bg" aria-labelledby="navbarDropdown">
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/admin/settings">
                               Settings
                           </a>
@@ -41,7 +41,7 @@
                 
                 <!-- User Name -->
                 <div  class="user-name d-flex justify-content-center">
-                  <router-link to="/"  class="navbar-brand"  exact style="color: #000; font-weight: 600;">LEO FELIPA JR.</router-link>
+                  <router-link to="/"  class="navbar-brand text-uppercase"  exact style="color: #fff; font-weight: 600;">{{data['fname']}} {{data['lname']}}</router-link>
                 </div>
                 
                 <!-- User Job Title -->

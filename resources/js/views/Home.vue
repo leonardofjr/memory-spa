@@ -4,7 +4,7 @@
 
             </div>
             <div class="col-12">
-                <h2><b>Hi!</b> I'm <span class="developer-name">Leo</span>,</h2>
+                <h2><b>Hi!</b> I'm <span class="developer-name">{{data['fname']}}</span>,</h2>
   
                 <h2 class="pb-5">a freelance web developer specialized<br><strong>in front-end and back-end web development</strong></h2>
                 <div class="home-buttons">
@@ -23,11 +23,36 @@
 
 <script>
     export default {
+        data() {
+            return {
+                data: [],
+            };
+        },
         mounted() {
             console.log('Component mounted.')
             let dialogbox = document.createElement('script');
             dialogbox.setAttribute('src',"/js/dialog-box.js");
             document.head.appendChild(dialogbox);
+
+
+            
+            axios.get(this.web_url + '/home')
+            .then(response => {
+            if (!response.data['user']) {
+                this.data = response.data['guest'];
+                this.user = false;
+            } else {
+                this.data = response.data['user'];
+                this.user = true;
+
+            }
+                return this.data;
+            // JSON responses are automatically parsed.
+            })
+            .catch(e => {
+                this.errors.push(e)
+            });
         },
+        
     }
 </script>

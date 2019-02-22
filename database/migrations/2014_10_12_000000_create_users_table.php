@@ -15,12 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('fname');
+            $table->string('lname');
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->text('bio')->nullable();
             $table->text('skills_and_offer')->nullable();
-            $table->string('profile_image')->nullable();
+            $table->string('profile_image')->default('logo.png');
             $table->string('facebook_url')->nullable();
             $table->string('linkedin_url')->nullable();
             $table->string('twitter_url')->nullable();

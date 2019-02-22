@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
+        'fname', 
+        'lname', 
         'email', 
         'password', 
         'bio', 
@@ -24,7 +25,7 @@ class User extends Authenticatable
         'phone', 
         'email', 
         'facebook_url', 
-        'instagram_url', 
+        'linkedin_url', 
         'twitter_url', 
         'github_url', 
         'skills_and_offer'

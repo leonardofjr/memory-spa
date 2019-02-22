@@ -12,7 +12,7 @@ class UserSettingController extends Controller
 {
 
 
-    function updateUserSettings(UserSettingsRequest $request, $id)
+    function updateUserSettings(Request $request, $id)
     {
         if ($request->hasFile('profile_image')) {
                         
@@ -23,14 +23,18 @@ class UserSettingController extends Controller
             $current_file = $user->profile_image;
             
             // Removing file from storage
-            Storage::disk('public')->delete($current_file);
+            if ($current_file !== 'logo.png') {
+                Storage::disk('public')->delete($current_file);
 
+            }
             // Storing new File using laravels file storage
             $new_file = $request->file('profile_image')->store('public');
 
             // Preparing updated data to database
             $user->profile_image = $request->profile_image->hashName();
             $user->bio = $request->bio;
+            $user->lname = $request->lname;
+            $user->fname = $request->fname;
             $user->phone = $request->phone;
             $user->twitter_url = $request->twitter_url;
             $user->facebook_url = $request->facebook_url;
@@ -50,6 +54,8 @@ class UserSettingController extends Controller
          
             // Updating Database
             $user->bio = $request->bio;
+            $user->fname = $request->fname;
+            $user->lname = $request->lname;
             $user->phone = $request->phone;
             $user->twitter_url = $request->twitter_url;
             $user->facebook_url = $request->facebook_url;
