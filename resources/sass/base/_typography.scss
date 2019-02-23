@@ -1,11 +1,8 @@
 body {
-  font-family: $font-stack;
+  @include font-settings;
+
 }
 
-p {
-  @include font-settings;
-  padding: 1rem!important
-}
 
 h1 {
   font-size: 2.50em;

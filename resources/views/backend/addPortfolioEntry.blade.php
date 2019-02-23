@@ -25,7 +25,7 @@
                 </div>
                 <!-- File Selector -->
                 <script type="text/javascript" src="/js/imagePreview.js"></script>
-                <img id="imgPreview" class="img-fluid" src="https://via.placeholder.com/150" alt="image preview">
+                <img id="imgPreview" class="img-fluid" src="https://via.placeholder.com/350x150" alt="image preview">
 
                 <div class="form-group">
                     <label for="file_1">Image:</label>

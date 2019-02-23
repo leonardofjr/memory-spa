@@ -24,6 +24,6 @@ class ImagePreview {
 }
 
 function previewImageToUpload(image) {
-    let imagePreview = new ImagePreview($('#' + image)[0], '#imgPreview');
+    let imagePreview = new ImagePreview($('#' + image)[0], '#avatarPreview');
     imagePreview.init();
 }

@@ -222,15 +222,10 @@ a:hover {
 }
 
 body {
-  font-family: "Roboto", serif, "Open Sans";
-}
-
-p {
   letter-spacing: 1px;
   font-weight: 300;
   word-spacing: 1.3px;
   line-height: 24px;
-  padding: 1rem !important;
 }
 
 h1 {

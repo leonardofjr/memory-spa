@@ -14,12 +14,14 @@
                     <script type="text/javascript" src="/js/imagePreview.js"></script>
                     <input name="_method" type="hidden" value="PUT">
                     {{ csrf_field() }}
-                    @if(!is_file(public_path('/storage\\' . $data->profile_image)))             <img id="imgPreview" class="img-fluid" src="https://via.placeholder.com/300" alt="image preview">
+                    @if(!is_file(public_path('/storage\\' . $data->profile_image)))             <p>Avatar Image:</p>
+                        <img id="avatarPreview" class="img-fluid" src="https://via.placeholder.com/300" alt="image preview">
                     @else 
-                      <img id="imgPreview" class="img-fluid" src="/storage/{{$data->profile_image}}" alt="image preview">
+                      <p>Avatar Image:</p>
+                      <img id="avatarPreview" class="img-fluid" src="/storage/{{$data->profile_image}}" alt="image preview">
                     @endif
                     <div class="form-group">
-                        <label for="profile_image">Profile Image:</label>
+                        <label for="profile_image">Change Image:</label>
                         <input type="file" id="profile_image" name="profile_image" accept="image/*" onchange='previewImageToUpload("profile_image")'>
                         <div class="my-3 d-none alert alert-warning error error-profile-image" role="alert"></div>
                     </div>
