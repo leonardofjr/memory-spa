@@ -75,20 +75,18 @@ class UserSettingController extends Controller
     function updateSkills(Request $request, $id) {
         $user = User::findOrFail($id);
         $user->skills_and_offer = $request->skills_and_offer;
-        /*
-        $user->html = $request->html;
-        $user->css = $request->css;
-        $user->javascript = $request->javascript;
-        $user->php = $request->php;
-        $user->bootstrap = $request->bootstrap;
-        $user->angular = $request->angular;
-        $user->vuejs = $request->vuejs;
-        $user->laravel = $request->laravel;
-        $user->expressjs = $request->expressjs;
-        $user->git = $request->git;
-        $user->windows = $request->windows;
-        $user->mac = $request->mac;
-        $user->linux = $request->linux; */
+        $skill_set = [];
+        // If skill_name is not null 
+        if ($request->skill_name) {
+            foreach($request->skill_name as $i => $item) {
+                $skill_set[$i] = [
+                    'name' => $item,
+                    'website' => $request->skill_website[$i],
+                ];
+            }
+        }
+
+        $user->skill_set = json_encode($skill_set);
         $user->save();
         return redirect('/admin/skills');
     }

@@ -16,12 +16,14 @@
 
                         <div class="col-md-9">
                             <h2>{{$item['title']}}</h2>
-                            <p><strong>Project Description: </strong>{{$item['description']}}</p>
+                            <p><strong>Project Description: </strong>{!!$item['description']!!}</p>
                             <p><strong>Website: </strong><a href="{{$item['website_url']}}">{{$item['website_url']}}</a></p>
-                            <p><strong>Technologies:</strong>
-                                @foreach(json_decode($item['technologies']) as $technoloogy)
-                                    {{$technoloogy}}
-                                @endforeach
+                            <div>Technologies:</div>
+                                <ul> 
+                                @foreach($item['technologies'] as $technology_item)
+                                    <li  class="d-inline-block">{{$technology_item}}</li>
+                                 @endforeach
+                                </ul>
                             </p>
                         </div>
                 </div>

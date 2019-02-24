@@ -26,19 +26,10 @@ class PortfolioController extends Controller
 
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
     $helper = new HelperMethodsController;
+
     if ($request->hasFile('file_1') ) {
         // Storing File into variable and storing file in the the storage public folder
         $file_1 = $request->file('file_1')->store('public');
-
-        $technologies = [
-            $request->input('html5'),
-            $request->input('css3'),
-            $request->input('javascript'),
-            $request->input('php'),
-            $request->input('mysql'),
-            $request->input('angular'),
-            $request->input('laravel'),
-        ];
 
         // Preparing data to database
 
@@ -47,7 +38,7 @@ class PortfolioController extends Controller
             'title' => $request->title,
             'type' => $request->type,
             'website_url' => $request->website_url,
-            'technologies' => json_encode($helper->array_filter_null($technologies)),
+            'technologies' => json_encode(explode(',' ,$request->project_technologies)),
             'description' => $request->description
 
         ]);
@@ -97,7 +88,7 @@ class PortfolioController extends Controller
         $portfolio->description = $request->description;
         $portfolio->website_url = $request->website_url;
         $portfolio->type = $request->type;
-        $portfolio->technologies = json_encode($helper->array_filter_null($technologies));
+        $portfolio->technologies = json_encode(explode(',' ,$request->project_technologies));
 
         // Saving data to database
         $portfolio->save();

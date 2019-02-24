@@ -49,14 +49,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="technologies_used">Technologies used:</label>
-                    <!-- Looping through $languages passed by controller -->
-                    @foreach($programming_languages as $language)
-                        <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id= "{{strtolower($language)}}" name="{{strtolower($language)}}" value= "{{strtolower($language)}}">
-                                 <label class="form-check-label" for={{strtolower($language)}}>{{$language}}</label>
-                        </div>
-                     @endforeach
+                    <label for="project_technologies">Project Technologies:</label>
+                    <textarea class="form-control" name="project_technologies" id="project_technologies"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>

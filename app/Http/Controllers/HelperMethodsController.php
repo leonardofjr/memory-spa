@@ -22,18 +22,6 @@ class HelperMethodsController extends Controller
         return array('Website', 'App', 'Game');
     }
 
-    public function listOfProgrammingLanguages() {
-        return array(
-            'HTML5',
-            'CSS3',
-            'Javascript',
-            'PHP',
-            'MySql',
-            'Angular',
-            'Laravel',
-        );
-    }
-
     public function getPortfolioData() {
         /* If user is logged in then the $user_id value will be set to the users id */
         if (Auth::user()) {

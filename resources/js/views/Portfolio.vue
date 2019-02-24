@@ -8,7 +8,11 @@
                 </div>
                 <div class="col-md-7">
                         <h2>{{post.title}}</h2>
-                        <p>{{post.description}}</p>
+                        <p v-html="post.description"></p>
+                        <div class='project-technologies'>
+                            <div class="technologies-title">Technologies</div>
+                            <div class="technologies-tags" v-html="post.technologies"></div>
+                        </div>
                         <a :href="post.website_url" class="btn btn-primary">Launch Website</a>
                 </div>
             </div>

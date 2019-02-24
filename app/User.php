@@ -28,7 +28,8 @@ class User extends Authenticatable
         'linkedin_url', 
         'twitter_url', 
         'github_url', 
-        'skills_and_offer'
+        'skills_and_offer',
+        'skill_set'
     ];
 
     /**
@@ -39,11 +40,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function skills() {
-        return $this->hasOne('App\Skill', 'user_id');
-    }
-
 
     public function portfolio() {
         return $this->hasMany('App\Portfolio', 'user_id');

@@ -32,6 +32,7 @@
                         <textarea id="article-ckeditor" class="form-control" name="bio">{{$data->bio}}</textarea>
                         <div class="my-3 d-none alert alert-warning error error-bio" role="alert"></div>
                     </div>
+
                     <div class="form-group">
                         <label for="phone">Phone:</label>
                     <input type="tel" class="form-control" id="phone" name="phone" value="{{$data->phone}}" >

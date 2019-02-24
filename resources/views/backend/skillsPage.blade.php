@@ -9,6 +9,47 @@
                     <label for="title">Skills & Offer:</label>
                     <textarea id="article-ckeditor" class="form-control" name="skills_and_offer">{{$data->skills_and_offer}}</textarea>
                 </div>
+                <div id="skill_set">
+                <h3>Skill Set:</h3>
+                  <script>
+                            function addSkillGroup() {
+                                createSkillField();
+                            }
+                            function RemoveSkillGroup(e) {
+                                $(e).parent().remove();
+                            }
+
+                            function createSkillField() {
+                                $('#skill_set').append('\
+                                    <div class="form-group">\
+                                        <input type="text" placeholder="html" name="skill_name[]">\
+                                        <input type="text" placeholder="https://www.w3.org/html/" name="skill_website[]">\
+                                        <i onclick="addSkillGroup()">+</i>\
+                                        <i onclick="RemoveSkillGroup(this)">-</i>\
+                                    </div>\
+                                    ');
+                            }
+                        </script>
+                @if(!$data->skill_set || $data->skill_set == '[]') 
+                    <div class="form-group">
+                        <input type="text" placeholder="html" name="skill_name[]">
+                        <input type="text" placeholder="https://www.w3.org/html/"  name="skill_website[]">
+                      
+                        <i onclick="createSkillField()">+</i>
+                    </div>
+                @else 
+                    @foreach (json_decode($data->skill_set) as $item )
+                        <div class="form-group">
+                        <input type="text" placeholder="html" name="skill_name[]" value="{{$item->name}}">
+                        <input type="text" value="{{$item->website}}" placeholder="https://www.w3.org/html/"  name="skill_website[]">
+                        <i onclick="addSkillGroup()">+</i>
+                        <i onclick="RemoveSkillGroup(this)">-</i>
+                    </div>
+                    @endforeach
+                @endif
+
+
+                </div>
               <!--  <div class="form-group">
                     <label for="title">HTML5</label>
                 <input type="range" class="form-control" id="html5" name="html" value="{{$data->html}}" onchange='evalSlider(this.id)'>

@@ -50993,6 +50993,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -51075,7 +51079,18 @@ var render = function() {
               _c("div", { staticClass: "col-md-7" }, [
                 _c("h2", [_vm._v(_vm._s(post.title))]),
                 _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(post.description))]),
+                _c("p", { domProps: { innerHTML: _vm._s(post.description) } }),
+                _vm._v(" "),
+                _c("div", { staticClass: "project-technologies" }, [
+                  _c("div", { staticClass: "technologies-title" }, [
+                    _vm._v("Technologies")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "technologies-tags",
+                    domProps: { innerHTML: _vm._s(post.technologies) }
+                  })
+                ]),
                 _vm._v(" "),
                 _c(
                   "a",

@@ -14,7 +14,6 @@ class AdminUserControlPanel extends Controller
     public function  getSkillsPage() {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-
         return view('backend.skillsPage')->with('data', $user);
     }
   
@@ -27,15 +26,16 @@ class AdminUserControlPanel extends Controller
         $portfolio_photos = PortfolioPhoto::all();
         $data = [];
         foreach ($portfolio as $i => $item) {
-           $data[$i] = [
-               'id' => $item->id,
-               'title' => $item->title,
-               'description' => $item->description,
-               'website_url' => $item->website_url,
-               'technologies' => $item->technologies,
-               'files' => $portfolio_photos->where('id', $item->id)
-           ];
+            $data[$i] = [
+                'id' => $item->id,
+                'title' => $item->title,
+                'description' => $item->description,
+                'website_url' => $item->website_url,
+                'technologies' => json_decode($item->technologies),
+                'files' => $portfolio_photos->where('id', $item->id)
+            ];
        }
+
 
        return view('backend.home')->withData($data);
     }
@@ -43,27 +43,23 @@ class AdminUserControlPanel extends Controller
     public function getAddPortfolioEntryPage()
     {
         $helper = new HelperMethodsController;
-        $programming_languages = $helper->listOfProgrammingLanguages();
         $type_dropdown = $helper->typeDrowndown();
        // Passing in array of $langauges to View
         return view('backend.addPortfolioEntry')->with([
 
             'type_dropdown' => $type_dropdown,
-            'programming_languages' => $programming_languages
         ]);
     }
 
    
     public function getEditPortfolioPage($id) {
         $helper = new HelperMethodsController();
-        $programming_languages = $helper->listOfProgrammingLanguages();
         $type_dropdown = $helper->typeDrowndown();
         $portfolio = Portfolio::findOrFail($id);
         $portfolio_photos = PortfolioPhoto::all();
         return view('backend.editWorkPost')->with([
             'data' => $portfolio,
             'type_dropdown' => $type_dropdown,
-            'programming_languages' => $programming_languages,
             ]);
     }
 
