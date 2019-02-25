@@ -47,11 +47,18 @@
                     <input type="text" class="form-control" name="website_url" >
                    <div class="my-3 d-none alert alert-warning error error-website-url" role="alert">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="project_technologies">Project Technologies:</label>
-                    <textarea class="form-control" name="project_technologies" id="project_technologies"></textarea>
-                </div>
+                </div>     
+                @if(!$skill_set == '[]')          
+
+                @else 
+                    <div>Project Technologies:</div>
+                    @foreach ($skill_set as $skill_set_item )
+                        <div class="form-group">
+                            <label for="{{$skill_set_item->name}}">{{$skill_set_item->name}}</label>
+                            <input type="checkbox" id="{{$skill_set_item->name}}" value="{{$skill_set_item->name}}" name="technologies[]">
+                        </div>
+                    @endforeach
+                @endif
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>
         </section>

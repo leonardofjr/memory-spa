@@ -18,12 +18,19 @@
                             <h2>{{$item['title']}}</h2>
                             <p><strong>Project Description: </strong>{!!$item['description']!!}</p>
                             <p><strong>Website: </strong><a href="{{$item['website_url']}}">{{$item['website_url']}}</a></p>
+                            @if($item['technologies'] && $skill_set !== null) 
                             <div>Technologies:</div>
-                                <ul> 
+                                <ul class="list-unstyled"> 
                                 @foreach($item['technologies'] as $technology_item)
-                                    <li  class="d-inline-block">{{$technology_item}}</li>
+                                    @foreach($skill_set as $skill_set_item)
+                                        @if($skill_set_item->name === $technology_item)
+                                <li  class="d-inline-block"><a href="{{$skill_set_item->website}}">{{$technology_item}}</a></li>
+                                        @endif
+                                    @endforeach
                                  @endforeach
                                 </ul>
+                            
+                            @endif
                             </p>
                         </div>
                 </div>

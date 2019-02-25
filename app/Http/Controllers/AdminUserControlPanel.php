@@ -37,29 +37,38 @@ class AdminUserControlPanel extends Controller
        }
 
 
-       return view('backend.home')->withData($data);
+       return view('backend.home')->with([
+            'data' => $data,
+            'skill_set' => json_decode($user->skill_set),
+       ]);
     }
 
     public function getAddPortfolioEntryPage()
-    {
+    {   
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
         $helper = new HelperMethodsController;
         $type_dropdown = $helper->typeDrowndown();
        // Passing in array of $langauges to View
         return view('backend.addPortfolioEntry')->with([
-
             'type_dropdown' => $type_dropdown,
+            'skill_set' => json_decode($user->skill_set),
         ]);
     }
 
    
     public function getEditPortfolioPage($id) {
         $helper = new HelperMethodsController();
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
         $type_dropdown = $helper->typeDrowndown();
         $portfolio = Portfolio::findOrFail($id);
         $portfolio_photos = PortfolioPhoto::all();
         return view('backend.editWorkPost')->with([
             'data' => $portfolio,
             'type_dropdown' => $type_dropdown,
+            'skill_set' => json_decode($user->skill_set),
             ]);
     }
 

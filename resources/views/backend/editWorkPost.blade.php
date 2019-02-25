@@ -50,10 +50,37 @@
                    <div class="my-3 d-none alert alert-warning error error-website-url" role="alert">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="project_technologies">Project Technologies:</label>
-                    <textarea class="form-control" name="project_technologies" id="project_technologies">{{$data->technologies}}</textarea>
-                </div>
+                @if($skill_set !== null)
+                <div>Project Technologies:</div>
+
+                    @if (!json_decode($data->technologies))
+                        @foreach ($skill_set as $skill_set_item )
+
+
+                                <div class="form-group">
+                                    <label for="{{$skill_set_item->name}}">{{$skill_set_item->name}}</label>
+                                    <input type="checkbox" id="{{$skill_set_item->name}}" value="{{$skill_set_item->name}}" name="technologies[]{{$skill_set_item->name}}">
+                                </div>
+                            @endforeach
+
+                    @else
+                        @foreach ($skill_set as $skill_set_item )
+                            @foreach (json_decode($data->technologies) as $technology_item)
+                                @if($skill_set_item->name === $technology_item  )
+                                    <div class="form-group">
+                                        <label for="{{$skill_set_item->name}}">{{$skill_set_item->name}}</label>
+                                        <input type="checkbox" checked id="{{$skill_set_item->name}}" value="{{$skill_set_item->name}}" name="technologies[]{{$skill_set_item->name}}">
+                                    </div>
+                                @else
+                                    <div class="form-group">
+                                        <label for="{{$skill_set_item->name}}">{{$skill_set_item->name}}</label>
+                                        <input type="checkbox" id="{{$skill_set_item->name}}" value="{{$skill_set_item->name}}" name="technologies[]{{$skill_set_item->name}}">
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    @endif
+                @endif
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>
         </section>

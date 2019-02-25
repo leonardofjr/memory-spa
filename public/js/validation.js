@@ -34,7 +34,10 @@ class BasicValidation {
 
     $('#addWorkForm, #editWorkForm').submit(function () {
         let formData = new FormData($(this)[0]);
-
+        console.log(formData.get('file_1').name);
+        if (formData.get('file_1').name == "") {
+            formData.delete('file_1');
+        }
         event.preventDefault();
         $.ajax({
             url: $(this).attr('action'),
@@ -62,7 +65,7 @@ class BasicValidation {
         });
 
         return false;
-    });
+    }); 
     $('#setupPageForm').submit(function () {
 
         // Fix to save textarea field value using CKEDITOR

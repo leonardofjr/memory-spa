@@ -35,7 +35,8 @@
                 <!-- User Avatar -->
                 <div class="user-avatar d-flex justify-content-center">
                     <router-link to="/"  class="navbar-brand"  exact>
-                      <img :src='"/storage/" + this.data.profile_image' alt="" class="avatar img-fluid rounded-circle mt-4">
+                      <img v-if="this.data.profile_image" :src='"/storage/" + this.data.profile_image' alt="" class="avatar img-fluid rounded-circle mt-4">
+                      <img v-else src="/storage/logo.png" alt="" class="avatar img-fluid rounded-circle mt-4">
                     </router-link>
                 </div>
                 

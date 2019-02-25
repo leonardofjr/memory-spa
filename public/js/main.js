@@ -50195,6 +50195,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 var DEFAULT_TRANSITION = 'fade';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50369,10 +50370,18 @@ var render = function() {
               "router-link",
               { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
               [
-                _c("img", {
-                  staticClass: "avatar img-fluid rounded-circle mt-4",
-                  attrs: { src: "/storage/" + this.data.profile_image, alt: "" }
-                })
+                this.data.profile_image
+                  ? _c("img", {
+                      staticClass: "avatar img-fluid rounded-circle mt-4",
+                      attrs: {
+                        src: "/storage/" + this.data.profile_image,
+                        alt: ""
+                      }
+                    })
+                  : _c("img", {
+                      staticClass: "avatar img-fluid rounded-circle mt-4",
+                      attrs: { src: "/storage/logo.png", alt: "" }
+                    })
               ]
             )
           ],

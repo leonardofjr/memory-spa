@@ -30,7 +30,7 @@
                                     ');
                             }
                         </script>
-                @if(!$data->skill_set || $data->skill_set == '[]') 
+                @if(!$data->skill_set || $data->skill_set == 'null') 
                     <div class="form-group">
                         <input type="text" placeholder="html" name="skill_name[]">
                         <input type="text" placeholder="https://www.w3.org/html/"  name="skill_website[]">
