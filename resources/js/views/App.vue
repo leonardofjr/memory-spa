@@ -87,7 +87,7 @@
                         </a>
                     </span>
                 </div>            
-                  <button class="navbar-toggler navbar-light ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <button class="navbar-toggler navbar-dark ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -136,23 +136,20 @@
           </aside>
 
           <main id="frontend" class="col-lg-9">
-                    <transition
-                    name="fade"
-                      :name="transitionName"
-                      mode="out-in"
-                      @beforeLeave="beforeLeave"
-                      @enter="enter">
+                <transition name="fade">
                   <router-view>
                   
                   </router-view>
                   
               </transition>
+              <footer>
+                Developed & Designed by {{data['fname']}} {{data['lname']}}
+              </footer>
           </main>
       </div>
 </template>
 
 <script>
-const DEFAULT_TRANSITION = 'fade';
  export default {
    name: 'App',
    data() {
@@ -160,26 +157,9 @@ const DEFAULT_TRANSITION = 'fade';
         data: [],
         csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         user: false,
-        prevHeight: 0,
-        transitionName: DEFAULT_TRANSITION,
      };
    },
   created() {
-    this.$router.beforeEach((to, from, next) => {
-      let transitionName = to.meta.transitionName || from.meta.transitionName;
-
-      if (transitionName === 'slide') {
-        const toDepth = to.path.split('/').length;
-        const fromDepth = from.path.split('/').length;
-        transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
-      }
-
-      this.transitionName = transitionName || DEFAULT_TRANSITION;
-
-      next();
-    });
-
-
         axios.get(this.web_url + '/home')
         .then(response => {
           if (!response.data['user']) {
@@ -197,23 +177,9 @@ const DEFAULT_TRANSITION = 'fade';
               this.errors.push(e)
         });
   },
- methods: {
-    beforeLeave(element) {
-      this.prevHeight = getComputedStyle(element).height;
-    },
-    enter(element) {
-      const { height } = getComputedStyle(element);
+  methods: {
 
-      element.style.height = this.prevHeight;
-
-      setTimeout(() => {
-        element.style.height = height;
-      });
-    },
-    afterEnter(element) {
-      element.style.height = 'auto';
-    },
- }
+  }
 }
 </script>
 

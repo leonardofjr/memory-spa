@@ -1,23 +1,31 @@
 <template>
-    <div id="portfolio" class="row">
-        <div class="col-sm-12">
-        <h2>Portfolio</h2>
-            <div v-for="post of posts" class="row m-2 portfolio-item" :key="post.id">
-                <div class="col-md-5" v-for="file of post.files" :key="file.id">
-                       <img :src="'storage/' + file.filename_1" class="img-fluid">
-                </div>
-                <div class="col-md-7">
-                        <h2>{{post.title}}</h2>
+    <div id="portfolio">
+        <div class="page-title">
+            <h2>Portfolio</h2>
+        </div>
+            <div v-for="post of posts" class="row portfolio-item" :key="post.id">
+                <div class="col-md-8">
+                        <h2 class="project-title"> <a :href="post.website_url">{{post.title}}</a></h2>
                         <p v-html="post.description"></p>
                         <div class='project-technologies'>
-                            <div class="technologies-title">Technologies</div>
-                            <div class="technologies-tags" v-html="post.technologies"></div>
+                            <div class="technologies-title">Project Technologies</div>
+                            <ul class="technologies-tags list-unstyled">
+                                <li class="d-inline-block"  v-for="technology in post.technologies" :key="technology.id">
+                                    <template v-for="user_skill_item in user_skill_set" >
+                                        <template v-if="user_skill_item.name == technology">
+                                             <a class="technology-tag" v-html="technology" :href="user_skill_item.website" :key="user_skill_item.id">></a>
+                                        </template>
+                                    </template>
+                                </li>
+                            </ul>
                         </div>
-                        <a :href="post.website_url" class="btn btn-primary">Launch Website</a>
+                      
+                </div>
+                <div class="col-md-4" v-for="file of post.files" :key="file.id">
+                       <img :src="'storage/' + file.filename_1" class="img-fluid">
                 </div>
             </div>
         </div>
-    </div>
 </template>
 <script>
 
@@ -29,6 +37,7 @@ export default {
         posts: [],
         photos: [],
         errors: [],
+        user_skill_set: [],
         body: ''
         }
     },
@@ -47,27 +56,17 @@ export default {
     },
 
     // Fetches posts when the component is created.
-    created() {
+    mounted() {
         axios.get(this.web_url + '/portfolio')
         .then(response => {
-             this.posts = response.data;
-             console.log(response);
-             return this.posts;
+             this.posts = response.data.user_data;
+             this.user_skill_set = response.data.user_skill_set;
         // JSON responses are automatically parsed.
         })
         .catch(e => {
         this.errors.push(e)
       
         })
-
-        // async / await version (created() becomes async created())
-        //
-        // try {
-        //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
-        //   this.posts = response.data
-        // } catch (e) {
-        //   this.errors.push(e)
-        // }
     }
 }
 

@@ -1,7 +1,7 @@
 .btn-primary {
     background: $secondary-color!important;
-    color: black!important;
-    border: 1px solid black!important;
+    color: #fff!important;
+    border: none!important;
 }
 
 .btn-secondary {
@@ -9,7 +9,7 @@
     background: transparent;
     padding: 1em 2em;
     opacity: .8;
-    margin: 1em;
+    margin: 1em 0;
 }
 
 .btn-secondary:hover {

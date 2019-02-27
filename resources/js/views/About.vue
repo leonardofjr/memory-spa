@@ -1,7 +1,9 @@
 <template>
-        <div id="about" class=" row">
+        <div id="about">
+            <div class="page-title">
+                <h2>About Me</h2>
+            </div>
             <div class="col-sm-12">
-                <h2>About</h2>
                 <div v-html="this.data.bio"></div>
                 <button class="btn btn-primary">VIEW RESUME</button>
             </div>
@@ -31,7 +33,6 @@
                 this.user = true;
 
             }
-                return this.data;
             // JSON responses are automatically parsed.
             })
             .catch(e => {

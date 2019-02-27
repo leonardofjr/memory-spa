@@ -3,11 +3,18 @@
 #frontend {
     padding-top: 100px;
     color: #000;
-    height: 100vh;
+    background-color: #fff;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    
+
     a {
         color: $primary-color;
     }
     a:hover {
         text-decoration: underline;
+    }
+    @include breakpoint('lg') {
+         margin-left: 25%;
     }
 }

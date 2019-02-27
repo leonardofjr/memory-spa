@@ -14,20 +14,36 @@
         <link rel="stylesheet" href="/css/admin.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     </head>
-    
-    <body class="container">
-        @include('layouts.partials.top-header')
+    <style>
+        body {
+            background: #fff;
+        }
+    </style>
+    <body class="container-fluid">
         <main id="admin-cpanel" >
             <div class="row">
-                <aside class="col-3 col-md-2 admin-sidebar-bg">
+                <aside class="col-lg-3  admin-sidebar-bg">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
                     <ul>
                         <li><a href="{{route('User Settings')}}">Settings</a></li>
-                    <li><a href="{{route('Edit Skills')}}">Skills & Offer</a></li>
+                        <li><a href="{{route('Edit Skills')}}">Skills & Offer</a></li>
                         <li><a href="{{route('Portfolio Entries')}}">Portfolio</a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
                     </ul>
                 </aside>
 
-                <section class="col-9 col-md-10">
+                <section class="col-lg-9">
                     @yield('content')
                 </section>
              </div>

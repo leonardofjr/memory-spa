@@ -19,12 +19,12 @@
                             <p><strong>Project Description: </strong>{!!$item['description']!!}</p>
                             <p><strong>Website: </strong><a href="{{$item['website_url']}}">{{$item['website_url']}}</a></p>
                             @if($item['technologies'] && $skill_set !== null) 
-                            <div>Technologies:</div>
-                                <ul class="list-unstyled"> 
+                            <span><strong>Technologies:</strong></span>
+                                <ul class="list-unstyled d-inline-block"> 
                                 @foreach($item['technologies'] as $technology_item)
                                     @foreach($skill_set as $skill_set_item)
                                         @if($skill_set_item->name === $technology_item)
-                                <li  class="d-inline-block"><a href="{{$skill_set_item->website}}">{{$technology_item}}</a></li>
+                                <li  class="d-inline-block"><a href="{{$skill_set_item->website}}">{{$technology_item}}</a>,</li>
                                         @endif
                                     @endforeach
                                  @endforeach
@@ -37,10 +37,9 @@
 
                 <div class="offset-11">
                 <a href="/admin/portfolio/edit/{{$item['id']}}" class="fas fa-edit"></a>
-                <form id="deleteWorkForm" action="/api/delete-portfolio-entry/{{$item['id']}}" method="post">
+                <form id="deleteWorkForm" class="d-inline-block" action="/api/delete-portfolio-entry/{{$item['id']}}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                     <input type="hidden" name="_method" value="DELETE">
                       <button type="submit" class="fas fa-trash"></button>
                 </form>
                    

@@ -50194,37 +50194,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
-var DEFAULT_TRANSITION = 'fade';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   data: function data() {
     return {
       data: [],
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      user: false,
-      prevHeight: 0,
-      transitionName: DEFAULT_TRANSITION
+      user: false
     };
   },
   created: function created() {
     var _this = this;
-
-    this.$router.beforeEach(function (to, from, next) {
-      var transitionName = to.meta.transitionName || from.meta.transitionName;
-
-      if (transitionName === 'slide') {
-        var toDepth = to.path.split('/').length;
-        var fromDepth = from.path.split('/').length;
-        transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
-      }
-
-      _this.transitionName = transitionName || DEFAULT_TRANSITION;
-
-      next();
-    });
 
     axios.get(this.web_url + '/home').then(function (response) {
       if (!response.data['user']) {
@@ -50241,24 +50222,7 @@ var DEFAULT_TRANSITION = 'fade';
     });
   },
 
-  methods: {
-    beforeLeave: function beforeLeave(element) {
-      this.prevHeight = getComputedStyle(element).height;
-    },
-    enter: function enter(element) {
-      var _getComputedStyle = getComputedStyle(element),
-          height = _getComputedStyle.height;
-
-      element.style.height = this.prevHeight;
-
-      setTimeout(function () {
-        element.style.height = height;
-      });
-    },
-    afterEnter: function afterEnter(element) {
-      element.style.height = 'auto';
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -50588,15 +50552,17 @@ var render = function() {
       "main",
       { staticClass: "col-lg-9", attrs: { id: "frontend" } },
       [
-        _c(
-          "transition",
-          {
-            attrs: { name: "fade", name: _vm.transitionName, mode: "out-in" },
-            on: { beforeLeave: _vm.beforeLeave, enter: _vm.enter }
-          },
-          [_c("router-view")],
-          1
-        )
+        _c("transition", { attrs: { name: "fade" } }, [_c("router-view")], 1),
+        _vm._v(" "),
+        _c("footer", [
+          _vm._v(
+            "\n          Developed & Designed by " +
+              _vm._s(_vm.data["fname"]) +
+              " " +
+              _vm._s(_vm.data["lname"]) +
+              "\n        "
+          )
+        ])
       ],
       1
     )
@@ -50610,7 +50576,7 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "navbar-toggler navbar-light ml-auto",
+        staticClass: "navbar-toggler navbar-dark ml-auto",
         attrs: {
           type: "button",
           "data-toggle": "collapse",
@@ -50732,7 +50698,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.data = response.data['user'];
                 _this.user = true;
             }
-            return _this.data;
             // JSON responses are automatically parsed.
         }).catch(function (e) {
             _this.errors.push(e);
@@ -50870,6 +50835,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -50894,7 +50861,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.data = response.data['user'];
                 _this.user = true;
             }
-            return _this.data;
             // JSON responses are automatically parsed.
         }).catch(function (e) {
             _this.errors.push(e);
@@ -50910,17 +50876,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " row", attrs: { id: "about" } }, [
+  return _c("div", { attrs: { id: "about" } }, [
+    _vm._m(0),
+    _vm._v(" "),
     _c("div", { staticClass: "col-sm-12" }, [
-      _c("h2", [_vm._v("About")]),
-      _vm._v(" "),
       _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } }),
       _vm._v(" "),
       _c("button", { staticClass: "btn btn-primary" }, [_vm._v("VIEW RESUME")])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-title" }, [
+      _c("h2", [_vm._v("About Me")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -51006,6 +50981,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -51016,6 +50999,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             posts: [],
             photos: [],
             errors: [],
+            user_skill_set: [],
             body: ''
         };
     },
@@ -51033,26 +51017,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     // Fetches posts when the component is created.
-    created: function created() {
+    mounted: function mounted() {
         var _this = this;
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(this.web_url + '/portfolio').then(function (response) {
-            _this.posts = response.data;
-            console.log(response);
-            return _this.posts;
+            _this.posts = response.data.user_data;
+            _this.user_skill_set = response.data.user_skill_set;
             // JSON responses are automatically parsed.
         }).catch(function (e) {
             _this.errors.push(e);
         });
-
-        // async / await version (created() becomes async created())
-        //
-        // try {
-        //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
-        //   this.posts = response.data
-        // } catch (e) {
-        //   this.errors.push(e)
-        // }
     }
 });
 
@@ -51064,62 +51038,93 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row", attrs: { id: "portfolio" } }, [
-    _c(
-      "div",
-      { staticClass: "col-sm-12" },
-      [
-        _c("h2", [_vm._v("Portfolio")]),
-        _vm._v(" "),
-        _vm._l(_vm.posts, function(post) {
-          return _c(
-            "div",
-            { key: post.id, staticClass: "row m-2 portfolio-item" },
-            [
-              _vm._l(post.files, function(file) {
-                return _c("div", { key: file.id, staticClass: "col-md-5" }, [
-                  _c("img", {
-                    staticClass: "img-fluid",
-                    attrs: { src: "storage/" + file.filename_1 }
-                  })
+  return _c(
+    "div",
+    { attrs: { id: "portfolio" } },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.posts, function(post) {
+        return _c(
+          "div",
+          { key: post.id, staticClass: "row portfolio-item" },
+          [
+            _c("div", { staticClass: "col-md-8" }, [
+              _c("h2", { staticClass: "project-title" }, [
+                _c("a", { attrs: { href: post.website_url } }, [
+                  _vm._v(_vm._s(post.title))
                 ])
-              }),
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-7" }, [
-                _c("h2", [_vm._v(_vm._s(post.title))]),
-                _vm._v(" "),
-                _c("p", { domProps: { innerHTML: _vm._s(post.description) } }),
-                _vm._v(" "),
-                _c("div", { staticClass: "project-technologies" }, [
-                  _c("div", { staticClass: "technologies-title" }, [
-                    _vm._v("Technologies")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "technologies-tags",
-                    domProps: { innerHTML: _vm._s(post.technologies) }
-                  })
+              _c("p", { domProps: { innerHTML: _vm._s(post.description) } }),
+              _vm._v(" "),
+              _c("div", { staticClass: "project-technologies" }, [
+                _c("div", { staticClass: "technologies-title" }, [
+                  _vm._v("Project Technologies")
                 ]),
                 _vm._v(" "),
                 _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { href: post.website_url }
-                  },
-                  [_vm._v("Launch Website")]
+                  "ul",
+                  { staticClass: "technologies-tags list-unstyled" },
+                  _vm._l(post.technologies, function(technology) {
+                    return _c(
+                      "li",
+                      { key: technology.id, staticClass: "d-inline-block" },
+                      [
+                        _vm._l(_vm.user_skill_set, function(user_skill_item) {
+                          return [
+                            user_skill_item.name == technology
+                              ? [
+                                  _c(
+                                    "a",
+                                    {
+                                      key: user_skill_item.id,
+                                      staticClass: "technology-tag",
+                                      attrs: { href: user_skill_item.website },
+                                      domProps: {
+                                        innerHTML: _vm._s(technology)
+                                      }
+                                    },
+                                    [_vm._v(">")]
+                                  )
+                                ]
+                              : _vm._e()
+                          ]
+                        })
+                      ],
+                      2
+                    )
+                  })
                 )
               ])
-            ],
-            2
-          )
-        })
-      ],
-      2
-    )
-  ])
+            ]),
+            _vm._v(" "),
+            _vm._l(post.files, function(file) {
+              return _c("div", { key: file.id, staticClass: "col-md-4" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "storage/" + file.filename_1 }
+                })
+              ])
+            })
+          ],
+          2
+        )
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-title" }, [
+      _c("h2", [_vm._v("Portfolio")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -51191,6 +51196,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51214,7 +51221,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.data = response.data['user'];
                 _this.user = true;
             }
-            return _this.data;
             // JSON responses are automatically parsed.
         }).catch(function (e) {
             _this.errors.push(e);
@@ -51230,15 +51236,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row", attrs: { id: "skills-and-offer" } }, [
-    _c("div", { staticClass: "col-sm-12" }, [
-      _c("h2", [_vm._v("Skills & Offer")]),
-      _vm._v(" "),
+  return _c("div", { attrs: { id: "skills-and-offer" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
       _c("div", { domProps: { innerHTML: _vm._s(this.data.skills_and_offer) } })
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-title" }, [
+      _c("h2", [_vm._v("Skills & Offer")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -51337,6 +51352,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51361,19 +51378,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.data = response.data['user'];
                 _this.user = true;
             }
-            return _this.data;
             // JSON responses are automatically parsed.
         }).catch(function (e) {
             _this.errors.push(e);
         });
-    },
-
-    methods: {
-        back: function back() {
-            window.history.back();
-        }
     }
-
 });
 
 /***/ }),
@@ -51386,7 +51395,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row'", attrs: { id: "contact" } }, [
     _c("div", { staticClass: "col-sm-12" }, [
-      _c("h2", [_vm._v("CONTACT ME")]),
+      _vm._m(0),
       _vm._v(" "),
       _c("p", [
         _vm._v("I am available for hire and open to any ideas of cooperation.")
@@ -51459,7 +51468,16 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-title" }, [
+      _c("h2", [_vm._v("Contact Me")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

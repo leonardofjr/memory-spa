@@ -183,6 +183,7 @@ strong {
 body {
   background-image: url("");
   background-repeat: no-repeat;
+  background-color: #000;
   background-size: cover;
   overflow-x: hidden;
   line-height: 1.5;
@@ -195,7 +196,7 @@ ul {
 }
 
 dl.dl-vertical {
-  padding: 1rem;
+  padding-top: 1rem;
 }
 
 dl.dl-vertical dt {
@@ -259,6 +260,19 @@ aside .navbar {
   border-top: 0;
 }
 
+aside .navbar {
+  border-top: 2px solid black;
+}
+
+aside .nav {
+  text-align: right;
+}
+
+aside .nav .nav-link {
+  padding-top: .9rem;
+  padding-bottom: .9rem;
+}
+
 aside a {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -274,7 +288,7 @@ aside .router-link-active {
 
 aside .primary-menu .nav-item:hover:after,
 aside .primary-menu .nav-item.router-link-active:after {
-  content: ' >';
+  content: ' ';
 }
 
 aside .navbar-toggler {
@@ -285,30 +299,22 @@ aside .user .avatar {
   max-width: 190px;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 1200px) {
+  aside {
+    position: fixed !important;
+    height: 100%;
+  }
+
   aside .primary-menu .nav-item:hover:after,
   aside .primary-menu .nav-item.router-link-active:after {
-    content: ' ';
-  }
-
-  aside .navbar {
-    border-top: 2px solid black;
-  }
-
-  aside .nav {
-    text-align: right;
-  }
-
-  aside .nav .nav-link {
-    padding-top: .9rem;
-    padding-bottom: .9rem;
+    content: ' >';
   }
 }
 
 .btn-primary {
   background: #ffc909 !important;
-  color: black !important;
-  border: 1px solid black !important;
+  color: #fff !important;
+  border: none !important;
 }
 
 .btn-secondary {
@@ -316,7 +322,7 @@ aside .user .avatar {
   background: transparent;
   padding: 1em 2em;
   opacity: .8;
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .btn-secondary:hover {
@@ -329,7 +335,9 @@ aside .user .avatar {
 #frontend {
   padding-top: 100px;
   color: #000;
-  height: 100vh;
+  background-color: #fff;
+  padding-left: 2.3em;
+  padding-right: 2.3em;
 }
 
 #frontend a {
@@ -340,14 +348,15 @@ aside .user .avatar {
   text-decoration: underline;
 }
 
-footer {
-  background: #333;
-  color: #fff;
+@media (min-width: 1200px) {
+  #frontend {
+    margin-left: 25%;
+  }
 }
 
-.site-info {
-  background: #000;
-  color: #888;
+footer {
+  margin: 2em 0;
+  text-align: center;
 }
 
 /** Pages **/
@@ -356,13 +365,9 @@ footer {
   color: #fff;
 }
 
-#home .home-buttons {
-  margin-top: 5em;
-}
-
 #home .home-background {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -370,11 +375,45 @@ footer {
   background-image: url("/imgs/toronto-bg.jpg");
 }
 
+#home .home-buttons {
+  margin-top: 5em;
+}
+
 #contact form input,
 #contact form textarea {
   border: 0px;
   border-radius: 0;
   border-bottom: 1px solid black;
+}
+
+#portfolio .portfolio-item {
+  padding: 4em 0;
+  margin-left: 0;
+}
+
+#portfolio .portfolio-item .project-title a {
+  color: #ffc909;
+  opacity: .8;
+  text-decoration: underline;
+}
+
+#portfolio .portfolio-item .project-title a:hover {
+  color: #ffc909;
+  opacity: 1;
+}
+
+#portfolio .technologies-title {
+  color: #888;
+  margin: 1em 0 .5em 0;
+}
+
+#portfolio .technology-tag {
+  text-transform: uppercase;
+  background: #ffc909;
+  opacity: .8;
+  color: #fff;
+  margin: .3em;
+  padding: .3em .6em;
 }
 
 /** Themes **/

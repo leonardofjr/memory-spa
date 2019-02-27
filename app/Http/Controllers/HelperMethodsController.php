@@ -21,6 +21,19 @@ class HelperMethodsController extends Controller
     public function typeDrowndown() {
         return array('Website', 'App', 'Game');
     }
+    public function getUserSkillset() {
+          /* If user is logged in then the $user_id value will be set to the users id */
+        if (Auth::user()) {
+            $user_id = auth()->user()->id;
+        } 
+            /* Else if the user is a guest then we will set the $user_id to 1 */
+        else if (Auth::guest()) {
+            $user_id = 1;
+        }
+        $user = User::find($user_id);
+
+        return json_decode($user->skill_set);
+    }
 
     public function getPortfolioData() {
         /* If user is logged in then the $user_id value will be set to the users id */
@@ -34,7 +47,6 @@ class HelperMethodsController extends Controller
 
         /* We will find the user by their id */
         $user = User::find($user_id);
-
         $portfolio = $user->portfolio;
         $portfolio_photos = PortfolioPhoto::all();
         $data = [];
@@ -44,7 +56,7 @@ class HelperMethodsController extends Controller
                 'title' => $item->title,
                 'website_url' => $item->website_url,
                 'description' => $item->description,
-                'technologies' => $item->technologies,
+                'technologies' => json_decode($item->technologies),
                 'files' => $portfolio_photos->where('portfolio_entry_id', $item->id)
             ];
         }

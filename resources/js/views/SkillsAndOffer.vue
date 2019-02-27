@@ -1,7 +1,9 @@
 <template>
-  <div id="skills-and-offer" class="row">
-    <div class="col-sm-12">
+  <div id="skills-and-offer">
+    <div class="page-title">
         <h2>Skills & Offer</h2>
+    </div>
+    <div class="row">
         <div v-html="this.data.skills_and_offer"></div>
     </div>
   </div>
@@ -27,9 +29,7 @@
                 } else {
                     this.data = response.data['user'];
                     this.user = true;
-
                 }
-                    return this.data;
                 // JSON responses are automatically parsed.
             })
             .catch(e => {

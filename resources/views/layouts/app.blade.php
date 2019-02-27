@@ -22,7 +22,6 @@
 </head>
 <body>
     <div id="app" class="container">
-        @include('layouts.partials.top-header')
         <main class="py-4">
             @yield('content')
         </main>

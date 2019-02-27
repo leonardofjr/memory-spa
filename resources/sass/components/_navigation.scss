@@ -2,12 +2,24 @@
 @import "../helpers/_mixins";
 
 aside {
-        .navbar {
-            border-top: 0;
-        }
         background-color: $primary-color;
 
         color: $sidebar-font-color;
+        .navbar {
+            border-top: 0;
+        }
+        .navbar {
+            border-top: 2px solid black;
+        }
+
+        .nav {
+            text-align: right;
+
+            .nav-link {
+                padding-top: .9rem;
+                padding-bottom: .9rem;
+            }
+        }
 
         a {
             color: $sidebar-font-color;
@@ -19,9 +31,10 @@ aside {
             font-weight: 600;
             color: $sidebar-hyperlink-font-color;
         }
+
         .primary-menu .nav-item:hover:after,
         .primary-menu .nav-item.router-link-active:after {
-            content: ' >';
+            content: ' ';
         }
 
         .navbar-toggler {
@@ -33,25 +46,15 @@ aside {
                 max-width: 190px;
             }
         }
-
-        @media (max-width: 992px) {
+        
+        @include breakpoint(lg) {
+            position: fixed !important;
+            height: 100%;
             .primary-menu .nav-item:hover:after,
             .primary-menu .nav-item.router-link-active:after {
-                content: ' ';
-            }
-
-            .navbar {
-               border-top: 2px solid black;
-            }
-            .nav {
-                text-align: right;
-                .nav-link {
-                    padding-top: .9rem;
-                    padding-bottom: .9rem;
-                }
+                content: ' >';
             }
         }
-
 }
 
 

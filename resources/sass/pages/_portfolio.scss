@@ -1,0 +1,29 @@
+#portfolio {
+    .portfolio-item {
+        padding: 4em 0;
+        margin-left: 0;
+
+        .project-title a {
+            color: $secondary-color;
+            opacity: .8;
+            text-decoration: underline;
+        }
+        .project-title a:hover {
+            color: $secondary-color;
+            opacity: 1;
+        }
+    }
+
+    .technologies-title {
+        color: #888;
+        margin: 1em 0 .5em 0;
+    }
+    .technology-tag {
+        text-transform: uppercase;
+        background: $secondary-color;
+        opacity: .8;
+        color: #fff;
+        margin: .3em;
+        padding: .3em .6em;
+    }
+}

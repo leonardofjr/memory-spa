@@ -1,7 +1,9 @@
 <template>
   <div id="contact" class="row'">
         <div class="col-sm-12">
-            <h2>CONTACT ME</h2>
+            <div class="page-title">
+                <h2>Contact Me</h2>
+            </div>
             <p>I am available for hire and open to any ideas of cooperation.</p>
             <dl class="dl dl-vertical">
                 <!-- If email is not null -->
@@ -57,19 +59,12 @@
                 this.user = true;
 
             }
-                return this.data;
             // JSON responses are automatically parsed.
             })
             .catch(e => {
                  this.errors.push(e)
             })
         },
-        methods: {
-                
-            back() {
-                window.history.back();
-            }
-        }
 
     }
 </script>

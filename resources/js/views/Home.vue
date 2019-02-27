@@ -46,7 +46,6 @@
                 this.user = true;
 
             }
-                return this.data;
             // JSON responses are automatically parsed.
             })
             .catch(e => {
