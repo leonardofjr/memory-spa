@@ -32,8 +32,3 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
     Route::get('portfolio/add', 'AdminUserControlPanel@getAddPortfolioEntryPage')->name('Add Portfolio Entry');
 });
-
-
-Route::get('/{vue_capture}', function () {
-    return view('welcome');
-})->where('vue_capture','[\/\w\.-]*');
