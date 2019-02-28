@@ -93,7 +93,7 @@
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div class="primary-menu nav flex-column">
                           <router-link to="/about" class="nav-item nav-link" exact>ABOUT</router-link>
-                          <router-link to="/portfolio" class="nav-item nav-link" exact>PORTFOLIO</router-link>
+                          <router-link to="/portfolio/" class="nav-item nav-link" exact>PORTFOLIO</router-link>
                           <router-link to="/skills-and-offer" class="nav-item nav-link">SKILLS AND OFFER</router-link>
                           <router-link to="/contact" class="nav-item nav-link">CONTACT ME</router-link>
                       </div>
@@ -162,15 +162,14 @@
   created() {
         axios.get(this.web_url + '/home')
         .then(response => {
-          if (!response.data['user']) {
-            this.data = response.data['guest'];
+          if (!response.data['logged_in']) {
+            this.data = response.data;
             this.user = false;
           } else {
-            this.data = response.data['user'];
+            this.data = response.data;
             this.user = true;
 
           }
-            return this.data;
         // JSON responses are automatically parsed.
         })
         .catch(e => {

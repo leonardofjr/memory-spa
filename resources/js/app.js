@@ -20,6 +20,7 @@ import Contact from './views/Contact'
 
 
 const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',

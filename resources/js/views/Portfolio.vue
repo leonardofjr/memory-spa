@@ -3,7 +3,7 @@
         <div class="page-title">
             <h2>Portfolio</h2>
         </div>
-            <div v-for="post of posts" class="row portfolio-item" :key="post.id">
+            <div v-for="post of data.portfolio" class="row portfolio-item" :key="post.id">
                 <div class="col-md-8">
                         <h2 class="project-title"> <a :href="post.website_url">{{post.title}}</a></h2>
                         <p v-html="post.description"></p>
@@ -21,8 +21,8 @@
                         </div>
                       
                 </div>
-                <div class="col-md-4" v-for="file of post.files" :key="file.id">
-                       <img :src="'storage/' + file.filename_1" class="img-fluid">
+                <div class="col-md-4">
+                       <img :src="'/storage/' + post.portfolio_entries.filename_1" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
-        posts: [],
+        data: [],
         photos: [],
         errors: [],
         user_skill_set: [],
@@ -57,10 +57,18 @@ export default {
 
     // Fetches posts when the component is created.
     mounted() {
-        axios.get(this.web_url + '/portfolio')
+        axios.get(this.web_url + '/home')
         .then(response => {
-             this.posts = response.data.user_data;
+        if (!response.data['logged_in']) {
+             this.data = response.data;
              this.user_skill_set = response.data.user_skill_set;
+            this.user = false;
+          } else {
+             this.data = response.data;
+             this.user_skill_set = response.data.user_skill_set;
+            this.user = true;
+          }
+
         // JSON responses are automatically parsed.
         })
         .catch(e => {

@@ -38,11 +38,11 @@
             
             axios.get(this.web_url + '/home')
             .then(response => {
-            if (!response.data['user']) {
-                this.data = response.data['guest'];
+            if (!response.data['logged_in']) {
+                this.data = response.data;
                 this.user = false;
             } else {
-                this.data = response.data['user'];
+                this.data = response.data;
                 this.user = true;
 
             }

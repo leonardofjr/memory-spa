@@ -14051,6 +14051,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_
 
 
 var router = new __WEBPACK_IMPORTED_MODULE_2_vue_router__["a" /* default */]({
+    mode: 'history',
     routes: [{
         path: '/',
         name: 'home',
@@ -50207,14 +50208,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var _this = this;
 
     axios.get(this.web_url + '/home').then(function (response) {
-      if (!response.data['user']) {
-        _this.data = response.data['guest'];
+      if (!response.data['logged_in']) {
+        _this.data = response.data;
         _this.user = false;
       } else {
-        _this.data = response.data['user'];
+        _this.data = response.data;
         _this.user = true;
       }
-      return _this.data;
       // JSON responses are automatically parsed.
     }).catch(function (e) {
       _this.errors.push(e);
@@ -50470,7 +50470,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "nav-item nav-link",
-                      attrs: { to: "/portfolio", exact: "" }
+                      attrs: { to: "/portfolio/", exact: "" }
                     },
                     [_vm._v("PORTFOLIO")]
                   ),
@@ -50690,11 +50690,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         document.head.appendChild(dialogbox);
 
         axios.get(this.web_url + '/home').then(function (response) {
-            if (!response.data['user']) {
-                _this.data = response.data['guest'];
+            if (!response.data['logged_in']) {
+                _this.data = response.data;
                 _this.user = false;
             } else {
-                _this.data = response.data['user'];
+                _this.data = response.data;
                 _this.user = true;
             }
             // JSON responses are automatically parsed.
@@ -50853,11 +50853,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         axios.get(this.web_url + '/home').then(function (response) {
-            if (!response.data['user']) {
-                _this.data = response.data['guest'];
+            if (!response.data['logged_in']) {
+                _this.data = response.data;
                 _this.user = false;
             } else {
-                _this.data = response.data['user'];
+                _this.data = response.data;
                 _this.user = true;
             }
             // JSON responses are automatically parsed.
@@ -50995,7 +50995,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            posts: [],
+            data: [],
             photos: [],
             errors: [],
             user_skill_set: [],
@@ -51019,9 +51019,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var _this = this;
 
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(this.web_url + '/portfolio').then(function (response) {
-            _this.posts = response.data.user_data;
-            _this.user_skill_set = response.data.user_skill_set;
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(this.web_url + '/home').then(function (response) {
+            if (!response.data['logged_in']) {
+                _this.data = response.data;
+                _this.user_skill_set = response.data.user_skill_set;
+                _this.user = false;
+            } else {
+                _this.data = response.data;
+                _this.user_skill_set = response.data.user_skill_set;
+                _this.user = true;
+            }
+
             // JSON responses are automatically parsed.
         }).catch(function (e) {
             _this.errors.push(e);
@@ -51043,72 +51051,63 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.posts, function(post) {
-        return _c(
-          "div",
-          { key: post.id, staticClass: "row portfolio-item" },
-          [
-            _c("div", { staticClass: "col-md-8" }, [
-              _c("h2", { staticClass: "project-title" }, [
-                _c("a", { attrs: { href: post.website_url } }, [
-                  _vm._v(_vm._s(post.title))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("p", { domProps: { innerHTML: _vm._s(post.description) } }),
-              _vm._v(" "),
-              _c("div", { staticClass: "project-technologies" }, [
-                _c("div", { staticClass: "technologies-title" }, [
-                  _vm._v("Project Technologies")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  { staticClass: "technologies-tags list-unstyled" },
-                  _vm._l(post.technologies, function(technology) {
-                    return _c(
-                      "li",
-                      { key: technology.id, staticClass: "d-inline-block" },
-                      [
-                        _vm._l(_vm.user_skill_set, function(user_skill_item) {
-                          return [
-                            user_skill_item.name == technology
-                              ? [
-                                  _c(
-                                    "a",
-                                    {
-                                      key: user_skill_item.id,
-                                      staticClass: "technology-tag",
-                                      attrs: { href: user_skill_item.website },
-                                      domProps: {
-                                        innerHTML: _vm._s(technology)
-                                      }
-                                    },
-                                    [_vm._v(">")]
-                                  )
-                                ]
-                              : _vm._e()
-                          ]
-                        })
-                      ],
-                      2
-                    )
-                  })
-                )
+      _vm._l(_vm.data.portfolio, function(post) {
+        return _c("div", { key: post.id, staticClass: "row portfolio-item" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c("h2", { staticClass: "project-title" }, [
+              _c("a", { attrs: { href: post.website_url } }, [
+                _vm._v(_vm._s(post.title))
               ])
             ]),
             _vm._v(" "),
-            _vm._l(post.files, function(file) {
-              return _c("div", { key: file.id, staticClass: "col-md-4" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "storage/" + file.filename_1 }
+            _c("p", { domProps: { innerHTML: _vm._s(post.description) } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "project-technologies" }, [
+              _c("div", { staticClass: "technologies-title" }, [
+                _vm._v("Project Technologies")
+              ]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "technologies-tags list-unstyled" },
+                _vm._l(post.technologies, function(technology) {
+                  return _c(
+                    "li",
+                    { key: technology.id, staticClass: "d-inline-block" },
+                    [
+                      _vm._l(_vm.user_skill_set, function(user_skill_item) {
+                        return [
+                          user_skill_item.name == technology
+                            ? [
+                                _c(
+                                  "a",
+                                  {
+                                    key: user_skill_item.id,
+                                    staticClass: "technology-tag",
+                                    attrs: { href: user_skill_item.website },
+                                    domProps: { innerHTML: _vm._s(technology) }
+                                  },
+                                  [_vm._v(">")]
+                                )
+                              ]
+                            : _vm._e()
+                        ]
+                      })
+                    ],
+                    2
+                  )
                 })
-              ])
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "/storage/" + post.portfolio_entries.filename_1 }
             })
-          ],
-          2
-        )
+          ])
+        ])
       })
     ],
     2
@@ -51213,11 +51212,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         axios.get(this.web_url + '/home').then(function (response) {
-            if (!response.data['user']) {
-                _this.data = response.data['guest'];
+            if (!response.data['logged_in']) {
+                _this.data = response.data;
                 _this.user = false;
             } else {
-                _this.data = response.data['user'];
+                _this.data = response.data;
                 _this.user = true;
             }
             // JSON responses are automatically parsed.
@@ -51370,11 +51369,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         axios.get(this.web_url + '/home').then(function (response) {
-            if (!response.data['user']) {
-                _this.data = response.data['guest'];
+            if (!response.data['logged_in']) {
+                _this.data = response.data;
                 _this.user = false;
             } else {
-                _this.data = response.data['user'];
+                _this.data = response.data;
                 _this.user = true;
             }
             // JSON responses are automatically parsed.

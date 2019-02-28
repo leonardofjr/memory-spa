@@ -18,8 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 /* Frontend */
 Route::get('/home', 'FrontendController@getHomePage')->name('home');
-Route::get('/portfolio', 'FrontendController@getPortfolioPage')->name('portfolio');
-
 
 
 // ** Backend ** 

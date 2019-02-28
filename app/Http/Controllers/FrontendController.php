@@ -24,7 +24,6 @@ class FrontendController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
      */
     public function getHomePage()
     {
@@ -37,19 +36,18 @@ class FrontendController extends Controller
             $user_id = 1;
         }
         $user = User::find($user_id);
-        $data = $user;
-        return ["guest" => $data, "user" => Auth::user()];
+        $user->logged_in =  Auth::user();
+        $portfolio = Portfolio::get()->where('user_id', $user_id);
+        $portfolio_photo = PortfolioPhoto::all();
+        $photos = [];
+        foreach($portfolio as $i => $item) {
+            $photos[$i] = $item;
+            $photos[$i]->portfolio_entries = $item->portfolio_entries;
+        }
+        $user->portfolio = $photos;
+        return $user;
     }
 
-    
-    public function getPortfolioPage() {
-        $helper = new HelperMethodsController;
-        $data = $helper->getPortfolioData();
-        $user_skill_set = $helper->getUserSkillset();
-        return [
-            "user_data" => $data,
-            "user_skill_set" => $user_skill_set,
-            ];
-    } 
+
 }
 

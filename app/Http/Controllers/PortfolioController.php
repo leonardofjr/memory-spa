@@ -22,7 +22,25 @@ use Storage;
 
 class PortfolioController extends Controller
 {
-
+    
+    public function getPortfolioEntries() {
+        $helper = new HelperMethodsController;
+        $data = $helper->getPortfolioData();
+        $user_skill_set = $helper->getUserSkillset();
+        return [
+            "user_data" => $data,
+            "user_skill_set" => $user_skill_set,
+            ];
+    } 
+    public function getPortfolioEntriesById($id) {
+        $helper = new HelperMethodsController;
+        $data = $helper->getPortfolioData($id);
+        $user_skill_set = $helper->getUserSkillset();
+        return [
+            "user_data" => $data,
+            "user_skill_set" => $user_skill_set,
+            ];
+    } 
 
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
     $helper = new HelperMethodsController;
