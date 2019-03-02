@@ -15,13 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 /* Frontend */
 Route::get('/home', 'FrontendController@getHomePage')->name('home');
 
 
 // ** Backend ** 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
+Route::group(['middleware' => 'verified', 'prefix' => 'admin'], function() {
 
     // ** Page Routes //
     Route::get('settings', 'AdminUserControlPanel@getSettingsPage')->name('User Settings');
