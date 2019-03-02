@@ -29,6 +29,7 @@
                       </div>
                   </li>
             </ul>
+            <div class="aside-inner">
 
               <!-- User -->
               <div class="user">
@@ -53,7 +54,7 @@
                 </div>
               </div>
               <!-- Navigation Links -->
-              <nav class="navbar navbar-expand-lg my-3 " style="z-index: 1000">            
+              <nav class="navbar navbar-expand-lg my-3 ">            
                 
                 <div class="py-1 pl-3 social-icons d-block d-lg-none">
                   <!-- If email is not null -->
@@ -99,6 +100,7 @@
                       </div>
                   </div>
               </nav>
+              </div>        
               <div class="py-1 pl-3 social-icons d-none d-lg-block">
                   <!-- Contact link icons -->
                   <p class="pb-1 pl-0">Get In touch</p>
@@ -132,7 +134,7 @@
                           <i class="fab fa-2x fa-github"></i>
                         </a>
                     </span>
-                </div>        
+                </div>
           </aside>
 
           <main id="frontend" class="col-lg-9">

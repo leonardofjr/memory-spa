@@ -50194,6 +50194,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -50324,75 +50326,70 @@ var render = function() {
             ])
           ]),
       _vm._v(" "),
-      _c("div", { staticClass: "user" }, [
-        _c(
-          "div",
-          { staticClass: "user-avatar d-flex justify-content-center" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
-              [
-                this.data.profile_image
-                  ? _c("img", {
-                      staticClass: "avatar img-fluid rounded-circle mt-4",
-                      attrs: {
-                        src: "/storage/" + this.data.profile_image,
-                        alt: ""
-                      }
-                    })
-                  : _c("img", {
-                      staticClass: "avatar img-fluid rounded-circle mt-4",
-                      attrs: { src: "/storage/logo.png", alt: "" }
-                    })
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "user-name d-flex justify-content-center" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navbar-brand text-uppercase",
-                staticStyle: { color: "#fff", "font-weight": "600" },
-                attrs: { to: "/", exact: "" }
-              },
-              [
-                _vm._v(
-                  _vm._s(_vm.data["fname"]) + " " + _vm._s(_vm.data["lname"])
-                )
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "user-title" },
-          [
-            _c("router-link", { attrs: { to: "/" } }, [
-              _c("h2", { staticClass: "user-title-style text-center h5 " }, [
-                _vm._v("Web Developer")
+      _c("div", { staticClass: "aside-inner" }, [
+        _c("div", { staticClass: "user" }, [
+          _c(
+            "div",
+            { staticClass: "user-avatar d-flex justify-content-center" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "navbar-brand", attrs: { to: "/", exact: "" } },
+                [
+                  this.data.profile_image
+                    ? _c("img", {
+                        staticClass: "avatar img-fluid rounded-circle mt-4",
+                        attrs: {
+                          src: "/storage/" + this.data.profile_image,
+                          alt: ""
+                        }
+                      })
+                    : _c("img", {
+                        staticClass: "avatar img-fluid rounded-circle mt-4",
+                        attrs: { src: "/storage/logo.png", alt: "" }
+                      })
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "user-name d-flex justify-content-center" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-brand text-uppercase",
+                  staticStyle: { color: "#fff", "font-weight": "600" },
+                  attrs: { to: "/", exact: "" }
+                },
+                [
+                  _vm._v(
+                    _vm._s(_vm.data["fname"]) + " " + _vm._s(_vm.data["lname"])
+                  )
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "user-title" },
+            [
+              _c("router-link", { attrs: { to: "/" } }, [
+                _c("h2", { staticClass: "user-title-style text-center h5 " }, [
+                  _vm._v("Web Developer")
+                ])
               ])
-            ])
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "nav",
-        {
-          staticClass: "navbar navbar-expand-lg my-3 ",
-          staticStyle: { "z-index": "1000" }
-        },
-        [
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("nav", { staticClass: "navbar navbar-expand-lg my-3 " }, [
           _c(
             "div",
             { staticClass: "py-1 pl-3 social-icons d-block d-lg-none" },
@@ -50497,8 +50494,8 @@ var render = function() {
               )
             ]
           )
-        ]
-      ),
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "py-1 pl-3 social-icons d-none d-lg-block" }, [
         _c("p", { staticClass: "pb-1 pl-0" }, [_vm._v("Get In touch")]),
@@ -50976,18 +50973,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -51060,45 +51045,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("p", { domProps: { innerHTML: _vm._s(post.description) } }),
-            _vm._v(" "),
-            _c("div", { staticClass: "project-technologies" }, [
-              _c("div", { staticClass: "technologies-title" }, [
-                _vm._v("Project Technologies")
-              ]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                { staticClass: "technologies-tags list-unstyled" },
-                _vm._l(post.technologies, function(technology) {
-                  return _c(
-                    "li",
-                    { key: technology.id, staticClass: "d-inline-block" },
-                    [
-                      _vm._l(_vm.user_skill_set, function(user_skill_item) {
-                        return [
-                          user_skill_item.name == technology
-                            ? [
-                                _c(
-                                  "a",
-                                  {
-                                    key: user_skill_item.id,
-                                    staticClass: "technology-tag",
-                                    attrs: { href: user_skill_item.website },
-                                    domProps: { innerHTML: _vm._s(technology) }
-                                  },
-                                  [_vm._v(">")]
-                                )
-                              ]
-                            : _vm._e()
-                        ]
-                      })
-                    ],
-                    2
-                  )
-                })
-              )
-            ])
+            _c("p", { domProps: { innerHTML: _vm._s(post.description) } })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-4" }, [

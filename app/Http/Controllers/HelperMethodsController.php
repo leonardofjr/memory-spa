@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\PortfolioPhoto;
+use App\PortfolioEntryTypeDropdown;
 
 class HelperMethodsController extends Controller
 {
@@ -19,7 +20,8 @@ class HelperMethodsController extends Controller
     }
 
     public function typeDrowndown() {
-        return array('Website', 'App', 'Game');
+        $portfolio_entry_type_dropdown = PortfolioEntryTypeDropdown::all();
+        return $portfolio_entry_type_dropdown;
     }
     public function getUserSkillset() {
           /* If user is logged in then the $user_id value will be set to the users id */

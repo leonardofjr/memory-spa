@@ -13,11 +13,11 @@ aside {
         }
 
         .nav {
-            text-align: right;
-
             .nav-link {
                 padding-top: .9rem;
                 padding-bottom: .9rem;
+                text-align: right;
+
             }
         }
 
@@ -50,6 +50,9 @@ aside {
         @include breakpoint(lg) {
             position: fixed !important;
             height: 100%;
+            .primary-menu {
+                width: 70%;
+            }
             .primary-menu .nav-item:hover:after,
             .primary-menu .nav-item.router-link-active:after {
                 content: ' >';

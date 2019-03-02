@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\HelperMethodsController;
 use App\Portfolio;
 use App\PortfolioPhoto;
-use App\Skill;
 use App\User;
-use App\UserSetting;
 
 
 class AdminUserControlPanel extends Controller
@@ -80,63 +78,5 @@ class AdminUserControlPanel extends Controller
             'id' => $user_id
             ]);
     }
-
-    public function getSkillsArray() {
-        return [
-            [
-                "name" => "HTML5",
-                "value" => "html",
-            ],
-            [
-                "name" => "CSS3",
-                "value" => "css",
-            ],
-            [
-                "name" => "Javascript",
-                "value" => "javascript",
-            ],
-            [
-                "name" => "Bootstrap",
-                "value" => "bootstrap",
-            ],
-            [
-                "name" => "Angular",
-                "value" => "angular",
-            ],
-            [
-                "name" => "Vue.js",
-                "value" => "vuejs",
-            ],
-            [
-                "name" => "PHP",
-                "value" => "php",
-            ],
-            [
-                "name" => "Laravel",
-                "value" => "laravel",
-            ],
-            [
-                "name" => "Express.js",
-                "value" => "expressjs",
-            ],
-            [
-                "name" => "Git",
-                "value" => "git",
-            ],
-            [
-                "name" => "Windows",
-                "value" => "windows",
-            ],
-            [
-                "name" => "Mac",
-                "value" => "mac",
-            ],
-            [
-                "name" => "Linux",
-                "value" => "linux",
-            ],
-        ];
-    }
-
   
 }

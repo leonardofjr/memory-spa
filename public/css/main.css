@@ -264,13 +264,10 @@ aside .navbar {
   border-top: 2px solid black;
 }
 
-aside .nav {
-  text-align: right;
-}
-
 aside .nav .nav-link {
   padding-top: .9rem;
   padding-bottom: .9rem;
+  text-align: right;
 }
 
 aside a {
@@ -303,6 +300,10 @@ aside .user .avatar {
   aside {
     position: fixed !important;
     height: 100%;
+  }
+
+  aside .primary-menu {
+    width: 70%;
   }
 
   aside .primary-menu .nav-item:hover:after,

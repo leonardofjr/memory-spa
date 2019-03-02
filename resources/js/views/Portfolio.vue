@@ -7,19 +7,7 @@
                 <div class="col-md-8">
                         <h2 class="project-title"> <a :href="post.website_url">{{post.title}}</a></h2>
                         <p v-html="post.description"></p>
-                        <div class='project-technologies'>
-                            <div class="technologies-title">Project Technologies</div>
-                            <ul class="technologies-tags list-unstyled">
-                                <li class="d-inline-block"  v-for="technology in post.technologies" :key="technology.id">
-                                    <template v-for="user_skill_item in user_skill_set" >
-                                        <template v-if="user_skill_item.name == technology">
-                                             <a class="technology-tag" v-html="technology" :href="user_skill_item.website" :key="user_skill_item.id">></a>
-                                        </template>
-                                    </template>
-                                </li>
-                            </ul>
-                        </div>
-                      
+                       
                 </div>
                 <div class="col-md-4">
                        <img :src="'/storage/' + post.portfolio_entries.filename_1" class="img-fluid">
