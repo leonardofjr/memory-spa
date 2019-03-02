@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.backend')
 @section('content')
             <section class="container"> 
             <h2>{{\Request::route()->getName()}}</h2>

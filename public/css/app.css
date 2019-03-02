@@ -180,15 +180,6 @@ strong {
   font-weight: 600;
 }
 
-body {
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-color: #000;
-  background-size: cover;
-  overflow-x: hidden;
-  line-height: 1.5;
-}
-
 ul {
   -webkit-padding-start: 40px;
           padding-inline-start: 40px;
@@ -273,13 +264,6 @@ h4 {
 /** Layout **/
 
 /** Pages **/
-
-#contact form input,
-#contact form textarea {
-  border: 0px;
-  border-radius: 0;
-  border-bottom: 1px solid black;
-}
 
 /** Themes **/
 
