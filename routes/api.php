@@ -27,3 +27,4 @@ Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfoli
 Route::put('update-setup-skills/{id}', 'UserSettingController@updateSkills');
 // **  Routes //
 Route::put('update-user-settings/{id}', 'UserSettingController@updateUserSettings');
+Route::get('get-user-settings', 'UserSettingController@getUserSettings');

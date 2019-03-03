@@ -162,7 +162,7 @@
      };
    },
   created() {
-        axios.get(this.web_url + '/home')
+        axios.get(this.web_url + 'get-user-settings')
         .then(response => {
           if (!response.data['logged_in']) {
             this.data = response.data;

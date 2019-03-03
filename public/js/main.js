@@ -14082,7 +14082,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.mixin({
     data: function data() {
         return {
             get web_url() {
-                return "http://localhost:8000";
+                return "http://localhost:8000/api/";
             }
         };
     }
@@ -50209,7 +50209,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     var _this = this;
 
-    axios.get(this.web_url + '/home').then(function (response) {
+    axios.get(this.web_url + 'get-user-settings').then(function (response) {
       if (!response.data['logged_in']) {
         _this.data = response.data;
         _this.user = false;
@@ -50682,11 +50682,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         console.log('Component mounted.');
-        var dialogbox = document.createElement('script');
-        dialogbox.setAttribute('src', "/js/dialog-box.js");
-        document.head.appendChild(dialogbox);
-
-        axios.get(this.web_url + '/home').then(function (response) {
+        axios.get(this.web_url + 'get-user-settings').then(function (response) {
             if (!response.data['logged_in']) {
                 _this.data = response.data;
                 _this.user = false;
@@ -50849,7 +50845,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get(this.web_url + '/home').then(function (response) {
+        axios.get(this.web_url + 'get-user-settings').then(function (response) {
             if (!response.data['logged_in']) {
                 _this.data = response.data;
                 _this.user = false;
@@ -51004,7 +51000,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var _this = this;
 
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(this.web_url + '/home').then(function (response) {
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(this.web_url + 'get-user-settings').then(function (response) {
             if (!response.data['logged_in']) {
                 _this.data = response.data;
                 _this.user_skill_set = response.data.user_skill_set;
@@ -51158,7 +51154,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get(this.web_url + '/home').then(function (response) {
+        axios.get(this.web_url + 'get-user-settings').then(function (response) {
             if (!response.data['logged_in']) {
                 _this.data = response.data;
                 _this.user = false;
@@ -51315,7 +51311,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        axios.get(this.web_url + '/home').then(function (response) {
+        axios.get(this.web_url + 'get-user-settings').then(function (response) {
             if (!response.data['logged_in']) {
                 _this.data = response.data;
                 _this.user = false;

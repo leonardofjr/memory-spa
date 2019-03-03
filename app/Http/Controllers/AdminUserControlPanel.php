@@ -35,7 +35,7 @@ class AdminUserControlPanel extends Controller
        }
 
 
-       return view('backend.home')->with([
+       return view('backend.getPortfolioPage')->with([
             'data' => $data,
             'skill_set' => json_decode($user->skill_set),
        ]);

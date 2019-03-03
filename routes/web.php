@@ -10,17 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes(['verify' => true]);
 /* Frontend */
-Route::get('/home', 'FrontendController@getHomePage')->name('home');
 
+Route::get('/', 'FrontendController@getHomePage');
+
+Route::get('/{catchall?}', 'FrontendController@getHomePage')->where('catchall', '^(?!admin).*$', '^(?!api).*$')->name('administration');
 
 // ** Backend ** 
+// Authentication Routes...
+Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('admin/login', 'Auth\LoginController@login');
+Route::post('admin/logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('admin/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('admin/register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('admin/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+ Route::post('admin/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('admin/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('admin/password/reset', 'Auth\ResetPasswordController@reset');
+
+
 Route::group(['middleware' => 'verified', 'prefix' => 'admin'], function() {
 
     // ** Page Routes //

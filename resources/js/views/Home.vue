@@ -30,13 +30,7 @@
         },
         mounted() {
             console.log('Component mounted.')
-            let dialogbox = document.createElement('script');
-            dialogbox.setAttribute('src',"/js/dialog-box.js");
-            document.head.appendChild(dialogbox);
-
-
-            
-            axios.get(this.web_url + '/home')
+            axios.get(this.web_url + 'get-user-settings')
             .then(response => {
             if (!response.data['logged_in']) {
                 this.data = response.data;
