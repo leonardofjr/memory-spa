@@ -23,7 +23,7 @@ class ImagePreview {
 
 }
 
-function previewImageToUpload(image) {
-    let imagePreview = new ImagePreview($('#' + image)[0], '#avatarPreview');
+function previewImageToUpload(image, target) {
+    let imagePreview = new ImagePreview($('#' + image)[0], '#' + 'imgPreview');
     imagePreview.init();
 }

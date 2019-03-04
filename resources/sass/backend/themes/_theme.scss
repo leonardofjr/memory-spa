@@ -5,8 +5,9 @@
 #admin-cpanel {
     background: white;
     color: #000;
+    margin: 1em;
     // 
-    #avatarPreview {
+    #avatarPreview, #imgPreview {
         max-width: 300px;
     }
 }

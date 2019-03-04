@@ -130,14 +130,12 @@ class PortfolioController extends Controller
    
    public function deletePortfolioEntry(Request $request, $id) {
         // Getting Selection By ID
-        $portfolio = Portfolio::where('id', $id)->get();
+        $portfolio = Portfolio::findOrFail($id);
         // Storing Filename in variable
-        $filename = $portfolio[0]->basename;
+        $filename = $portfolio->portfolio_entries->filename_1;
         // Deleteing File
         Storage::delete('public/' . $filename);
         
-       $portfolio = Portfolio::findOrFail($id);
-
        $portfolio->portfolio_entries()->delete();
        $portfolio->delete();
        return redirect('admin/portfolio');

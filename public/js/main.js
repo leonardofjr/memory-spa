@@ -50210,6 +50210,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var _this = this;
 
     axios.get(this.web_url + 'get-user-settings').then(function (response) {
+      console.log(response);
       if (!response.data['logged_in']) {
         _this.data = response.data;
         _this.user = false;
@@ -50238,13 +50239,15 @@ var render = function() {
     _c("aside", { staticClass: "col-lg-3 nav-bg" }, [
       !_vm.user
         ? _c("div", { staticClass: "mr-3 my-3 text-right" }, [
-            _c("a", { staticClass: "ml-2", attrs: { href: "/login" } }, [
+            _c("a", { staticClass: "ml-2", attrs: { href: "/admin/login" } }, [
               _vm._v("Login")
             ]),
             _vm._v(" "),
-            _c("a", { staticClass: "ml-2", attrs: { href: "/register" } }, [
-              _vm._v("Register")
-            ])
+            _c(
+              "a",
+              { staticClass: "ml-2", attrs: { href: "/admin/register" } },
+              [_vm._v("Register")]
+            )
           ])
         : _c("ul", { staticClass: "navbar-nav ml-4" }, [
             _c("li", { staticClass: "nav-item dropdown" }, [

@@ -13,8 +13,9 @@
 /* Frontend */
 
 Route::get('/', 'FrontendController@getHomePage');
+Auth::routes(['verify' => true]);
 
-Route::get('/{catchall?}', 'FrontendController@getHomePage')->where('catchall', '^(?!admin).*$', '^(?!api).*$')->name('administration');
+Route::get('/{catchall?}', 'FrontendController@getHomePage')->where('catchall', '^(?!admin).*$', '^(?!api).*$', '^(?!email).*$')->name('administration');
 
 // ** Backend ** 
 // Authentication Routes...
@@ -32,6 +33,7 @@ Route::get('admin/password/reset', 'Auth\ForgotPasswordController@showLinkReques
 Route::get('admin/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('admin/password/reset', 'Auth\ResetPasswordController@reset');
 
+Route::get('api/get-user-settings', 'UserSettingController@getUserSettings');
 
 Route::group(['middleware' => 'verified', 'prefix' => 'admin'], function() {
 

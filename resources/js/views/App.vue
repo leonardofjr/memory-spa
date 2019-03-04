@@ -3,8 +3,8 @@
         <aside class="col-lg-3 nav-bg">
           <!-- If user is null -->  
           <div  v-if="!user" class="mr-3 my-3 text-right">
-            <a  class="ml-2" href="/login">Login</a> 
-            <a  class="ml-2" href="/register">Register</a>
+            <a  class="ml-2" href="/admin/login">Login</a> 
+            <a  class="ml-2" href="/admin/register">Register</a>
           </div>
             <!-- else if user data is returned -->
             <ul v-else  class="navbar-nav ml-4">
@@ -164,6 +164,7 @@
   created() {
         axios.get(this.web_url + 'get-user-settings')
         .then(response => {
+          console.log(response);
           if (!response.data['logged_in']) {
             this.data = response.data;
             this.user = false;

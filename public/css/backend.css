@@ -270,9 +270,11 @@ h4 {
 #admin-cpanel {
   background: white;
   color: #000;
+  margin: 1em;
 }
 
-#admin-cpanel #avatarPreview {
+#admin-cpanel #avatarPreview,
+#admin-cpanel #imgPreview {
   max-width: 300px;
 }
 

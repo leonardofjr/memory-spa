@@ -22,7 +22,7 @@
                     @endif
                     <div class="form-group">
                         <label for="profile_image">Change Image:</label>
-                        <input type="file" id="profile_image" name="profile_image" accept="image/*" onchange='previewImageToUpload("profile_image")'>
+                        <input type="file" id="profile_image" name="profile_image" accept="image/*" onchange='previewImageToUpload("profile_image", "avatarPreview")'>
                         <div class="my-3 d-none alert alert-warning error error-profile-image" role="alert"></div>
                     </div>
                     <div class="my-3 d-none alert alert-warning error error-image" role="alert">

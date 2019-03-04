@@ -29,7 +29,7 @@
 
                 <div class="form-group">
                     <label for="file_1">Image:</label>
-                    <input type="file" class="form-control" id="file_1" name="file_1" onchange='previewImageToUpload("file_1")'>
+                    <input type="file" class="form-control" id="file_1" name="file_1" onchange='previewImageToUpload("file_1", "imgPreview")'>
                    <div class="my-3 d-none alert alert-warning error error-file" role="alert">
                     </div>
                 </div>
