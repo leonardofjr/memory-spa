@@ -1,9 +1,6 @@
 @extends('layouts.backend')
 @section('content')
-<div class="row">
-          <div class="offset-lg-10">
-              <a class="btn-primary btn" href="{{route('Add Portfolio Entry')}}">Add Portfolio Entry</a>
-          </div>
+        <h2>{{\Request::route()->getName()}}<a class="btn-primary btn mx-4" href="{{route('Add Portfolio Entry')}}">Add Portfolio Entry</a></h2>
           <div class="col-12">
             <table class="table">
                 <thead>
@@ -12,8 +9,8 @@
                     <th scope="col">Author</th>
                     <th scope="col">Type</th>
                     <th scope="col">Created At</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
                 </thead>
             <tbody>
@@ -35,12 +32,5 @@
               @endforeach
             <tbody>
         </table>
-
-          </div>
-
 </div>
-@endsection
-
-@section('after-body-scripts')
-<script src="../../../dist/scripts/scripts.js"></script>
 @endsection

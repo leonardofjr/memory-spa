@@ -1,6 +1,5 @@
 @extends('layouts.backend')
 @section('content')
-            <section class="container"> 
             <h2>{{\Request::route()->getName()}}</h2>
             <form id="addWorkForm" method="POST" enctype="multipart/form-data" action="/api/post-portfolio-entry">
                 {{ csrf_field() }}
@@ -61,9 +60,5 @@
                 @endif
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>
-        </section>
-@endsection
-
-@section('after-body-scripts')
-<script src="../../../dist/scripts/scripts.js"></script>
+        @include('backend.partials.ckeditor')
 @endsection

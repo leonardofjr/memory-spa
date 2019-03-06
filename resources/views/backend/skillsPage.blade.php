@@ -1,6 +1,5 @@
 @extends('layouts.backend')
 @section('content')
-            <section class="container"> 
             <h2>{{\Request::route()->getName()}}</h2>
             <form id="profileSettingsForm" method="POST" action="/api/update-setup-skills/{{$data->id}}">
                 {{ csrf_field() }}
@@ -11,5 +10,5 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
-        </section>
+        @include('backend.partials.ckeditor')
 @endsection
