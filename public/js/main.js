@@ -50874,7 +50874,7 @@ var render = function() {
   return _c("div", { attrs: { id: "about" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "col-sm-12" }, [
+    _c("div", [
       _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } }),
       _vm._v(" "),
       _c("button", { staticClass: "btn btn-primary" }, [_vm._v("VIEW RESUME")])
@@ -51140,8 +51140,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51183,9 +51181,7 @@ var render = function() {
   return _c("div", { attrs: { id: "skills-and-offer" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { domProps: { innerHTML: _vm._s(this.data.skills_and_offer) } })
-    ])
+    _c("div", { domProps: { innerHTML: _vm._s(this.data.skills_and_offer) } })
   ])
 }
 var staticRenderFns = [

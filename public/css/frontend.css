@@ -410,6 +410,18 @@ footer {
 
 /** Themes **/
 
+body,
+html,
+#app,
+#app > .row {
+  height: 100%;
+}
+
+.frontend {
+  height: 100%;
+  overflow: auto;
+}
+
 body {
   background-image: url("");
   background-repeat: no-repeat;

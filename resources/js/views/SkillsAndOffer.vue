@@ -3,9 +3,7 @@
     <div class="page-title">
         <h2>Skills & Offer</h2>
     </div>
-    <div class="row">
         <div v-html="this.data.skills_and_offer"></div>
-    </div>
   </div>
 </template>
 

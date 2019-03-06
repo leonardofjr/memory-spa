@@ -3,11 +3,11 @@
             <div class="page-title">
                 <h2>About Me</h2>
             </div>
-            <div class="col-sm-12">
+            <div>
                 <div v-html="this.data.bio"></div>
                 <button class="btn btn-primary">VIEW RESUME</button>
             </div>
-    </div>
+        </div>
 </template>
 
 <script>
