@@ -33,6 +33,10 @@ class BasicValidation {
 }
 
     $('#addWorkForm, #editWorkForm').submit(function () {
+        // Fix to save textarea field value using CKEDITOR
+        for (instance in CKEDITOR.instances) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         let formData = new FormData($(this)[0]);
         console.log(formData.get('file_1').name);
         if (formData.get('file_1').name == "") {

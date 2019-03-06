@@ -5,7 +5,7 @@ use App\Http\Controllers\HelperMethodsController;
 use App\Portfolio;
 use App\PortfolioPhoto;
 use App\User;
-
+use Carbon\Carbon;
 
 class AdminUserControlPanel extends Controller
 {
@@ -27,10 +27,9 @@ class AdminUserControlPanel extends Controller
             $data[$i] = [
                 'id' => $item->id,
                 'title' => $item->title,
-                'description' => $item->description,
-                'website_url' => $item->website_url,
-                'technologies' => json_decode($item->technologies),
-                'files' => $portfolio_photos->where('id', $item->id)
+                'author' => $user->fname,
+                'created_at' => (new Carbon($item->created_at))->format('M/d/Y'),
+                'type' => $item->type,
             ];
        }
 

@@ -23,24 +23,31 @@
         <main id="admin-cpanel" >
             <div class="row">
                 <aside class="col-lg-3  admin-sidebar-bg">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <ul>
-                        <li><a href="{{route('User Settings')}}">Settings</a></li>
-                        <li><a href="{{route('Edit Skills')}}">Skills & Offer</a></li>
-                        <li><a href="{{route('Portfolio Entries')}}">Portfolio</a></li>
-                        <li class="nav-item">
-                            <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-                    </ul>
+                    <nav class="d-lg-block navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            {{ config('app.name', 'Laravel') }}
+                        </a>                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link" href="{{route('User Settings')}}">Settings</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('Edit Skills')}}">Skills & Offer</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('Portfolio Entries')}}">Portfolio</a></li>
+                                <li class="nav-item" class="nav-item">
+                                    <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </aside>
 
                 <section class="col-lg-9">
