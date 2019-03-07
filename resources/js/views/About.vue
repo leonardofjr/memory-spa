@@ -5,7 +5,7 @@
             </div>
             <div>
                 <div v-html="this.data.bio"></div>
-                <button class="btn btn-primary">VIEW RESUME</button>
+                <!--<button class="btn btn-primary">VIEW RESUME</button>-->
             </div>
         </div>
 </template>

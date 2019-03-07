@@ -14082,7 +14082,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.mixin({
     data: function data() {
         return {
             get web_url() {
-                return "http://localhost:8000/api/";
+                return "http://localhost:8100/api/";
             }
         };
     }
@@ -50874,11 +50874,7 @@ var render = function() {
   return _c("div", { attrs: { id: "about" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", [
-      _c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } }),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("VIEW RESUME")])
-    ])
+    _c("div", [_c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } })])
   ])
 }
 var staticRenderFns = [

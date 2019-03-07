@@ -24,7 +24,7 @@ class PortfolioEntryRequest extends FormRequest
     public function rules()
     {
            return [
-                'title' => 'required|min:2|max:25',
+                'title' => 'required|min:2|max:100',
                 'description' => 'required',
                 'website_url' => 'required',
         ];
@@ -35,7 +35,7 @@ class PortfolioEntryRequest extends FormRequest
         return [
                 'title.required' => 'Title field is required',
                 'title.min' => 'Title must be greater than 2 characters',
-                'title.max' => 'Title must be less than 25 characters',
+                'title.max' => 'Title must be less than 100 characters',
                 'description.required' => 'Description field is required',
                 'website_url.required' => 'Website url field is required',
         ];
