@@ -100,10 +100,10 @@
                       </div>
                   </div>
               </nav>
-              </div>        
-              <div class="py-1 pl-3 social-icons d-none d-lg-block">
+
+              <div class="block-social py-1 pl-3 d-none d-lg-block">
                   <!-- Contact link icons -->
-                  <p class="pb-1 pl-0">Get In touch</p>
+                  <p class="pb-1 pl-0 block-title">Get In touch</p>
                   <!-- If email is not null -->
                   <span v-if="data.email" class="px-1">
                         <a :href="'mailto:' + data.email">
@@ -135,6 +135,8 @@
                         </a>
                     </span>
                 </div>
+              </div> <!-- .aside-inner ends here -->
+              
           </aside>
 
           <main id="frontend" class="col-lg-9">
@@ -144,9 +146,6 @@
                   </router-view>
                   
               </transition>
-              <footer>
-                Developed & Designed by {{data['fname']}} {{data['lname']}}
-              </footer>
           </main>
       </div>
 </template>

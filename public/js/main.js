@@ -14082,7 +14082,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.mixin({
     data: function data() {
         return {
             get web_url() {
-                return "http://localhost:8100/api/";
+                // return "https://leojr.me/api/";
+                return "http://localhost:8000/api/";
             }
         };
     }
@@ -50195,7 +50196,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -50497,72 +50497,65 @@ var render = function() {
               )
             ]
           )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "block-social py-1 pl-3 d-none d-lg-block" }, [
+          _c("p", { staticClass: "pb-1 pl-0 block-title" }, [
+            _vm._v("Get In touch")
+          ]),
+          _vm._v(" "),
+          _vm.data.email
+            ? _c("span", { staticClass: "px-1" }, [
+                _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
+                  _c("i", { staticClass: "fas fa-2x fa-envelope" })
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.data.twitter_url
+            ? _c("span", { staticClass: "px-1" }, [
+                _c("a", { attrs: { href: _vm.data.twitter_url } }, [
+                  _c("i", { staticClass: "fab fa-2x fa-twitter" })
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.data.linkedin_url
+            ? _c("span", { staticClass: "px-1" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "px-1",
+                    attrs: { href: _vm.data.linkedin_url }
+                  },
+                  [_c("i", { staticClass: "fab fa-2x fa-linkedin-in" })]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.data.facebook_url
+            ? _c("span", { staticClass: "px-1" }, [
+                _c("a", { attrs: { href: _vm.data.facebook_url } }, [
+                  _c("i", { staticClass: "fab fa-2x fa-facebook" })
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.data.github_url
+            ? _c("span", { staticClass: "px-1" }, [
+                _c("a", { attrs: { href: _vm.data.github_url } }, [
+                  _c("i", { staticClass: "fab fa-2x fa-github" })
+                ])
+              ])
+            : _vm._e()
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "py-1 pl-3 social-icons d-none d-lg-block" }, [
-        _c("p", { staticClass: "pb-1 pl-0" }, [_vm._v("Get In touch")]),
-        _vm._v(" "),
-        _vm.data.email
-          ? _c("span", { staticClass: "px-1" }, [
-              _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
-                _c("i", { staticClass: "fas fa-2x fa-envelope" })
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.data.twitter_url
-          ? _c("span", { staticClass: "px-1" }, [
-              _c("a", { attrs: { href: _vm.data.twitter_url } }, [
-                _c("i", { staticClass: "fab fa-2x fa-twitter" })
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.data.linkedin_url
-          ? _c("span", { staticClass: "px-1" }, [
-              _c(
-                "a",
-                { staticClass: "px-1", attrs: { href: _vm.data.linkedin_url } },
-                [_c("i", { staticClass: "fab fa-2x fa-linkedin-in" })]
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.data.facebook_url
-          ? _c("span", { staticClass: "px-1" }, [
-              _c("a", { attrs: { href: _vm.data.facebook_url } }, [
-                _c("i", { staticClass: "fab fa-2x fa-facebook" })
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.data.github_url
-          ? _c("span", { staticClass: "px-1" }, [
-              _c("a", { attrs: { href: _vm.data.github_url } }, [
-                _c("i", { staticClass: "fab fa-2x fa-github" })
-              ])
-            ])
-          : _vm._e()
       ])
     ]),
     _vm._v(" "),
     _c(
       "main",
       { staticClass: "col-lg-9", attrs: { id: "frontend" } },
-      [
-        _c("transition", { attrs: { name: "fade" } }, [_c("router-view")], 1),
-        _vm._v(" "),
-        _c("footer", [
-          _vm._v(
-            "\n          Developed & Designed by " +
-              _vm._s(_vm.data["fname"]) +
-              " " +
-              _vm._s(_vm.data["lname"]) +
-              "\n        "
-          )
-        ])
-      ],
+      [_c("transition", { attrs: { name: "fade" } }, [_c("router-view")], 1)],
       1
     )
   ])
@@ -51033,7 +51026,7 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.data.portfolio, function(post) {
         return _c("div", { key: post.id, staticClass: "row portfolio-item" }, [
-          _c("div", { staticClass: "col-md-8" }, [
+          _c("div", { staticClass: "col-12 col-md-5" }, [
             _c("h2", { staticClass: "project-title" }, [
               _c("a", { attrs: { href: post.website_url } }, [
                 _vm._v(_vm._s(post.title))
@@ -51043,7 +51036,7 @@ var render = function() {
             _c("p", { domProps: { innerHTML: _vm._s(post.description) } })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "col-12 col-md-7" }, [
             _c("img", {
               staticClass: "img-fluid",
               attrs: { src: "/storage/" + post.portfolio_entries.filename_1 }

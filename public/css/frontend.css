@@ -253,12 +253,13 @@ aside .navbar {
 
 aside .navbar {
   border-top: 2px solid black;
+  padding: 0;
+  width: 95%;
 }
 
 aside .nav .nav-link {
   padding-top: .9rem;
   padding-bottom: .9rem;
-  text-align: right;
 }
 
 aside a {
@@ -287,14 +288,15 @@ aside .user .avatar {
   max-width: 190px;
 }
 
+aside .block-social .block-title {
+  text-transform: uppercase;
+  font-size: .7em;
+}
+
 @media (min-width: 1200px) {
   aside {
     position: fixed !important;
     height: 100%;
-  }
-
-  aside .primary-menu {
-    width: 70%;
   }
 
   aside .primary-menu .nav-item:hover:after,
@@ -379,7 +381,7 @@ footer {
 }
 
 #portfolio .portfolio-item {
-  padding: 4em 0;
+  padding: 4em 0 16em 0;
   margin-left: 0;
 }
 

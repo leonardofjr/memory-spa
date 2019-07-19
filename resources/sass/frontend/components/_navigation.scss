@@ -10,14 +10,14 @@ aside {
         }
         .navbar {
             border-top: 2px solid black;
+            padding: 0;
+            width: 95%;
         }
 
         .nav {
             .nav-link {
                 padding-top: .9rem;
                 padding-bottom: .9rem;
-                text-align: right;
-
             }
         }
 
@@ -46,17 +46,23 @@ aside {
                 max-width: 190px;
             }
         }
-        
+        .block-social {
+            .block-title {
+                text-transform: uppercase;
+                font-size: .7em;
+            }
+        }
         @include breakpoint(lg) {
             position: fixed !important;
             height: 100%;
             .primary-menu {
-                width: 70%;
             }
             .primary-menu .nav-item:hover:after,
             .primary-menu .nav-item.router-link-active:after {
                 content: ' >';
             }
+
+            
         }
 }
 
