@@ -1,29 +1,31 @@
-class ImagePreview {
-    constructor(element, target) {
-        this.input = element;
-        this.target = target;
+
+
+$uploadCrop = $('#uploadDemo').croppie({
+    enableExif: true,
+    viewport: {
+        width: 200,
+        height: 200,
+        type: 'square'
+    },
+    boundary: {
+        width: 300,
+        height: 300
     }
+});
 
-    init() {
-        this.process(this.target);
+$('#profile_image').on('change', function() {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        $uploadCrop.croppie('bind', {
+            url: event.target.result
+        }).then(function() {
+            openCroppieModal() 
+            console.log('Jquery bind complete');
+        });
     }
+    reader.readAsDataURL(this.files[0]);
+})
 
-    process(target) {
-        // Getting Image From Input
-        if (this.input.files && this.input.files[0]) {
-            let reader = new FileReader();
-            reader.onload = function (e) {
-                $(target)
-                    .attr('src', e.target.result);
-            };
-            reader.readAsDataURL(this.input.files[0]);
-
-        }
-    }
-
-}
-
-function previewImageToUpload(image, target) {
-    let imagePreview = new ImagePreview($('#' + image)[0], '#' + 'imgPreview');
-    imagePreview.init();
+function openCroppieModal() {
+    $("#croppieModal").modal();
 }
