@@ -15,7 +15,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button id="cropBtn" type="button" class="btn btn-primary">Crop</button>
                     </div>
                 </div>
                 </div>
@@ -23,7 +23,7 @@
             <h2>{{\Request::route()->getName()}}</h2>
 
         
-                <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/api/update-user-settings/{{$id}}">
+                <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/update-user-settings/{{$id}}">
                     <div class="form-group">
                         <label for="fname">First Name:</label>
                         <input type="text" class="form-control" id="fname" name="fname" value="{{$data->fname}}" >

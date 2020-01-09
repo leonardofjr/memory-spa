@@ -7,12 +7,13 @@ use App\Http\Requests\UserSettingsRequest;
 use App\User;
 use App\Skill;
 use App\Set;
-use Illuminate\Support\Facades\Storage;
+use Storage;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Auth;
 use App\Portfolio;
 use App\PortfolioPhoto;
+use Illuminate\Http\UploadedFile;
 
 class UserSettingController extends Controller
 {
@@ -105,4 +106,20 @@ class UserSettingController extends Controller
         return redirect('/admin/skills');
     }
 
+    function uploadCroppedImage(Request $request) {
+        if($request->input('image')) {
+
+            $encoded_image = $request->input('image');
+            $img_array = explode(';', $encoded_image);
+            $img_array_2 = explode(',', $img_array[1]);
+            $prepared_base_64_image = $img_array_2[1];
+            
+            Storage::put('test.png', base64_decode($prepared_base_64_image));
+
+            return response()->json([
+                'success' => $prepared_base_64_image
+            ]);
+        }
+
+    }
 }
