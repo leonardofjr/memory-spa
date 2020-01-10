@@ -44,9 +44,10 @@ class PortfolioController extends Controller
 
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
     $helper = new HelperMethodsController;
-    if ($request->hasFile('file_1') ) {
+    $uploadCroppedImage = $helper->uploadCroppedImage($request);
+
+    if ($request->hasFile('uploadedImageFile') ) {
         // Storing File into variable and storing file in the the storage public folder
-        $file_1 = $request->file('file_1')->store('public');
 
         // Preparing data to database
 
@@ -70,13 +71,18 @@ class PortfolioController extends Controller
             "redirect" => "/admin/portfolio",
         ]);
     }   else {
-            return false;
+        return response()->json([
+            $request
+        ]);
     }
    }
 
    
    public function updatePortfolioEntry(PortfolioEntryRequest $request, $id) {
         $helper = new HelperMethodsController;
+
+        $uploadCroppedImage = $helper->uploadCroppedImage();
+
         if ($request->hasFile('file_1')) {
         // Searching by Users corresponding id
             $portfolio = Portfolio::findOrFail($id);

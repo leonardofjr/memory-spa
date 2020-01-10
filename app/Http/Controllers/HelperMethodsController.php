@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Storage;
 use App\PortfolioPhoto;
 use App\PortfolioEntryTypeDropdown;
 
 class HelperMethodsController extends Controller
 {
+    
+    private const TEMP_DIRECTORY = 'temp/';
+    private const LOGO_DIRECTORY = 'logo/';
     
     // Helper Functions
 
@@ -59,4 +63,33 @@ class HelperMethodsController extends Controller
 
         return $data;
     } 
+
+    public function uploadCroppedImage(Request $request) {
+        if($request->input('image')) {
+
+            $image_name = 'logo.png';
+            $encoded_image = $request->input('image');
+            $img_array = explode(';', $encoded_image);
+            $img_array_2 = explode(',', $img_array[1]);
+            $prepared_base_64_image = $img_array_2[1];
+            
+            $this->emptyTempDirectory();
+
+
+            Storage::put(HelperMethodsController::TEMP_DIRECTORY . $image_name, base64_decode($prepared_base_64_image));
+
+            return response()->json([
+                'filename' => $image_name,
+                'tempDirectory' => '/storage/' . HelperMethodsController::TEMP_DIRECTORY,
+            ]);
+        }
+
+    }
+
+    public function emptyTempDirectory() {
+        Storage::deleteDirectory(HelperMethodsController::TEMP_DIRECTORY);
+    }
+    public function emptyLogoDirectory() {
+        Storage::deleteDirectory(UserSettingController::LOGO_DIRECTORY);
+    }
 }

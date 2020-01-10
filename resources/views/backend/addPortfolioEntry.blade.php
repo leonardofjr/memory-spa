@@ -3,7 +3,28 @@
             <header class="page-title-header mb-5">
                 <h2>{{\Request::route()->getName()}}</h2>
             </header>
-            <form class="col-10" id="addWorkForm" method="POST" enctype="multipart/form-data" action="/api/post-portfolio-entry">
+
+            <div id="croppieModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="uploadDemo" class="demo"></div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="closeBtn btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="cropBtn" type="button" class="btn btn-primary">Crop</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <form class="col-10" method="POST" enctype="multipart/form-data" action="/post-portfolio-entry">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="title">Title:</label>
@@ -11,7 +32,6 @@
                    <div class="my-3 d-none alert alert-warning error error-title" role="alert">
                     </div>
                 </div>
-                 <input type="hidden" name="user_id" value="{{Auth::user()->id }}">
 
                 <div class="form-group">
                     <label for="type">Type:</label>
@@ -25,15 +45,16 @@
                     </div>
                 </div>
                 <!-- File Selector -->
-                <script type="text/javascript" src="/js/imagePreview.js"></script>
-                <img id="imgPreview" class="img-fluid" src="https://via.placeholder.com/350x150" alt="image preview">
-
-                <div class="form-group">
-                    <label for="file_1">Image:</label>
-                    <input type="file" class="form-control" id="file_1" name="file_1" onchange='previewImageToUpload("file_1", "imgPreview")'>
-                   <div class="my-3 d-none alert alert-warning error error-file" role="alert">
+                <div class="logoPreviewContainer">
+                    <img id="imageFilePreview" class="img-thumbnail" src='https://via.placeholder.com/300x300' style="display:none; max-width: 300px;" alt="preview" />
                     </div>
+              
+                <div class="form-group">
+                    <input type="file" id="uploadedImageFile" name="uploadedImageFile" accept="image/*">
+                    <div class="my-3 d-none alert alert-warning error error-profile-image" role="alert"></div>
                 </div>
+
+
                 <!-- File Selector END -->      
                                 
                 <div class="form-group">

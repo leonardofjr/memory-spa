@@ -31,7 +31,6 @@ class BasicValidation {
         })
     }
 }
-
     $('#addWorkForm, #editWorkForm').submit(function () {
         // Fix to save textarea field value using CKEDITOR
         for (instance in CKEDITOR.instances) {

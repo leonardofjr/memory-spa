@@ -73,7 +73,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.js
     "></script>
 
-    <script src="/js/validation.js"></script>
-    <script type="text/javascript" src="/js/imagePreview.js"></script>
+    <script type="text/javascript" src="/js/croppieSettingsPageSetup.js"></script>
+    <script type="text/javascript" src="/js/croppieFunctions.js"></script>
 
 </html>

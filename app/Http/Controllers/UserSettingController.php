@@ -46,14 +46,14 @@ class UserSettingController extends Controller
 
     function updateUserSettings(Request $request, $id)
     {
-        if ($request->hasFile('profileImage')) {
-            
+        if ($request->hasFile('uploadedImageFile')) {
+
             $this->emptyLogoDirectory();
             // Searching by Users corresponding id
             $user = User::findOrFail($id);
             
             // Getting current file name
-            $current_file = $user->profileImage;
+            $current_file = $user->uploadedImageFile;
             
             // Removing file from storage
             if ($current_file !== 'logo.png') {
@@ -77,12 +77,11 @@ class UserSettingController extends Controller
             $user->email = $request->email;
             // Saving data to database
             $user->save();
-            return response()->json([
-                "redirect" => "/admin/settings",
-            ]);
+            return redirect('/admin/settings');
         }
 
         else {
+
             // Searching by his corresponding id
             $user = User::findOrFail($id);
          
@@ -99,9 +98,8 @@ class UserSettingController extends Controller
             $user->email = $request->email;
 
             $user->save();
-            return response()->json([
-                "redirect" => "/admin/settings",
-            ]);
+            return redirect('/admin/settings');
+
         }
 
     }

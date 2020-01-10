@@ -37,7 +37,7 @@ Route::post('admin/password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('api/get-user-settings', 'UserSettingController@getUserSettings');
 Route::put('update-user-settings/{id}', 'UserSettingController@updateUserSettings');
 
-Route::post('upload-cropped-image', 'UserSettingController@uploadCroppedImage');
+Route::post('upload-cropped-image', 'HelperMethodsController@uploadCroppedImage');
 
 
 
@@ -50,3 +50,13 @@ Route::group(['middleware' => 'verified', 'prefix' => 'admin'], function() {
     Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
     Route::get('portfolio/add', 'AdminUserControlPanel@getAddPortfolioEntryPage')->name('Add Portfolio Entry');
 });
+
+
+
+
+
+
+
+
+
+Route::post('post-portfolio-entry', 'PortfolioController@postPortfolioEntry');

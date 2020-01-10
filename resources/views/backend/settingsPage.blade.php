@@ -20,6 +20,7 @@
                 </div>
                 </div>
             </div>
+
             <header class="page-title-header mb-5">
                 <h2>{{\Request::route()->getName()}}</h2>
             </header>
@@ -27,6 +28,9 @@
 
         
                 <form id="setupPageForm" class="col-10" method="POST" enctype="multipart/form-data" action="/update-user-settings/{{$id}}">
+                    <input name="_method" type="hidden" value="PUT">
+                    {{ csrf_field() }}
+
                     <div class="form-group">
                         <label for="fname">First Name:</label>
                         <input type="text" class="form-control" id="fname" name="fname" value="{{$data->fname}}" >
@@ -35,14 +39,13 @@
                         <label for="lname">Last Name:</label>
                         <input type="text" class="form-control" id="lname" name="lname" value="{{$data->lname}}" >
                     </div>
-                    <input name="_method" type="hidden" value="PUT">
-                    {{ csrf_field() }}
+
                     <div class="logoPreviewContainer">
-                        <img id="logoPreview" class="img-thumbnail" src='{{$data->profile_image ? asset("storage/logo/logo.png") : asset("imgs/logo.png") }}' style="max-width: 300px;" alt="preview" />
+                        <img id="imageFilePreview" class="img-thumbnail" src='{{$data->profile_image ? asset("storage/logo/logo.png") : asset("imgs/logo.png") }}' style="max-width: 300px;" alt="preview" />
                      </div>
               
                     <div class="form-group">
-                        <input type="file" id="profileImage" name="profileImage" accept="image/*">
+                        <input type="file" id="uploadedImageFile" name="uploadedImageFile" accept="image/*">
                         <div class="my-3 d-none alert alert-warning error error-profile-image" role="alert"></div>
                     </div>
 
