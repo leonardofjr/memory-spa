@@ -248,22 +248,13 @@ h4 {
   border: none !important;
 }
 
-.btn-secondary {
-  border: 1px white solid;
-  background: transparent;
-  padding: 1em 2em;
-  opacity: .8;
-  margin: 1em 0;
-}
-
-.btn-secondary:hover {
-  opacity: 1;
-  background: #ffc909;
-}
-
 /** Layout **/
 
 /** Pages **/
 
 /** Themes **/
+
+#croppieModal {
+  max-width: 600px !important;
+}
 

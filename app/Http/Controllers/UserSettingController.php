@@ -14,9 +14,13 @@ use Auth;
 use App\Portfolio;
 use App\PortfolioPhoto;
 use Illuminate\Http\UploadedFile;
+use Carbon\Carbon;
 
 class UserSettingController extends Controller
 {
+
+    private const TEMP_DIRECTORY = 'temp/';
+
     function getUserSettings() {
                 /* If user is logged in then the $user_id value will be set to the users id */
         if (Auth::user()) {
@@ -41,13 +45,13 @@ class UserSettingController extends Controller
 
     function updateUserSettings(Request $request, $id)
     {
-        if ($request->hasFile('profile_image')) {
+        if ($request->hasFile('profileImage')) {
                         
             // Searching by Users corresponding id
             $user = User::findOrFail($id);
             
             // Getting current file name
-            $current_file = $user->profile_image;
+            $current_file = $user->profileImage;
             
             // Removing file from storage
             if ($current_file !== 'logo.png') {
@@ -55,10 +59,10 @@ class UserSettingController extends Controller
 
             }
             // Storing new File using laravels file storage
-            $new_file = $request->file('profile_image')->store('public');
+            $new_file = $request->file('profileImage')->store('public');
 
             // Preparing updated data to database
-            $user->profile_image = $request->profile_image->hashName();
+            $user->profileImage = $request->profileImage->hashName();
             $user->bio = $request->bio;
             $user->lname = $request->lname;
             $user->fname = $request->fname;
@@ -109,17 +113,26 @@ class UserSettingController extends Controller
     function uploadCroppedImage(Request $request) {
         if($request->input('image')) {
 
+            $image_name = 'logo.png';
             $encoded_image = $request->input('image');
             $img_array = explode(';', $encoded_image);
             $img_array_2 = explode(',', $img_array[1]);
             $prepared_base_64_image = $img_array_2[1];
             
-            Storage::put('test.png', base64_decode($prepared_base_64_image));
+            $this->emptyDirectory();
+
+
+            Storage::put(UserSettingController::TEMP_DIRECTORY . $image_name, base64_decode($prepared_base_64_image));
 
             return response()->json([
-                'success' => $prepared_base_64_image
+                'filename' => $image_name,
+                'tempDirectory' => '/storage/' . UserSettingController::TEMP_DIRECTORY,
             ]);
         }
 
+    }
+
+    function emptyDirectory() {
+        Storage::deleteDirectory(UserSettingController::TEMP_DIRECTORY);
     }
 }

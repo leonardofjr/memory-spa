@@ -14,7 +14,7 @@
                         <div id="uploadDemo" class="demo"></div>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="closeBtn btn btn-secondary" data-dismiss="modal">Close</button>
                     <button id="cropBtn" type="button" class="btn btn-primary">Crop</button>
                     </div>
                 </div>
@@ -36,11 +36,11 @@
                     {{ csrf_field() }}
 
 
-                    <img class="my-image" src="#" alt="preview" />
+                    <img id="logoPreview" src="#" alt="preview" style="display: none;" />
               
                     <div class="form-group">
-                        <label for="profile_image">Change Image:</label>
-                        <input type="file" id="profile_image" name="profile_image" accept="image/*">
+                        <label for="profileImage">Change Image:</label>
+                        <input type="file" id="profileImage" name="profileImage" accept="image/*">
                         <div class="my-3 d-none alert alert-warning error error-profile-image" role="alert"></div>
                     </div>
 
