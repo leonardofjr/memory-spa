@@ -254,10 +254,19 @@ h4 {
 
 /** Themes **/
 
+body,
+html {
+  height: 100%;
+}
+
 #admin-cpanel {
   background: white;
   color: #000;
-  margin: 1em;
+  height: 100%;
+}
+
+#admin-cpanel .row {
+  height: 100%;
 }
 
 #admin-cpanel #avatarPreview,
@@ -265,8 +274,24 @@ h4 {
   max-width: 300px;
 }
 
-#admin-cpanel aside ul {
+#admin-cpanel .admin-sidebar {
+  height: 100%;
+  background: black;
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, black), color-stop(100%, black));
+  background: linear-gradient(45deg, black 0%, black 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+}
+
+#admin-cpanel .admin-sidebar .navbar-brand {
+  color: #fff;
+}
+
+#admin-cpanel .admin-sidebar .nav {
   padding: 0;
   list-style-type: none;
+}
+
+#admin-cpanel .admin-sidebar .nav-link {
+  color: #fff;
 }
 

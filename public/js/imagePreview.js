@@ -1,6 +1,6 @@
 /*** CONSTANTS ***/
 
-/* Elements */
+/* Element Selectors */
 
 const profileImageElement = $('#profileImage');
 const logoPreviewElement = $('#logoPreview');
@@ -23,6 +23,9 @@ $uploadCrop = $(uploadDemoElement).croppie({
         height: 300
     }
 });
+
+
+
 
 $(profileImageElement).on('change', function() {
     var reader = new FileReader();
@@ -55,11 +58,14 @@ $(cropBtnElement).on('click', function() {
 })
 
 
-/*** FUNCTIONS ***/
+/*** AJAX ***/
+
 
 
 function ajaxUpload(result) {
-    const settings = {
+    /* AJAX Settings */
+
+    const uploadImageAjaxSettings = {
         url : '/upload-cropped-image',
         method : 'post',
         type : 'json',
@@ -69,9 +75,9 @@ function ajaxUpload(result) {
         data: {
             'image' : result
         },
-    }
+    };
 
-    $.ajax(settings)
+    $.ajax(uploadImageAjaxSettings)
     .done(function(response) {
         updateImagePreview(response);
     })
@@ -79,6 +85,9 @@ function ajaxUpload(result) {
         console.log(err);
     })
 }
+
+
+/*** FUNCTIONS ***/
 
 function updateImagePreview(data) {
     $(logoPreviewElement).attr('src', data.tempDirectory + data.filename )
@@ -97,7 +106,7 @@ function closeCroppieModal() {
 
 function imageReset() {
     $(profileImageElement).val('');
-    $(imagePreview).attr('src', '');
+    $(logoPreviewElement).attr('src', '');
 }
 
 $(croppieModalCloseBtn).on('click', function() {

@@ -51002,13 +51002,13 @@ var render = function() {
                     ? _c("img", {
                         staticClass: "avatar img-fluid rounded-circle mt-4",
                         attrs: {
-                          src: "/storage/" + this.data.profile_image,
+                          src: "/storage/logo/" + this.data.profile_image,
                           alt: ""
                         }
                       })
                     : _c("img", {
                         staticClass: "avatar img-fluid rounded-circle mt-4",
-                        attrs: { src: "/storage/logo.png", alt: "" }
+                        attrs: { src: "/imgs/logo.png", alt: "" }
                       })
                 ]
               )

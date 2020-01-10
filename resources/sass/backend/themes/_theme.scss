@@ -1,11 +1,16 @@
 @import '../../helpers/_variables.scss';
 
 // Global Classes
-
+body, html {
+    height: 100%;
+}
 #admin-cpanel {
     background: white;
     color: #000;
-    margin: 1em;
+    height: 100%;
+    .row {
+        height: 100%;
+    }
     // 
     #avatarPreview, #imgPreview {
         max-width: 300px;
@@ -13,9 +18,28 @@
 }
 
 // Admin Sidebar Setttings
-#admin-cpanel aside {
-    ul {
+#admin-cpanel .admin-sidebar {
+    height: 100%;
+    background: rgba(0,0,0,1);
+    background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+    
+    .navbar-brand {
+        color: #fff;
+    }
+    .nav {
         padding: 0;
         list-style-type: none;
     }
+    .nav-link {
+        color: $adminSidebarFontColor;
+
+    }
+
 }
+

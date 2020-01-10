@@ -34,12 +34,11 @@
                     </div>
                     <input name="_method" type="hidden" value="PUT">
                     {{ csrf_field() }}
-
-
-                    <img id="logoPreview" src="#" alt="preview" style="display: none;" />
+                    <div class="logoPreviewContainer">
+                        <img id="logoPreview" class="img-thumbnail" src='{{$data->profile_image ? asset("storage/logo/logo.png") : asset("imgs/logo.png") }}' style="max-width: 300px;" alt="preview" />
+                     </div>
               
                     <div class="form-group">
-                        <label for="profileImage">Change Image:</label>
                         <input type="file" id="profileImage" name="profileImage" accept="image/*">
                         <div class="my-3 d-none alert alert-warning error error-profile-image" role="alert"></div>
                     </div>

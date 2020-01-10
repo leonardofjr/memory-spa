@@ -26,7 +26,7 @@
     <body class="container-fluid">
         <main id="admin-cpanel" >
             <div class="row">
-                <aside class="col-lg-3  admin-sidebar-bg">
+                <aside class="col-md-2  admin-sidebar">
                     <nav class="d-lg-block navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
@@ -54,7 +54,7 @@
                     </nav>
                 </aside>
 
-                <section class="col-lg-9">
+                <section class="col-lg-10">
                     @yield('content')
                 </section>
              </div>

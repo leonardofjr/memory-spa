@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->text('bio')->nullable();
             $table->text('skills_and_offer')->nullable();
-            $table->string('profile_image')->default('logo.png');
+            $table->string('profile_image')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('linkedin_url')->nullable();
             $table->string('twitter_url')->nullable();

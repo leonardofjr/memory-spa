@@ -20,6 +20,7 @@ class UserSettingController extends Controller
 {
 
     private const TEMP_DIRECTORY = 'temp/';
+    private const LOGO_DIRECTORY = 'logo/';
 
     function getUserSettings() {
                 /* If user is logged in then the $user_id value will be set to the users id */
@@ -46,7 +47,8 @@ class UserSettingController extends Controller
     function updateUserSettings(Request $request, $id)
     {
         if ($request->hasFile('profileImage')) {
-                        
+            
+            $this->emptyLogoDirectory();
             // Searching by Users corresponding id
             $user = User::findOrFail($id);
             
@@ -59,10 +61,10 @@ class UserSettingController extends Controller
 
             }
             // Storing new File using laravels file storage
-            $new_file = $request->file('profileImage')->store('public');
+            $new_file = Storage::move(UserSettingController::TEMP_DIRECTORY . 'logo.png', '/logo/logo.png' );
 
             // Preparing updated data to database
-            $user->profileImage = $request->profileImage->hashName();
+            $user->profile_image = 'logo.png';
             $user->bio = $request->bio;
             $user->lname = $request->lname;
             $user->fname = $request->fname;
@@ -119,7 +121,7 @@ class UserSettingController extends Controller
             $img_array_2 = explode(',', $img_array[1]);
             $prepared_base_64_image = $img_array_2[1];
             
-            $this->emptyDirectory();
+            $this->emptyTempDirectory();
 
 
             Storage::put(UserSettingController::TEMP_DIRECTORY . $image_name, base64_decode($prepared_base_64_image));
@@ -132,7 +134,10 @@ class UserSettingController extends Controller
 
     }
 
-    function emptyDirectory() {
+    function emptyTempDirectory() {
         Storage::deleteDirectory(UserSettingController::TEMP_DIRECTORY);
+    }
+    function emptyLogoDirectory() {
+        Storage::deleteDirectory(UserSettingController::LOGO_DIRECTORY);
     }
 }
