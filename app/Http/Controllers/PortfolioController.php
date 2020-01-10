@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 // Models
 use App\Portfolio;
 use App\PortfolioPhoto;
+use Auth;
 
 // Helpers
 use App\Http\Controllers\HelperMethodsController;
@@ -43,45 +44,42 @@ class PortfolioController extends Controller
     } 
 
    public function postPortfolioEntry(PortfolioEntryRequest $request) {
-    $helper = new HelperMethodsController;
-    $uploadCroppedImage = $helper->uploadCroppedImage($request);
+        if ($request->hasFile('uploadedImageFile') ) {
+            // Storing File into variable and storing file in the the storage public folder
+ 
+            // Getting current file name
+            $temp_file = Storage::allFiles('temp/')[0];
 
-    if ($request->hasFile('uploadedImageFile') ) {
-        // Storing File into variable and storing file in the the storage public folder
+            // Storing new File using laravels file storage
+            $new_file = Storage::move($temp_file, '/imgs/image1.png' );
 
-        // Preparing data to database
+            // Preparing updated data to database
+            $portfolio = new Portfolio();
 
-        $portfolio = new Portfolio([
-            'user_id' => $request->user_id,
-            'title' => $request->title,
-            'type' => $request->type,
-            'website_url' => $request->website_url,
-            'technologies' => json_encode($request->technologies),
-            'description' => $request->description
+            $portfolio->user_id = Auth::id();
+            $portfolio->title = $request->title;
+            $portfolio->type = $request->type;
+            $portfolio->website_url = $request->website_url;
+            $portfolio->technologies = json_encode($request->technologies);
+            $portfolio->description = $request->description;
+            $portfolio->image = 'image1.png';
 
-        ]);
-        $portfolio_photos = new PortfolioPhoto([
-            'filename_1' => $request->file_1->hashName(),
-        ]);
-        $portfolio->save();
-        $portfolio->portfolio_entries()->save($portfolio_photos);
+            $portfolio->save();
 
-        // Responding by sending redirect value 
-        return response()->json([
-            "redirect" => "/admin/portfolio",
-        ]);
-    }   else {
-        return response()->json([
-            $request
-        ]);
-    }
+            // Responding by sending redirect value 
+            return redirect('/admin/portfolio');
+
+            
+        }   else {
+            return response()->json([
+                $request
+            ]);
+        }
    }
 
    
    public function updatePortfolioEntry(PortfolioEntryRequest $request, $id) {
-        $helper = new HelperMethodsController;
 
-        $uploadCroppedImage = $helper->uploadCroppedImage();
 
         if ($request->hasFile('file_1')) {
         // Searching by Users corresponding id

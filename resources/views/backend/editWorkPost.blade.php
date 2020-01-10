@@ -3,6 +3,10 @@
             <header class="page-title-header mb-5">
                 <h2>{{\Request::route()->getName()}}</h2>
             </header>
+            
+            <!-- Including Croppie Upload Modal -->
+            @include('backend.components.croppieUploadModal')
+
             <form class="col-10" id="editWorkForm" method="POST" action="/api/update-portfolio-entry/{{$data->id}}">
                 {{ csrf_field() }}
                  <input type="hidden" name="_method" value="PUT">
@@ -29,15 +33,18 @@
                 </div>
                 <!-- File Selector -->
                 <script type="text/javascript" src="/js/imagePreview.js"></script>
-                <img id="imgPreview" class="img-fluid" src="/storage/{{$data->portfolio_entries->filename_1}}" alt="image preview">
-
-                <div class="form-group">
-                    <label for="file_1">Image:</label>
-                    <input type="file" class="form-control" id="file_1" name="file_1" onchange='previewImageToUpload("file_1", "imgPreview")'>
-                   <div class="my-3 d-none alert alert-warning error error-file" role="alert">
-                    </div>
+                <!-- File Selector -->
+                <div class="logoPreviewContainer">
+                    <img id="imageFilePreview" class="img-thumbnail" src='{{asset("storage/imgs/" . $data->image)}}' style='{{$data->image ? "" : "display:none;"}}' max-width: 300px;" alt="preview" />
                 </div>
-                <!-- File Selector END -->           
+              
+                <div class="form-group">
+                    <input type="file" id="uploadedImageFile" name="uploadedImageFile" accept="image/*">
+                    <div class="my-3 d-none alert alert-warning error error-profile-image" role="alert"></div>
+                </div>
+
+
+                <!-- File Selector END -->              
                                 
                 <div class="form-group">
                     <label for="description">Description:</label>
@@ -85,5 +92,8 @@
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>
     </form>
-    @include('backend.partials.ckeditor')
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script text="type/javascript">
+        CKEDITOR.replace( 'article-ckeditor' );
+    </script>
 @endsection

@@ -3,26 +3,9 @@
             <header class="page-title-header mb-5">
                 <h2>{{\Request::route()->getName()}}</h2>
             </header>
-
-            <div id="croppieModal" class="modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="uploadDemo" class="demo"></div>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="closeBtn btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="cropBtn" type="button" class="btn btn-primary">Crop</button>
-                    </div>
-                </div>
-                </div>
-            </div>
+            
+            <!-- Including Croppie Upload Modal -->
+            @include('backend.components.croppieUploadModal')
 
             <form class="col-10" method="POST" enctype="multipart/form-data" action="/post-portfolio-entry">
                 {{ csrf_field() }}
@@ -47,7 +30,7 @@
                 <!-- File Selector -->
                 <div class="logoPreviewContainer">
                     <img id="imageFilePreview" class="img-thumbnail" src='https://via.placeholder.com/300x300' style="display:none; max-width: 300px;" alt="preview" />
-                    </div>
+                </div>
               
                 <div class="form-group">
                     <input type="file" id="uploadedImageFile" name="uploadedImageFile" accept="image/*">
@@ -83,5 +66,10 @@
                 @endif
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>
-        @include('backend.partials.ckeditor')
+            
+            <!-- CKEDITOR SCRIPT -->
+            <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+            <script text="type/javascript">
+                CKEDITOR.replace( 'article-ckeditor' );
+            </script>
 @endsection
