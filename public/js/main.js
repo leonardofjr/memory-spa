@@ -51698,7 +51698,7 @@ var render = function() {
           _c("div", { staticClass: "col-12 col-md-7" }, [
             _c("img", {
               staticClass: "img-fluid",
-              attrs: { src: "/storage/" + post.portfolio_entries.filename_1 }
+              attrs: { src: "/storage/imgs/" + post.image }
             })
           ])
         ])

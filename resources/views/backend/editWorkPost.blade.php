@@ -7,7 +7,7 @@
             <!-- Including Croppie Upload Modal -->
             @include('backend.components.croppieUploadModal')
 
-            <form class="col-10" id="editWorkForm" method="POST" action="/api/update-portfolio-entry/{{$data->id}}">
+            <form class="col-10" id="editWorkForm" method="POST" enctype="multipart/form-data"  action="/api/update-portfolio-entry/{{$data->id}}">
                 {{ csrf_field() }}
                  <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
@@ -35,7 +35,7 @@
                 <script type="text/javascript" src="/js/imagePreview.js"></script>
                 <!-- File Selector -->
                 <div class="logoPreviewContainer">
-                    <img id="imageFilePreview" class="img-thumbnail" src='{{asset("storage/imgs/" . $data->image)}}' style='{{$data->image ? "" : "display:none;"}}' max-width: 300px;" alt="preview" />
+                    <img id="imageFilePreview" class="img-thumbnail" src='{{asset("storage/imgs/" . $data->image)}}' style='max-width: 300px;{{$data->image ? "" : "display:none;"}}' max-width: 300px;" alt="preview" />
                 </div>
               
                 <div class="form-group">

@@ -10,7 +10,7 @@
                        
                 </div>
                 <div class="col-12 col-md-7">
-                       <img :src="'/storage/' + post.portfolio_entries.filename_1" class="img-fluid">
+                       <img :src="'/storage/imgs/' + post.image" class="img-fluid">
                 </div>
             </div>
         </div>

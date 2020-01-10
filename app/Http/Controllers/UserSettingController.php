@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Auth;
 use App\Portfolio;
-use App\PortfolioPhoto;
 use Illuminate\Http\UploadedFile;
 use Carbon\Carbon;
 
@@ -34,7 +33,6 @@ class UserSettingController extends Controller
         $user = User::find($user_id);
         $user->logged_in =  Auth::user();
         $portfolio = Portfolio::get()->where('user_id', $user_id);
-        $portfolio_photo = PortfolioPhoto::all();
         $photos = [];
         foreach($portfolio as $i => $item) {
             $photos[$i] = $item;
@@ -60,8 +58,12 @@ class UserSettingController extends Controller
                 Storage::disk('public')->delete($current_file);
 
             }
+
+            // Getting current file name
+            $temp_file = Storage::allFiles('temp/')[0];
+
             // Storing new File using laravels file storage
-            $new_file = Storage::move(UserSettingController::TEMP_DIRECTORY . 'logo.png', '/logo/logo.png' );
+            $new_file = Storage::move($temp_file, '/logo/logo.png' );
 
             // Preparing updated data to database
             $user->profile_image = 'logo.png';
@@ -104,28 +106,6 @@ class UserSettingController extends Controller
 
     }
 
-
-    function uploadCroppedImage(Request $request) {
-        if($request->input('image')) {
-
-            $image_name = 'logo.png';
-            $encoded_image = $request->input('image');
-            $img_array = explode(';', $encoded_image);
-            $img_array_2 = explode(',', $img_array[1]);
-            $prepared_base_64_image = $img_array_2[1];
-            
-            $this->emptyTempDirectory();
-
-
-            Storage::put(UserSettingController::TEMP_DIRECTORY . $image_name, base64_decode($prepared_base_64_image));
-
-            return response()->json([
-                'filename' => $image_name,
-                'tempDirectory' => '/storage/' . UserSettingController::TEMP_DIRECTORY,
-            ]);
-        }
-
-    }
 
     function emptyTempDirectory() {
         Storage::deleteDirectory(UserSettingController::TEMP_DIRECTORY);

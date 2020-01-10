@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\HelperMethodsController;
 use App\Portfolio;
-use App\PortfolioPhoto;
 use App\User;
 use Carbon\Carbon;
 
@@ -21,7 +20,6 @@ class AdminUserControlPanel extends Controller
 
         // Issue Resolved
         $portfolio = $user->portfolio;
-        $portfolio_photos = PortfolioPhoto::all();
         $data = [];
         foreach ($portfolio as $i => $item) {
             $data[$i] = [
@@ -61,7 +59,6 @@ class AdminUserControlPanel extends Controller
         $user = User::find($user_id);
         $type_dropdown = $helper->typeDrowndown();
         $portfolio = Portfolio::findOrFail($id);
-        $portfolio_photos = PortfolioPhoto::all();
         return view('backend.editWorkPost')->with([
             'data' => $portfolio,
             'type_dropdown' => $type_dropdown,

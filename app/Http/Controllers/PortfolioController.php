@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 // Models
 use App\Portfolio;
-use App\PortfolioPhoto;
 use Auth;
 
 // Helpers
@@ -48,10 +47,11 @@ class PortfolioController extends Controller
             // Storing File into variable and storing file in the the storage public folder
  
             // Getting current file name
-            $temp_file = Storage::allFiles('temp/')[0];
+            $temp_filename = explode('/', Storage::allFiles('temp/')[0])[1];
+            $temp_file_location = Storage::allFiles('temp/')[0];
 
             // Storing new File using laravels file storage
-            $new_file = Storage::move($temp_file, '/imgs/image1.png' );
+            $new_file = Storage::move($temp_file_location, 'imgs/' . $temp_filename );
 
             // Preparing updated data to database
             $portfolio = new Portfolio();
@@ -62,7 +62,7 @@ class PortfolioController extends Controller
             $portfolio->website_url = $request->website_url;
             $portfolio->technologies = json_encode($request->technologies);
             $portfolio->description = $request->description;
-            $portfolio->image = 'image1.png';
+            $portfolio->image = $temp_filename;
 
             $portfolio->save();
 
@@ -80,24 +80,28 @@ class PortfolioController extends Controller
    
    public function updatePortfolioEntry(PortfolioEntryRequest $request, $id) {
 
-
-        if ($request->hasFile('file_1')) {
-        // Searching by Users corresponding id
+        if ($request->hasFile('uploadedImageFile')) {
+            // Searching by Users corresponding id
             $portfolio = Portfolio::findOrFail($id);
-            $portfolio_photos = PortfolioPhoto::findOrFail($id);
+       
         
             // Getting current file name
-            $current_file = $portfolio_photos->filename_1;
+            $current_file = $portfolio->image;
                 
             // Removing file from storage
-            Storage::disk('public')->delete($current_file);
+            Storage::delete('imgs/' . $current_file);
+
+            // Storing new File using laravels file storage            
+            $temp_filename = time() . '.png';
+            $temp_file_location = Storage::allFiles('temp/')[0];
 
             // Storing new File using laravels file storage
-            $new_file = $request->file('file_1')->store('public');
+            $new_file = Storage::move($temp_file_location, 'imgs/' . $temp_filename );
 
             // Preparing updated data to database
             $portfolio->title = $request->title;
             $portfolio->description = $request->description;
+            $portfolio->image = $temp_filename;
             $portfolio->website_url = $request->website_url;
             $portfolio->type = $request->type;
             $portfolio->technologies = json_encode($request->technologies);
@@ -105,17 +109,13 @@ class PortfolioController extends Controller
             // Saving data to database
             $portfolio->save();
             // Updating Portfolio Photo Table 
-            PortfolioPhoto::where('portfolio_entry_id', $id)->update([
-                'filename_1' => $request->file_1->hashName(),
-            ]);
 
             // Responding by sending redirect value 
-            return response()->json([
-                "redirect" => "/admin/portfolio",
-            ]);
+            return redirect('/admin/portfolio');
+
         }
         else {
-                    // Searching by Users corresponding id
+            // Searching by Users corresponding id
             $portfolio = Portfolio::findOrFail($id);
              // Preparing updated data to database
             $portfolio->title = $request->title;
@@ -126,9 +126,8 @@ class PortfolioController extends Controller
             // Saving data to database
             $portfolio->save();
             // Responding by sending redirect value 
-            return response()->json([
-                "redirect" => "/admin/portfolio",
-            ]);
+            return redirect('/admin/portfolio');
+
         }
    }
    
@@ -136,11 +135,10 @@ class PortfolioController extends Controller
         // Getting Selection By ID
         $portfolio = Portfolio::findOrFail($id);
         // Storing Filename in variable
-        $filename = $portfolio->portfolio_entries->filename_1;
+        $filename = $portfolio->image;
         // Deleteing File
-        Storage::delete('public/' . $filename);
+        Storage::delete('imgs/' . $filename);
         
-       $portfolio->portfolio_entries()->delete();
        $portfolio->delete();
        return redirect('admin/portfolio');
    }

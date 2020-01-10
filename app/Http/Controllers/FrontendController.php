@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Portfolio;
-use App\PortfolioPhoto;
 use App\User;
 use App\Http\Controllers\HelperMethodsController;
 

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use Storage;
-use App\PortfolioPhoto;
 use App\PortfolioEntryTypeDropdown;
 
 class HelperMethodsController extends Controller
@@ -48,7 +47,6 @@ class HelperMethodsController extends Controller
         /* We will find the user by their id */
         $user = User::find($user_id);
         $portfolio = $user->portfolio;
-        $portfolio_photos = PortfolioPhoto::all();
         $data = [];
         foreach ($portfolio as $i => $item) {
             $data[$i] = [
@@ -67,7 +65,7 @@ class HelperMethodsController extends Controller
     public function uploadCroppedImage(Request $request) {
         if($request->input('image')) {
 
-            $image_name = 'logo.png';
+            $image_name = time() . '.png';
             $encoded_image = $request->input('image');
             $img_array = explode(';', $encoded_image);
             $img_array_2 = explode(',', $img_array[1]);
