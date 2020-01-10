@@ -1,7 +1,9 @@
 @extends('layouts.backend')
 @section('content')
-            <h2>{{\Request::route()->getName()}}</h2>
-            <form id="addWorkForm" method="POST" enctype="multipart/form-data" action="/api/post-portfolio-entry">
+            <header class="page-title-header mb-5">
+                <h2>{{\Request::route()->getName()}}</h2>
+            </header>
+            <form class="col-10" id="addWorkForm" method="POST" enctype="multipart/form-data" action="/api/post-portfolio-entry">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="title">Title:</label>

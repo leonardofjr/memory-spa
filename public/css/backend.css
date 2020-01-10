@@ -227,6 +227,7 @@ h1 {
 
 h2 {
   font-size: 2em;
+  font-weight: 900;
   padding: 1rem 0;
 }
 
@@ -257,6 +258,7 @@ h4 {
 body,
 html {
   height: 100%;
+  overflow-y: hidden;
 }
 
 #admin-cpanel {
@@ -274,12 +276,13 @@ html {
   max-width: 300px;
 }
 
+#admin-cpanel .content {
+  height: 100%;
+  overflow-y: scroll;
+}
+
 #admin-cpanel .admin-sidebar {
   height: 100%;
-  background: black;
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, black), color-stop(100%, black));
-  background: linear-gradient(45deg, black 0%, black 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
 }
 
 #admin-cpanel .admin-sidebar .navbar-brand {
@@ -293,5 +296,12 @@ html {
 
 #admin-cpanel .admin-sidebar .nav-link {
   color: #fff;
+}
+
+.sidebar-bg {
+  background: black;
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, black), color-stop(100%, black));
+  background: linear-gradient(45deg, black 0%, black 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
 }
 

@@ -9,10 +9,10 @@ use Carbon\Carbon;
 
 class AdminUserControlPanel extends Controller
 {
-    public function  getSkillsPage() {
+    public function  getBlogPage() {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('backend.skillsPage')->with('data', $user);
+        return view('backend.blogPage')->with('data', $user);
     }
   
     public function getPortfolioPage() {

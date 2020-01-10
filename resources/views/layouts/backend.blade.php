@@ -26,7 +26,7 @@
     <body class="container-fluid">
         <main id="admin-cpanel" >
             <div class="row">
-                <aside class="col-md-2  admin-sidebar">
+                <aside class="col-md-2  admin-sidebar sidebar-bg">
                     <nav class="d-lg-block navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
@@ -37,7 +37,7 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="nav flex-column">
                                 <li class="nav-item"><a class="nav-link" href="{{route('User Settings')}}">Settings</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('Edit Skills')}}">Skills & Offer</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('Blog')}}">Blog</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('Portfolio Entries')}}">Portfolio</a></li>
                                 <li class="nav-item" class="nav-item">
                                     <a class="nav-link" href="{{ route('logout') }}"
@@ -54,7 +54,7 @@
                     </nav>
                 </aside>
 
-                <section class="col-lg-10">
+                <section class="col-lg-10 content">
                     @yield('content')
                 </section>
              </div>

@@ -24,6 +24,5 @@ Route::post('post-portfolio-entry', 'PortfolioController@postPortfolioEntry');
 Route::put('update-portfolio-entry/{id}', 'PortfolioController@updatePortfolioEntry');
 Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfolioEntry');
 // **  Routes //
-Route::put('update-setup-skills/{id}', 'UserSettingController@updateSkills');
 // **  Routes //
 Route::get('get-user-settings', 'UserSettingController@getUserSettings');

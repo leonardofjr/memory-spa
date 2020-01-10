@@ -20,10 +20,13 @@
                 </div>
                 </div>
             </div>
-            <h2>{{\Request::route()->getName()}}</h2>
+            <header class="page-title-header mb-5">
+                <h2>{{\Request::route()->getName()}}</h2>
+            </header>
+
 
         
-                <form id="setupPageForm" method="POST" enctype="multipart/form-data" action="/update-user-settings/{{$id}}">
+                <form id="setupPageForm" class="col-10" method="POST" enctype="multipart/form-data" action="/update-user-settings/{{$id}}">
                     <div class="form-group">
                         <label for="fname">First Name:</label>
                         <input type="text" class="form-control" id="fname" name="fname" value="{{$data->fname}}" >
@@ -46,9 +49,14 @@
                     <div class="my-3 d-none alert alert-warning error error-image" role="alert">
                     </div>
                     <div class="form-group">
-                        <label for="article-ckeditor">Bio:</label>
-                        <textarea id="article-ckeditor" class="form-control" name="bio">{{$data->bio}}</textarea>
+                        <label for="bio-ckeditor">Bio:</label>
+                        <textarea id="bio-ckeditor" class="form-control" name="bio">{{$data->bio}}</textarea>
                         <div class="my-3 d-none alert alert-warning error error-bio" role="alert"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skills-and-offer-ckeditor">Skills & Offer:</label>
+                        <textarea id="skills-and-offer-ckeditor" class="form-control" name="skills_and_offer">{{$data->skills_and_offer}}</textarea>
                     </div>
 
                     <div class="form-group">

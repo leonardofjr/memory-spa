@@ -1,7 +1,9 @@
 @extends('layouts.backend')
 @section('content')
-            <h2>{{\Request::route()->getName()}}</h2>
-            <form id="editWorkForm" method="POST" action="/api/update-portfolio-entry/{{$data->id}}">
+            <header class="page-title-header mb-5">
+                <h2>{{\Request::route()->getName()}}</h2>
+            </header>
+            <form class="col-10" id="editWorkForm" method="POST" action="/api/update-portfolio-entry/{{$data->id}}">
                 {{ csrf_field() }}
                  <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">

@@ -3,6 +3,7 @@
 // Global Classes
 body, html {
     height: 100%;
+    overflow-y: hidden;
 }
 #admin-cpanel {
     background: white;
@@ -16,18 +17,14 @@ body, html {
         max-width: 300px;
     }
 }
-
+#admin-cpanel .content {
+    height: 100%;
+    overflow-y: scroll;
+}
 // Admin Sidebar Setttings
 #admin-cpanel .admin-sidebar {
     height: 100%;
-    background: rgba(0,0,0,1);
-    background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,1)));
-    background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
-    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+
     
     .navbar-brand {
         color: #fff;
@@ -43,3 +40,13 @@ body, html {
 
 }
 
+.sidebar-bg {
+    background: rgba(0,0,0,1);
+    background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+}
