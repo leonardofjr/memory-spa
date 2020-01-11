@@ -5,6 +5,7 @@ const cropBtnElement = $('#cropBtn');
 const croppieModal = $('#croppieModal');
 const croppieModalCloseBtn = $('.close, .closeBtn');
 const csrfTokenElement = $('meta[name="csrf-token"]').attr('content');
+let oldFile;
 
 
 $uploadCrop = $(uploadDemoElement).croppie({
@@ -25,9 +26,8 @@ $uploadCrop = $(uploadDemoElement).croppie({
 
 $(uploadedImageElement).on('change', function() {
     var reader = new FileReader();
-
     reader.onload = function(event) {
-
+    
         openCroppieModal();
 
         $uploadCrop.croppie('bind', {
@@ -54,5 +54,57 @@ $(cropBtnElement).on('click', function() {
 })
 
 
+
 /*** AJAX ***/
 
+
+
+function ajaxUpload(result) {
+    /* AJAX Settings */
+
+    const uploadImageAjaxSettings = {
+        url : '/upload-cropped-image',
+        method : 'post',
+        type : 'json',
+        headers: {
+            'X-CSRF_TOKEN' : csrfTokenElement,
+        },
+        data: {
+            'image' : result
+        },
+    };
+
+    $.ajax(uploadImageAjaxSettings)
+    .done(function(response) {
+        updateImagePreview(response);
+    })
+    .fail(function(err) {
+        console.log(err);
+    })
+}
+
+
+/*** FUNCTIONS ***/
+
+function updateImagePreview(data) {
+    $(logoPreviewElement).attr('src', data.tempDirectory + data.filename )
+    $(logoPreviewElement).show();
+}
+
+
+function openCroppieModal() {
+    $(croppieModal).modal();
+}
+
+function closeCroppieModal() {
+    $(croppieModal).modal('hide');
+}
+
+
+function imageReset() {
+    $(uploadedImageElement).val();
+}
+
+$(croppieModalCloseBtn).on('click', function() {
+    imageReset();
+})

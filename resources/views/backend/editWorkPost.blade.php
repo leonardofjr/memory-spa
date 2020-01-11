@@ -31,8 +31,7 @@
                    <div class="my-3 d-none alert alert-warning error error-type" role="alert">
                     </div>
                 </div>
-                <!-- File Selector -->
-                <script type="text/javascript" src="/js/imagePreview.js"></script>
+
                 <!-- File Selector -->
                 <div class="logoPreviewContainer">
                     <img id="imageFilePreview" class="img-thumbnail" src='{{asset("storage/imgs/" . $data->image)}}' style='max-width: 300px;{{$data->image ? "" : "display:none;"}}' max-width: 300px;" alt="preview" />

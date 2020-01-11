@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">    <head>
+<!DOCTYPE HTML>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
@@ -23,6 +24,7 @@
             background: #fff;
         }
     </style>
+
     <body class="container-fluid">
         <main id="admin-cpanel" >
             <div class="row">
@@ -72,8 +74,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.js
     "></script>
-
-    <script type="text/javascript" src="/js/croppieSettingsPageSetup.js"></script>
-    <script type="text/javascript" src="/js/croppieFunctions.js"></script>
+    @if (Request::is('admin/settings'))
+        <script defer type="text/javascript" src="/js/croppieSettingsPageSetup.js"></script>
+    @elseif(Request::is('admin/portfolio/*'))
+         <script defer type="text/javascript" src="/js/croppiePortfolioPageSetup.js"></script>
+    @endif
 
 </html>
