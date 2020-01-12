@@ -44,4 +44,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function portfolio() {
         return $this->hasMany('App\Portfolio', 'user_id');
     }
+
+    public function blog() {
+        return $this->hasMany('App\Blog', 'user_id');
+    }
 }

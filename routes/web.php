@@ -46,6 +46,7 @@ Route::group(['middleware' => 'verified', 'prefix' => 'admin'], function() {
     // ** Page Routes //
     Route::get('settings', 'AdminUserControlPanel@getSettingsPage')->name('User Settings');
     Route::get('blog', 'AdminUserControlPanel@getBlogPage')->name('Blog');
+    Route::get('blog/edit/{id}','AdminUserControlPanel@getUpdateBlogPostPage')->name('Edit Blog Entry');
     Route::get('portfolio', 'AdminUserControlPanel@getPortfolioPage')->name('Portfolio Entries');
     Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
     Route::get('portfolio/add', 'AdminUserControlPanel@getAddPortfolioEntryPage')->name('Add Portfolio Entry');

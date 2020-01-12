@@ -72,12 +72,10 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.js
-    "></script>
-    @if (Request::is('admin/settings'))
-        <script defer type="text/javascript" src="/js/croppieSettingsPageSetup.js"></script>
-    @elseif(Request::is('admin/portfolio/*'))
-         <script defer type="text/javascript" src="/js/croppiePortfolioPageSetup.js"></script>
+
+    @if (Request::is('admin/settings' || Request::is('admin/portfolio/*') || Request::is('admin/blog/*')))
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.min.js"></script>
+        <script defer type="text/javascript" src="/js/croppieFunctionality.js"></script>
     @endif
 
 </html>

@@ -1,11 +1,11 @@
 const uploadDemoElement = $('#uploadDemo');
 const uploadedImageElement = $('#uploadedImageFile');
-const logoPreviewElement = $('#imageFilePreview');
+const imageFilePreviewElement = $('#imageFilePreview');
 const cropBtnElement = $('#cropBtn');
 const croppieModal = $('#croppieModal');
 const croppieModalCloseBtn = $('.close, .closeBtn');
 const csrfTokenElement = $('meta[name="csrf-token"]').attr('content');
-let oldFile;
+let currentImage = imageFilePreviewElement.attr('src');
 
 
 $uploadCrop = $(uploadDemoElement).croppie({
@@ -87,8 +87,8 @@ function ajaxUpload(result) {
 /*** FUNCTIONS ***/
 
 function updateImagePreview(data) {
-    $(logoPreviewElement).attr('src', data.tempDirectory + data.filename )
-    $(logoPreviewElement).show();
+    $(imageFilePreviewElement).attr('src', data.tempDirectory + data.filename )
+    $(imageFilePreviewElement).show();
 }
 
 
@@ -102,7 +102,7 @@ function closeCroppieModal() {
 
 
 function imageReset() {
-    $(uploadedImageElement).val();
+    $(uploadedImageElement).val('');
 }
 
 $(croppieModalCloseBtn).on('click', function() {
