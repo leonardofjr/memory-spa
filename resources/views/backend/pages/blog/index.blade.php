@@ -1,14 +1,13 @@
 @extends('layouts.backend')
 @section('content')
             <header class="page-title-header mb-5">
-                <h2>{{\Request::route()->getName()}}</h2>
+                <h2>{{\Request::route()->getName()}}<a class="btn-primary btn mx-4" href="{{route('Add Blog Post')}}">Add Post</a></h2>
             </header>
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
-                    <th scope="col">Type</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>

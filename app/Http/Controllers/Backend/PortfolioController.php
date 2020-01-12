@@ -36,7 +36,7 @@ class PortfolioController extends Controller
        }
 
 
-       return view('backend.getPortfolioPage')->with([
+       return view('backend.pages.portfolio.index')->with([
             'data' => $data,
             'skill_set' => json_decode($user->skill_set),
        ]);
@@ -55,7 +55,7 @@ class PortfolioController extends Controller
         $helper = new HelperMethodsController;
         $type_dropdown = $helper->typeDrowndown();
        // Passing in array of $langauges to View
-        return view('backend.addPortfolioEntry')->with([
+        return view('backend.pages.portfolio.create')->with([
             'type_dropdown' => $type_dropdown,
             'skill_set' => json_decode($user->skill_set),
         ]);
@@ -127,7 +127,7 @@ class PortfolioController extends Controller
         $user = User::find($user_id);
         $type_dropdown = $helper->typeDrowndown();
         $portfolio = Portfolio::findOrFail($id);
-        return view('backend.editWorkPost')->with([
+        return view('backend.pages.portfolio.edit')->with([
             'data' => $portfolio,
             'type_dropdown' => $type_dropdown,
             'skill_set' => json_decode($user->skill_set),

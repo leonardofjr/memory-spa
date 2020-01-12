@@ -38,7 +38,11 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+       // Passing in array of $langauges to View
+        return view('backend.pages.blog.create');
     }
 
     /**

@@ -14,7 +14,7 @@
                       </a>
 
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/admin/settings">
+                          <a class="dropdown-item" href="/admin/profile">
                               Settings
                           </a>
                           <a class="dropdown-item" href="/logout"

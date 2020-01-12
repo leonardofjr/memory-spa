@@ -41,13 +41,13 @@ Route::put('update-user-settings/{id}', 'UserSettingController@updateUserSetting
 // ** Admin Root Routes //
 
 Route::group(['middleware' => 'verified', 'prefix' => 'admin'], function() {
-    Route::get('settings', 'Backend\UserControlPanelController@index')->name('User Settings');
+    Route::get('profile', 'Backend\UserControlPanelController@index')->name('Profile');
 });
 
 // ** Portfolio Routes //
 
 Route::group(['middleware' => 'verified', 'prefix' => 'admin/portfolio'], function() {
-    Route::get('/', 'Backend\PortfolioController@index')->name('Portfolio Entries');
+    Route::get('/', 'Backend\PortfolioController@index')->name('Portfolio');
     Route::get('add', 'Backend\PortfolioController@create')->name('Add Portfolio Entry');
     Route::get('edit/{id}','Backend\PortfolioController@edit')->name('Edit Portfolio Entry');
 });
@@ -55,6 +55,7 @@ Route::group(['middleware' => 'verified', 'prefix' => 'admin/portfolio'], functi
 // ** Blog Routes //
 Route::group(['middleware' => 'verified', 'prefix' => 'admin/blog'], function() {
     Route::get('/', 'Backend\BlogController@index')->name('Blog');
+    Route::get('add', 'Backend\BlogController@create')->name('Add Blog Post');
     Route::get('edit/{id}','Backend\BlogController@edit')->name('Edit Blog Entry');
 });
 

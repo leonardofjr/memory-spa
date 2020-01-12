@@ -50943,7 +50943,7 @@ var render = function() {
                     "a",
                     {
                       staticClass: "dropdown-item",
-                      attrs: { href: "/admin/settings" }
+                      attrs: { href: "/admin/profile" }
                     },
                     [
                       _vm._v(
