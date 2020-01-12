@@ -7,29 +7,29 @@
             <p>I am available for hire and open to any ideas of cooperation.</p>
             <dl class="dl dl-vertical">
                 <!-- If email is not null -->
-                <dt v-if="data.email">Email:</dt>
-                <dd v-if="data.email" class="mb-5">
-                <i class="fas fa-envelope"></i> <a :href="'mailto:' + data.email">{{data.email}}</a>
+                <dt v-if="this.$parent.data.email">Email:</dt>
+                <dd v-if="this.$parent.data.email" class="mb-5">
+                <i class="fas fa-envelope"></i> <a :href="'mailto:' + this.$parent.data.email">{{this.$parent.data.email}}</a>
                 </dd>
                 <!-- If twitter_url is not null -->
-                <dt v-if="data.twitter_url">Twitter:</dt>
-                <dd v-if="data.twitter_url">
-                    <i class="fab fa-twitter"></i> <a :href="data.twitter_url">{{data.twitter_url}}</a><br>
+                <dt v-if="this.$parent.data.twitter_url">Twitter:</dt>
+                <dd v-if="this.$parent.data.twitter_url">
+                    <i class="fab fa-twitter"></i> <a :href="this.$parent.data.twitter_url">{{this.$parent.data.twitter_url}}</a><br>
                 </dd>
                 <!-- If linkedin_url is not null -->
-                <dt  v-if="data.linkedin_url">Linkedin:</dt>
-                <dd v-if="data.linkedin_url">
-                    <i class="fab fa-linkedin-in"></i> <a :href="data.linkedin_url">{{data.linkedin_url}}</a><br>
+                <dt  v-if="this.$parent.data.linkedin_url">Linkedin:</dt>
+                <dd v-if="this.$parent.data.linkedin_url">
+                    <i class="fab fa-linkedin-in"></i> <a :href="this.$parent.data.linkedin_url">{{this.$parent.data.linkedin_url}}</a><br>
                 </dd>
                 <!-- If facebook_url is not null -->
-                <dt  v-if="data.facebook_url">Facebook:</dt>
-                <dd v-if="data.facebook_url"><i class="fab fa-facebook">
-                    </i> <a :href="data.facebook_url">{{data.facebook_url}}</a><br>
+                <dt  v-if="this.$parent.data.facebook_url">Facebook:</dt>
+                <dd v-if="this.$parent.data.facebook_url"><i class="fab fa-facebook">
+                    </i> <a :href="this.$parent.data.facebook_url">{{this.$parent.data.facebook_url}}</a><br>
                 </dd>
                 <!-- If github_url is not null -->
-                <dt v-if="data.github_url">Github:</dt>
-                <dd v-if="data.github_url">
-                    <i class="fab fa-github"></i> <a :href="data.github_url">{{data.github_url}}</a>
+                <dt v-if="this.$parent.data.github_url">Github:</dt>
+                <dd v-if="this.$parent.data.github_url">
+                    <i class="fab fa-github"></i> <a :href="this.$parent.data.github_url">{{this.$parent.data.github_url}}</a>
                 </dd>
             </dl>
         </div>
@@ -40,8 +40,7 @@
     export default {
         data() {
             return {
-                data: [],
-                user: null,
+                
             }
         },
         mounted() {
@@ -49,21 +48,7 @@
         },
         // Fetches posts when the component is created.
         created() {
-            axios.get(this.web_url + 'get-user-settings')
-            .then(response => {
-          if (!response.data['logged_in']) {
-            this.data = response.data;
-            this.user = false;
-          } else {
-            this.data = response.data;
-            this.user = true;
 
-          }
-            // JSON responses are automatically parsed.
-            })
-            .catch(e => {
-                 this.errors.push(e)
-            })
         },
 
     }

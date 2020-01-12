@@ -156,12 +156,15 @@
    data() {
      return {
         data: [],
-        csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        csrf: $('meta[name="csrf-token"]').attr('content'),
         user: false,
      };
    },
   created() {
-        axios.get(this.web_url + 'get-user-settings')
+        axios({
+          method: 'get',
+          url: this.web_url + 'get-user-settings',
+        })
         .then(response => {
           console.log(response);
           if (!response.data['logged_in']) {

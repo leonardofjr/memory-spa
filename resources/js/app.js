@@ -58,7 +58,7 @@ Vue.mixin({
             return {
                 get web_url() {
                    // return "https://leojr.me/api/";
-                    return "http://localhost:8000/api/";
+                    return "http://localhost:8000/";
         }
     }
 }

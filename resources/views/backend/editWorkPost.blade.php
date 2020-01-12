@@ -7,7 +7,7 @@
             <!-- Including Croppie Upload Modal -->
             @include('backend.components.croppieUploadModal')
 
-            <form class="col-10" id="editWorkForm" method="POST" enctype="multipart/form-data"  action="/api/update-portfolio-entry/{{$data->id}}">
+            <form class="col-10" id="editWorkForm" method="POST" enctype="multipart/form-data"  action="/update-portfolio-entry/{{$data->id}}">
                 {{ csrf_field() }}
                  <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">

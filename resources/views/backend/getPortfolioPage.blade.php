@@ -22,7 +22,7 @@
                     <td>{{$item['created_at']}}</td>
                     <td><a href="/admin/portfolio/edit/{{$item['id']}}" class="fas fa-edit"></a></td>
                     <td>
-                        <form id="deleteWorkForm" class="d-inline-block" action="/api/delete-portfolio-entry/{{$item['id']}}" method="post">
+                        <form id="deleteWorkForm" class="d-inline-block" action="/delete-portfolio-entry/{{$item['id']}}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                                 <button type="submit" class="fas fa-trash"></button>

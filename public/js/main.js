@@ -14299,7 +14299,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.mixin({
         return {
             get web_url() {
                 // return "https://leojr.me/api/";
-                return "http://localhost:8000/api/";
+                return "http://localhost:8000/";
             }
         };
     }
@@ -50861,14 +50861,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       data: [],
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      csrf: $('meta[name="csrf-token"]').attr('content'),
       user: false
     };
   },
   created: function created() {
     var _this = this;
 
-    axios.get(this.web_url + 'get-user-settings').then(function (response) {
+    axios({
+      method: 'get',
+      url: this.web_url + 'get-user-settings'
+    }).then(function (response) {
       console.log(response);
       if (!response.data['logged_in']) {
         _this.data = response.data;
@@ -51329,27 +51332,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {
-            data: []
-        };
+        return {};
     },
-    mounted: function mounted() {
-        var _this = this;
-
-        console.log('Component mounted.');
-        axios.get(this.web_url + 'get-user-settings').then(function (response) {
-            if (!response.data['logged_in']) {
-                _this.data = response.data;
-                _this.user = false;
-            } else {
-                _this.data = response.data;
-                _this.user = true;
-            }
-            // JSON responses are automatically parsed.
-        }).catch(function (e) {
-            _this.errors.push(e);
-        });
-    }
+    mounted: function mounted() {}
 });
 
 /***/ }),
@@ -51368,7 +51353,7 @@ var render = function() {
         _c("b", [_vm._v("Hi!")]),
         _vm._v(" I'm "),
         _c("span", { staticClass: "developer-name" }, [
-          _vm._v(_vm._s(_vm.data["fname"]))
+          _vm._v(_vm._s(this.$parent.data["fname"]))
         ]),
         _vm._v(",")
       ]),
@@ -51487,32 +51472,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {
-            data: [],
-            user: null
-        };
+        return {};
     },
     mounted: function mounted() {
         console.log('Component mounted.');
     },
 
     // Fetches posts when the component is created.
-    created: function created() {
-        var _this = this;
-
-        axios.get(this.web_url + 'get-user-settings').then(function (response) {
-            if (!response.data['logged_in']) {
-                _this.data = response.data;
-                _this.user = false;
-            } else {
-                _this.data = response.data;
-                _this.user = true;
-            }
-            // JSON responses are automatically parsed.
-        }).catch(function (e) {
-            _this.errors.push(e);
-        });
-    }
+    created: function created() {}
 });
 
 /***/ }),
@@ -51526,7 +51493,9 @@ var render = function() {
   return _c("div", { attrs: { id: "about" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", [_c("div", { domProps: { innerHTML: _vm._s(this.data.bio) } })])
+    _c("div", [
+      _c("div", { domProps: { innerHTML: _vm._s(this.$parent.data.bio) } })
+    ])
   ])
 }
 var staticRenderFns = [
@@ -51626,13 +51595,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {
-            data: [],
-            photos: [],
-            errors: [],
-            user_skill_set: [],
-            body: ''
-        };
+        return {};
     },
 
 
@@ -51648,25 +51611,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     // Fetches posts when the component is created.
-    mounted: function mounted() {
-        var _this = this;
-
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(this.web_url + 'get-user-settings').then(function (response) {
-            if (!response.data['logged_in']) {
-                _this.data = response.data;
-                _this.user_skill_set = response.data.user_skill_set;
-                _this.user = false;
-            } else {
-                _this.data = response.data;
-                _this.user_skill_set = response.data.user_skill_set;
-                _this.user = true;
-            }
-
-            // JSON responses are automatically parsed.
-        }).catch(function (e) {
-            _this.errors.push(e);
-        });
-    }
+    mounted: function mounted() {}
 });
 
 /***/ }),
@@ -51683,7 +51628,7 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _vm._l(_vm.data.portfolio, function(post) {
+      _vm._l(this.$parent.data.portfolio, function(post) {
         return _c("div", { key: post.id, staticClass: "row portfolio-item" }, [
           _c("div", { staticClass: "col-12 col-md-5" }, [
             _c("h2", { staticClass: "project-title" }, [
@@ -51791,31 +51736,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {
-            data: []
-        };
+        return {};
     },
     mounted: function mounted() {
         console.log('Component mounted.');
     },
 
     // Fetches posts when the component is created.
-    created: function created() {
-        var _this = this;
-
-        axios.get(this.web_url + 'get-user-settings').then(function (response) {
-            if (!response.data['logged_in']) {
-                _this.data = response.data;
-                _this.user = false;
-            } else {
-                _this.data = response.data;
-                _this.user = true;
-            }
-            // JSON responses are automatically parsed.
-        }).catch(function (e) {
-            _this.errors.push(e);
-        });
-    }
+    created: function created() {}
 });
 
 /***/ }),
@@ -51829,7 +51757,9 @@ var render = function() {
   return _c("div", { attrs: { id: "skills-and-offer" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { domProps: { innerHTML: _vm._s(this.data.skills_and_offer) } })
+    _c("div", {
+      domProps: { innerHTML: _vm._s(this.$parent.data.skills_and_offer) }
+    })
   ])
 }
 var staticRenderFns = [
@@ -51945,32 +51875,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {
-            data: [],
-            user: null
-        };
+        return {};
     },
     mounted: function mounted() {
         console.log('Component mounted.');
     },
 
     // Fetches posts when the component is created.
-    created: function created() {
-        var _this = this;
-
-        axios.get(this.web_url + 'get-user-settings').then(function (response) {
-            if (!response.data['logged_in']) {
-                _this.data = response.data;
-                _this.user = false;
-            } else {
-                _this.data = response.data;
-                _this.user = true;
-            }
-            // JSON responses are automatically parsed.
-        }).catch(function (e) {
-            _this.errors.push(e);
-        });
-    }
+    created: function created() {}
 });
 
 /***/ }),
@@ -51990,65 +51902,73 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("dl", { staticClass: "dl dl-vertical" }, [
-        _vm.data.email ? _c("dt", [_vm._v("Email:")]) : _vm._e(),
+        this.$parent.data.email ? _c("dt", [_vm._v("Email:")]) : _vm._e(),
         _vm._v(" "),
-        _vm.data.email
+        this.$parent.data.email
           ? _c("dd", { staticClass: "mb-5" }, [
               _c("i", { staticClass: "fas fa-envelope" }),
               _vm._v(" "),
-              _c("a", { attrs: { href: "mailto:" + _vm.data.email } }, [
-                _vm._v(_vm._s(_vm.data.email))
-              ])
+              _c(
+                "a",
+                { attrs: { href: "mailto:" + this.$parent.data.email } },
+                [_vm._v(_vm._s(this.$parent.data.email))]
+              )
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.data.twitter_url ? _c("dt", [_vm._v("Twitter:")]) : _vm._e(),
+        this.$parent.data.twitter_url
+          ? _c("dt", [_vm._v("Twitter:")])
+          : _vm._e(),
         _vm._v(" "),
-        _vm.data.twitter_url
+        this.$parent.data.twitter_url
           ? _c("dd", [
               _c("i", { staticClass: "fab fa-twitter" }),
               _vm._v(" "),
-              _c("a", { attrs: { href: _vm.data.twitter_url } }, [
-                _vm._v(_vm._s(_vm.data.twitter_url))
+              _c("a", { attrs: { href: this.$parent.data.twitter_url } }, [
+                _vm._v(_vm._s(this.$parent.data.twitter_url))
               ]),
               _c("br")
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.data.linkedin_url ? _c("dt", [_vm._v("Linkedin:")]) : _vm._e(),
+        this.$parent.data.linkedin_url
+          ? _c("dt", [_vm._v("Linkedin:")])
+          : _vm._e(),
         _vm._v(" "),
-        _vm.data.linkedin_url
+        this.$parent.data.linkedin_url
           ? _c("dd", [
               _c("i", { staticClass: "fab fa-linkedin-in" }),
               _vm._v(" "),
-              _c("a", { attrs: { href: _vm.data.linkedin_url } }, [
-                _vm._v(_vm._s(_vm.data.linkedin_url))
+              _c("a", { attrs: { href: this.$parent.data.linkedin_url } }, [
+                _vm._v(_vm._s(this.$parent.data.linkedin_url))
               ]),
               _c("br")
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.data.facebook_url ? _c("dt", [_vm._v("Facebook:")]) : _vm._e(),
+        this.$parent.data.facebook_url
+          ? _c("dt", [_vm._v("Facebook:")])
+          : _vm._e(),
         _vm._v(" "),
-        _vm.data.facebook_url
+        this.$parent.data.facebook_url
           ? _c("dd", [
               _c("i", { staticClass: "fab fa-facebook" }),
               _vm._v(" "),
-              _c("a", { attrs: { href: _vm.data.facebook_url } }, [
-                _vm._v(_vm._s(_vm.data.facebook_url))
+              _c("a", { attrs: { href: this.$parent.data.facebook_url } }, [
+                _vm._v(_vm._s(this.$parent.data.facebook_url))
               ]),
               _c("br")
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.data.github_url ? _c("dt", [_vm._v("Github:")]) : _vm._e(),
+        this.$parent.data.github_url ? _c("dt", [_vm._v("Github:")]) : _vm._e(),
         _vm._v(" "),
-        _vm.data.github_url
+        this.$parent.data.github_url
           ? _c("dd", [
               _c("i", { staticClass: "fab fa-github" }),
               _vm._v(" "),
-              _c("a", { attrs: { href: _vm.data.github_url } }, [
-                _vm._v(_vm._s(_vm.data.github_url))
+              _c("a", { attrs: { href: this.$parent.data.github_url } }, [
+                _vm._v(_vm._s(this.$parent.data.github_url))
               ])
             ])
           : _vm._e()

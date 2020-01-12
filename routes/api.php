@@ -20,8 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     // **  Routes //
 Route::get('get-portfolio-entries', 'PortfolioController@getPortfolioEntries');
 Route::get('portfolio/{id}', 'PortfolioController@getPortfolioEntriesById');
-Route::put('update-portfolio-entry/{id}', 'PortfolioController@updatePortfolioEntry');
-Route::delete('delete-portfolio-entry/{id}', 'PortfolioController@deletePortfolioEntry');
 // **  Routes //
 // **  Routes //
-Route::get('get-user-settings', 'UserSettingController@getUserSettings');
+//Route::get('get-user-settings', 'UserSettingController@getUserSettings');

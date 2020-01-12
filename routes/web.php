@@ -15,7 +15,7 @@
 Route::get('/', 'FrontendController@getHomePage');
 Auth::routes(['verify' => true]);
 
-Route::get('/{catchall?}', 'FrontendController@getHomePage')->where('catchall', '^(?!admin).*$', '^(?!api).*$', '^(?!email).*$')->name('administration');
+//Route::get('/{catchall?}', 'FrontendController@getHomePage')->where('catchall', '^(?!admin).*$', '^(?!api).*$', '^(?!email).*$')->name('administration');
 
 // ** Backend ** 
 // Authentication Routes...
@@ -34,30 +34,32 @@ Route::get('admin/password/reset/{token}', 'Auth\ResetPasswordController@showRes
 Route::post('admin/password/reset', 'Auth\ResetPasswordController@reset');
 
 
-Route::get('api/get-user-settings', 'UserSettingController@getUserSettings');
+Route::get('get-user-settings', 'UserSettingController@getUserSettings');
 Route::put('update-user-settings/{id}', 'UserSettingController@updateUserSettings');
 
-Route::post('upload-cropped-image', 'HelperMethodsController@uploadCroppedImage');
 
-
+// ** Admin Root Routes //
 
 Route::group(['middleware' => 'verified', 'prefix' => 'admin'], function() {
-
-    // ** Page Routes //
-    Route::get('settings', 'AdminUserControlPanel@getSettingsPage')->name('User Settings');
-    Route::get('blog', 'AdminUserControlPanel@getBlogPage')->name('Blog');
-    Route::get('blog/edit/{id}','AdminUserControlPanel@getUpdateBlogPostPage')->name('Edit Blog Entry');
-    Route::get('portfolio', 'AdminUserControlPanel@getPortfolioPage')->name('Portfolio Entries');
-    Route::get('portfolio/edit/{id}','AdminUserControlPanel@getEditPortfolioPage')->name('Edit Portfolio Entry');
-    Route::get('portfolio/add', 'AdminUserControlPanel@getAddPortfolioEntryPage')->name('Add Portfolio Entry');
+    Route::get('settings', 'Backend\UserControlPanelController@index')->name('User Settings');
 });
 
+// ** Portfolio Routes //
 
+Route::group(['middleware' => 'verified', 'prefix' => 'admin/portfolio'], function() {
+    Route::get('/', 'Backend\PortfolioController@index')->name('Portfolio Entries');
+    Route::get('add', 'Backend\PortfolioController@create')->name('Add Portfolio Entry');
+    Route::get('edit/{id}','Backend\PortfolioController@edit')->name('Edit Portfolio Entry');
+});
 
+// ** Blog Routes //
+Route::group(['middleware' => 'verified', 'prefix' => 'admin/blog'], function() {
+    Route::get('/', 'Backend\BlogController@index')->name('Blog');
+    Route::get('edit/{id}','Backend\BlogController@edit')->name('Edit Blog Entry');
+});
 
+Route::post('upload-cropped-image', 'HelperMethodsController@uploadCroppedImage');
+Route::post('post-portfolio-entry', 'Backend\PortfolioController@store');
+Route::put('update-portfolio-entry/{id}', 'Backend\PortfolioController@update');
+Route::delete('delete-portfolio-entry/{id}', 'Backend\PortfolioController@destroy');
 
-
-
-
-
-Route::post('post-portfolio-entry', 'PortfolioController@postPortfolioEntry');

@@ -4,7 +4,7 @@
 
             </div>
             <div class="col-12">
-                <h2><b>Hi!</b> I'm <span class="developer-name">{{data['fname']}}</span>,</h2>
+                <h2><b>Hi!</b> I'm <span class="developer-name">{{this.$parent.data['fname']}}</span>,</h2>
   
                 <h2 class="pb-5">a freelance web developer specialized<br><strong>in front-end and back-end web development</strong></h2>
                 <div class="home-buttons">
@@ -25,26 +25,11 @@
     export default {
         data() {
             return {
-                data: [],
+               
             };
         },
         mounted() {
-            console.log('Component mounted.')
-            axios.get(this.web_url + 'get-user-settings')
-            .then(response => {
-            if (!response.data['logged_in']) {
-                this.data = response.data;
-                this.user = false;
-            } else {
-                this.data = response.data;
-                this.user = true;
 
-            }
-            // JSON responses are automatically parsed.
-            })
-            .catch(e => {
-                this.errors.push(e)
-            });
         },
         
     }

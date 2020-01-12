@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserSettingsRequest;
 use App\User;
-use App\Skill;
-use App\Set;
 use Storage;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -31,7 +29,7 @@ class UserSettingController extends Controller
             $user_id = 1;
         }
         $user = User::find($user_id);
-        $user->logged_in =  Auth::user();
+        $user->logged_in =  (Auth::user() ? true : false);
         $portfolio = Portfolio::get()->where('user_id', $user_id);
         $photos = [];
         foreach($portfolio as $i => $item) {
@@ -39,7 +37,7 @@ class UserSettingController extends Controller
             $photos[$i]->portfolio_entries = $item->portfolio_entries;
         }
         $user->portfolio = $photos;
-        return $user;
+        return response()->json($user);
     }
 
     function updateUserSettings(Request $request, $id)
