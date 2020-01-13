@@ -26,7 +26,7 @@ class FrontendController extends Controller
      */
     public function getHomePage()
     {
-        return view('app');
+        return view('frontend.home.index');
     }
 
 

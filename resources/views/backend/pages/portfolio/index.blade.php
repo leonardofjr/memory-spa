@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('backend.layouts.backend')
 @section('content')
         <h2>{{\Request::route()->getName()}}<a class="btn-primary btn mx-4" href="{{route('Add Portfolio Entry')}}">Add Portfolio Entry</a></h2>
           <div class="col-10">

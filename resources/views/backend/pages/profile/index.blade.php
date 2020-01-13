@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('backend.layouts.backend')
 @section('content')
 
             <!-- Including Croppie Upload Modal -->

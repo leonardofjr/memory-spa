@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('backend.layouts.backend')
 @section('content')
             <header class="page-title-header mb-5">
                 <h2>{{\Request::route()->getName()}}</h2>

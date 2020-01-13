@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('backend.layouts.backend')
 @section('content')
             <header class="page-title-header mb-5">
                 <h2>{{\Request::route()->getName()}}<a class="btn-primary btn mx-4" href="{{route('Add Blog Post')}}">Add Post</a></h2>
